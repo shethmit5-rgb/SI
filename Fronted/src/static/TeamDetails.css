@@ -1,0 +1,363 @@
+/* ================= TEAM DETAILS PAGE ================= */
+.team-details-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: calc(100vh - 200px);
+}
+
+/* Team Header */
+.team-header {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.team-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.team-title h1 {
+  font-size: 28px;
+  color: #1f2937;
+  margin: 0;
+}
+
+.team-sport {
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Meta Grid */
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.meta-icon {
+  font-size: 24px;
+}
+
+.meta-item label {
+  font-size: 12px;
+  color: #6b7280;
+  display: block;
+}
+
+.meta-item p {
+  margin: 0;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Progress Bar */
+.team-progress {
+  margin: 20px 0;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.progress-percent {
+  font-size: 12px;
+  color: #4f46e5;
+  margin-top: 5px;
+  text-align: right;
+}
+
+/* Players Section */
+.players-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.players-section h2 {
+  font-size: 22px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.players-section h3 {
+  font-size: 18px;
+  color: #374151;
+  margin: 20px 0 15px;
+}
+
+/* Players Grid */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+/* Player Card */
+.player-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.player-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.player-card.pending {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+}
+
+.player-card.approved {
+  background: #f0fdf4;
+  border-left: 4px solid #10b981;
+}
+
+.player-card.rejected {
+  background: #fef2f2;
+  border-left: 4px solid #ef4444;
+}
+
+.player-avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-name {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+}
+
+.player-email {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Player Actions */
+.player-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.approve-btn, .reject-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.approve-btn {
+  background: #10b981;
+  color: white;
+}
+
+.approve-btn:hover {
+  background: #059669;
+}
+
+.reject-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #dc2626;
+}
+
+/* Captain Badge */
+.captain-badge {
+  background: #f59e0b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Team Actions */
+.team-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.apply-btn {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.apply-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+}
+
+.apply-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.invite-btn {
+  padding: 10px 24px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.invite-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+.applied-badge {
+  text-align: center;
+  padding: 15px;
+  background: #fef3c7;
+  border-radius: 10px;
+}
+
+.badge-pending {
+  display: inline-block;
+  padding: 5px 12px;
+  background: #f59e0b;
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* No Data */
+.no-data {
+  text-align: center;
+  padding: 40px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.no-data-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.no-data-hint {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+/* Loading & Error */
+.loading-spinner {
+  text-align: center;
+  padding: 60px;
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.error-message {
+  text-align: center;
+  padding: 60px;
+  font-size: 18px;
+  color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .team-header, .players-section {
+    padding: 20px;
+  }
+
+  .team-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .team-title h1 {
+    font-size: 22px;
+  }
+
+  .meta-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-card {
+    flex-wrap: wrap;
+  }
+
+  .player-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

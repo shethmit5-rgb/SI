@@ -1,0 +1,190 @@
+/* ================= TOURNAMENT DETAILS (CLEAN VERSION) ================= */
+
+.tournament-details {
+  background: #f4f6f9;
+  min-height: calc(100vh - 80px);
+  padding-bottom: 60px;
+}
+
+/* ================= HERO ================= */
+.td-hero {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  padding: 80px 30px 60px;
+  color: white;
+}
+
+.td-overlay {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #22c55e;
+  margin-bottom: 15px;
+}
+
+.td-overlay h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.td-overlay p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* ================= INFO CARDS ================= */
+.td-cards {
+  max-width: 1200px;
+  margin: -40px auto 50px;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.td-card {
+  background: white;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.td-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.td-card p {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* ================= SECTIONS ================= */
+.td-section {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 0 30px;
+}
+
+.td-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+.td-section p {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.7;
+  color: #374151;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* ================= RULES ================= */
+.td-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.td-section ul li {
+  background: white;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-left: 4px solid #2563eb;
+  color: #374151;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ================= ACTIONS ================= */
+.td-actions {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn,
+.outline-btn {
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+/* Primary */
+.primary-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #1e40af;
+}
+
+/* Secondary */
+.secondary-btn {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #34d399;
+}
+
+.secondary-btn:hover {
+  background: #34d399;
+  color: white;
+}
+
+/* Outline */
+.outline-btn {
+  background: transparent;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.outline-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .td-overlay h1 {
+    font-size: 26px;
+  }
+
+  .td-cards {
+    margin-top: 20px;
+  }
+
+  .td-actions {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .outline-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

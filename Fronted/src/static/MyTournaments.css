@@ -1,0 +1,100 @@
+.my-tournaments-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #1f2937;
+}
+
+.create-btn {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.tournaments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.tournament-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.tournament-card h3 {
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.tournament-card p {
+  margin: 5px 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.actions a, .actions button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.actions a:first-child {
+  background: #4f46e5;
+  color: white;
+}
+
+.actions a:nth-child(2) {
+  background: #f59e0b;
+  color: white;
+}
+
+.actions button {
+  background: #ef4444;
+  color: white;
+  border: none;
+}
+
+.empty {
+  text-align: center;
+  padding: 60px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.empty a {
+  display: inline-block;
+  margin-top: 15px;
+  background: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}

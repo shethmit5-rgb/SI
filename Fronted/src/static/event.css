@@ -1,0 +1,119 @@
+.events-page {
+  padding: 60px 40px;
+  background: #f5f7fa;
+}
+
+/* HEADER */
+.events-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.events-header h1 {
+  font-size: 2.5rem;
+}
+
+.events-header p {
+  color: #666;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.filters button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  background: #eee;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filters button.active {
+  background: #667eea;
+  color: white;
+}
+
+/* GRID */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.event-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+/* TOP */
+.event-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.status.upcoming { background: orange; }
+.status.ongoing { background: green; }
+.status.completed { background: gray; }
+
+.sport {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* INFO */
+.event-info {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+/* PRIZE */
+.event-prize {
+  color: #f59e0b;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* BUTTON */
+.event-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.event-btn:hover {
+  background: #764ba2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
