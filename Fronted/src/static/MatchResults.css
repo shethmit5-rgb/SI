@@ -25,10 +25,17 @@
 /* ================= TOURNAMENT RESULTS ================= */
 .tournament-results {
   margin-bottom: 40px;
-  background: white;
+  background: transparent !important;
+  border: none !important;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
+  box-shadow: none !important;
+}
+
+:root[data-theme="dark"] .tournament-results {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .tournament-results h2 {
@@ -36,8 +43,14 @@
   color: #1f2937;
   padding: 20px 25px;
   margin: 0;
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-  border-bottom: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+:root[data-theme="dark"] .tournament-results h2 {
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: #f3f4f6 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Results Table */
@@ -76,7 +89,7 @@
 
 .score {
   font-weight: 600;
-  color: #4f46e5;
+  color: var(--primary);
   font-family: monospace;
   font-size: 16px;
 }
@@ -85,9 +98,9 @@
 .no-results {
   text-align: center;
   padding: 80px 20px;
-  background: white;
+  background: rgba(255, 255, 255, 0.3) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.35) !important;
   border-radius: 16px;
-  border: 1px solid #e5e7eb;
 }
 
 .no-results p {
@@ -141,44 +154,36 @@
   }
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  .page-header h1 {
-    color: #f3f4f6;
-  }
+/* Dark Mode Overrides */
+:root[data-theme="dark"] .page-header h1 {
+  color: #f3f4f6 !important;
+}
 
-  .tournament-results {
-    background: #1f2937;
-    border-color: #374151;
-  }
+:root[data-theme="dark"] .page-header p {
+  color: #9ca3af !important;
+}
 
-  .tournament-results h2 {
-    background: #111827;
-    color: #f3f4f6;
-    border-bottom-color: #374151;
-  }
+:root[data-theme="dark"] .results-table th {
+  background: #111827 !important;
+  color: #e5e7eb !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
 
-  .results-table th {
-    background: #111827;
-    color: #e5e7eb;
-    border-bottom-color: #374151;
-  }
+:root[data-theme="dark"] .results-table td {
+  color: #d1d5db !important;
+  background: #1f2937 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
 
-  .results-table td {
-    color: #d1d5db;
-    border-bottom-color: #374151;
-  }
+:root[data-theme="dark"] .results-table tr:hover td {
+  background: #374151 !important;
+}
 
-  .results-table tr:hover {
-    background: #374151;
-  }
+:root[data-theme="dark"] .no-results {
+  background: rgba(15, 18, 32, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
 
-  .no-results {
-    background: #1f2937;
-    border-color: #374151;
-  }
-
-  .no-results p {
-    color: #9ca3af;
-  }
+:root[data-theme="dark"] .no-results p {
+  color: #9ca3af !important;
 }

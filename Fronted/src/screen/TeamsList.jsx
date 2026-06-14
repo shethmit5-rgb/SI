@@ -13,6 +13,7 @@ export default function TeamsList() {
   const [filters, setFilters] = useState({
     tournament: "all",
     sport: "all",
+    status: "all",
     search: ""
   });
   
@@ -55,6 +56,7 @@ export default function TeamsList() {
   const filteredTeams = teams.filter(team => {
     if (filters.tournament !== "all" && team.tournamentId?._id !== filters.tournament) return false;
     if (filters.sport !== "all" && team.sportId?._id !== filters.sport) return false;
+    if (filters.status !== "all" && team.tournamentId?.status !== filters.status) return false;
     if (filters.search && !team.teamName.toLowerCase().includes(filters.search.toLowerCase())) return false;
     return true;
   });
@@ -64,7 +66,7 @@ export default function TeamsList() {
       <div className="page-header">
         <h1>Teams</h1>
         <p>Browse all teams and find players</p>
-        {user && (
+        {user && user.role !== "organizer" && (
           <Link to="/teams/create" className="create-team-btn">
             + Create New Team
           </Link>
@@ -100,6 +102,16 @@ export default function TeamsList() {
             <option key={s._id} value={s._id}>{s.name}</option>
           ))}
         </select>
+
+        <select
+          value={filters.status}
+          onChange={(e) => setFilters({ ...filters, status: e.target.value })}
+        >
+          <option value="all">All Statuses</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="ongoing">Ongoing</option>
+          <option value="completed">Completed</option>
+        </select>
       </div>
 
       {/* Teams Grid */}
@@ -125,7 +137,7 @@ export default function TeamsList() {
                   <Link to={`/team/${team._id}`} className="view-btn">
                     View Details
                   </Link>
-                  {user && user._id !== team.captainId?._id && (
+                  {user && user.role !== "organizer" && user._id !== team.captainId?._id && (
                     <button className="apply-btn">Apply to Join</button>
                   )}
                 </div>

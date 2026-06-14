@@ -1,6 +1,6 @@
 .gallery-section {
   padding: 80px 60px;
-  background: #fff;
+  background: transparent !important;
   text-align: center;
 }
 

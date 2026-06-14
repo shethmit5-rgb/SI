@@ -1,16 +1,17 @@
 /* ================= TOURNAMENT DETAILS (CLEAN VERSION) ================= */
 
 .tournament-details {
-  background: #f4f6f9;
+  background: transparent !important;
   min-height: calc(100vh - 80px);
   padding-bottom: 60px;
 }
 
 /* ================= HERO ================= */
 .td-hero {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
   padding: 80px 30px 60px;
   color: white;
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .td-overlay {
@@ -22,22 +23,25 @@
 .status {
   display: inline-block;
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   font-size: 12px;
   font-weight: 700;
-  background: #22c55e;
+  background: var(--success);
   margin-bottom: 15px;
 }
 
 .td-overlay h1 {
+  font-family: 'Outfit', sans-serif;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 10px;
+  letter-spacing: -0.02em;
 }
 
 .td-overlay p {
   font-size: 15px;
   opacity: 0.9;
+  font-weight: 500;
 }
 
 /* ================= INFO CARDS ================= */
@@ -51,25 +55,36 @@
 }
 
 .td-card {
-  background: white;
-  border-radius: 14px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
   padding: 22px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px -2px rgba(10, 15, 31, 0.03);
   text-align: center;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.td-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 24px -5px rgba(10, 15, 31, 0.08);
+  border-color: rgba(59, 130, 246, 0.2);
 }
 
 .td-card h3 {
-  font-size: 13px;
-  font-weight: 600;
-  color: #6b7280;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-muted);
   margin-bottom: 8px;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .td-card p {
   font-size: 22px;
-  font-weight: 700;
-  color: #1e293b;
+  font-weight: 800;
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
 }
 
 /* ================= SECTIONS ================= */
@@ -80,19 +95,23 @@
 }
 
 .td-section h2 {
+  font-family: 'Outfit', sans-serif;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 15px;
-  color: #1e293b;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .td-section p {
-  background: white;
+  background: var(--surface);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   line-height: 1.7;
-  color: #374151;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  color: var(--text-secondary);
+  box-shadow: 0 4px 20px -2px rgba(10, 15, 31, 0.03);
+  border: 1px solid var(--border);
+  font-weight: 500;
 }
 
 /* ================= RULES ================= */
@@ -102,13 +121,17 @@
 }
 
 .td-section ul li {
-  background: white;
+  background: var(--surface);
   padding: 16px 20px;
   margin-bottom: 10px;
-  border-radius: 10px;
-  border-left: 4px solid #2563eb;
-  color: #374151;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--primary);
+  color: var(--text-secondary);
+  box-shadow: 0 4px 20px -2px rgba(10, 15, 31, 0.03);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
 }
 
 /* ================= ACTIONS ================= */
@@ -126,45 +149,53 @@
 .secondary-btn,
 .outline-btn {
   padding: 12px 26px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   border: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Primary */
 .primary-btn {
-  background: #2563eb;
+  background: var(--primary);
   color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
 .primary-btn:hover {
-  background: #1e40af;
+  background: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 /* Secondary */
 .secondary-btn {
-  background: #ecfdf5;
-  color: #047857;
-  border: 1px solid #34d399;
+  background: var(--success-light);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .secondary-btn:hover {
-  background: #34d399;
+  background: var(--success);
   color: white;
+  transform: translateY(-1px);
 }
 
 /* Outline */
 .outline-btn {
   background: transparent;
-  color: #374151;
-  border: 1px solid #d1d5db;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-dark);
 }
 
 .outline-btn:hover {
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -187,4 +218,27 @@
     width: 100%;
     text-align: center;
   }
+}
+
+/* Glassmorphism overrides */
+.tournament-details .td-card,
+.tournament-details .td-section p,
+.tournament-details .td-section ul li {
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 24px !important;
+}
+
+:root[data-theme="dark"] .tournament-details .td-card,
+:root[data-theme="dark"] .tournament-details .td-section p,
+:root[data-theme="dark"] .tournament-details .td-section ul li {
+  background: rgba(17, 24, 39, 0.35) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
 }

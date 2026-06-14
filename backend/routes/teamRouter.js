@@ -9,10 +9,20 @@ const role = require("../middleware/roleMiddleware");
 
 const router = express.Router();
 
+// Block Organizer from create, join, edit, delete team actions
+const blockOrganizerForTeamManagement = (req, res, next) => {
+  if (req.user && req.user.role === "organizer") {
+    return res.status(403).json({
+      message: "Organizers can view teams but cannot create, join, or manage team membership."
+    });
+  }
+  next();
+};
+
 /* =========================================================
    CREATE TEAM
 ========================================================= */
-router.post("/", auth, async (req, res) => {
+router.post("/", auth, blockOrganizerForTeamManagement, async (req, res) => {
   try {
     const { teamName, tournamentId, sportId, captainId } = req.body;
 
@@ -88,13 +98,13 @@ router.post("/", auth, async (req, res) => {
 /* =========================================================
    ADMIN: GET ALL TEAMS
 ========================================================= */
-router.get("/", auth, role("admin"), async (req, res) => {
+router.get("/", auth, role("admin", "organizer"), async (req, res) => {
   try {
     const teams = await Team.find()
       .populate("tournamentId", "eventName")
       .populate("sportId", "name")
-      .populate("captainId", "name email role")
-      .populate("players.userId", "name email");
+      .populate("captainId", "name email role phoneNumber age gender location")
+      .populate("players.userId", "name email role phoneNumber age gender location");
 
     res.json(teams);
   } catch (err) {
@@ -120,12 +130,8 @@ router.get("/tournament/:tournamentId", auth, async (req, res) => {
 /* =========================================================
    PLAYER APPLY TO TEAM
 ========================================================= */
-router.post("/:teamId/apply", auth, async (req, res) => {
+router.post("/:teamId/apply", auth, blockOrganizerForTeamManagement, async (req, res) => {
   try {
-    if (req.user.role === "organizer") {
-      return res.status(403).json({ message: "Organizers are not permitted to perform this action." });
-    }
-
     if (req.user.role !== "player" && req.user.role !== "admin") {
       return res.status(403).json({ message: "Only players can join teams." });
     }
@@ -201,7 +207,7 @@ router.post("/:teamId/apply", auth, async (req, res) => {
 ========================================================= */
 // ================= CAPTAIN ONLY - APPROVE/REJECT PLAYER =================
 // ================= CAPTAIN ONLY - APPROVE/REJECT PLAYER =================
-router.put("/:teamId/approve", auth, async (req, res) => {
+router.put("/:teamId/approve", auth, blockOrganizerForTeamManagement, async (req, res) => {
   try {
     const { userId, action } = req.body;
     const team = await Team.findById(req.params.teamId).populate("captainId", "name");
@@ -317,8 +323,8 @@ router.get("/public", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const team = await Team.findById(req.params.id)
-      .populate("captainId", "name email")
-      .populate("players.userId", "name email")
+      .populate("captainId", "name email role phoneNumber age gender location")
+      .populate("players.userId", "name email role phoneNumber age gender location")
       .populate("tournamentId", "eventName")
       .populate("sportId", "name");
 
@@ -336,7 +342,7 @@ router.get("/:id", async (req, res) => {
    ADMIN UPDATE / DELETE
 ========================================================= */
 // ================= EDIT TEAM (CAPTAIN ONLY) =================
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", auth, blockOrganizerForTeamManagement, async (req, res) => {
   try {
     const team = await Team.findById(req.params.id);
     
@@ -363,13 +369,18 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-router.delete("/:id", auth, role("admin"), async (req, res) => {
+// ================= PUT /teams/:id/members =================
+router.put("/:id/members", auth, blockOrganizerForTeamManagement, (req, res) => {
+  res.json({ message: "Blocked" });
+});
+
+router.delete("/:id", auth, blockOrganizerForTeamManagement, role("admin"), async (req, res) => {
   await Team.findByIdAndDelete(req.params.id);
   res.json({ message: "Team deleted" });
 });
 
 // ================= LEAVE TEAM (PLAYER) =================
-router.delete("/:teamId/leave", auth, async (req, res) => {
+router.delete("/:teamId/leave", auth, blockOrganizerForTeamManagement, async (req, res) => {
   try {
     const team = await Team.findById(req.params.teamId);
     
@@ -400,7 +411,7 @@ router.delete("/:teamId/leave", auth, async (req, res) => {
 });
 
 // ================= DELETE TEAM (CAPTAIN ONLY) =================
-router.delete("/:id/delete", auth, async (req, res) => {
+router.delete("/:id/delete", auth, blockOrganizerForTeamManagement, async (req, res) => {
   try {
     const team = await Team.findById(req.params.id);
     

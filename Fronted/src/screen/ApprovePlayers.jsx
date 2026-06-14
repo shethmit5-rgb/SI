@@ -271,7 +271,7 @@ const styles = {
   },
   teamName: {
     margin: "0",
-    color: "#4f46e5",
+    color: "#2563EB",
     fontSize: "20px",
   },
   teamStats: {
@@ -370,7 +370,7 @@ const styles = {
   },
   progressFill: {
     height: "100%",
-    backgroundColor: "#4f46e5",
+    backgroundColor: "#2563EB",
     borderRadius: "4px",
     transition: "width 0.3s ease",
   },
@@ -381,7 +381,7 @@ const styles = {
     textAlign: "right",
   },
   retryBtn: {
-    background: "#4f46e5",
+    background: "#2563EB",
     color: "white",
     border: "none",
     padding: "10px 20px",
@@ -391,7 +391,7 @@ const styles = {
     fontSize: "14px",
   },
   createBtn: {
-    background: "#4f46e5",
+    background: "#2563EB",
     color: "white",
     border: "none",
     padding: "10px 20px",

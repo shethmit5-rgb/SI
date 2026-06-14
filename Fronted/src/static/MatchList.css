@@ -32,8 +32,10 @@
   gap: 15px;
   margin-bottom: 25px;
   padding: 15px 20px;
-  background: #f9fafb;
+  background: transparent !important;
+  border: none !important;
   border-radius: 12px;
+  box-shadow: none !important;
 }
 
 .search-box {
@@ -52,8 +54,8 @@
 
 .search-input:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
 
 .filter-buttons {
@@ -63,24 +65,27 @@
 }
 
 .filter-buttons button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  background: white;
-  color: #4b5563;
-  transition: all 0.2s;
+  padding: 8px 16px !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  background: white !important;
+  color: #334155 !important;
+  transition: all 0.2s !important;
 }
 
 .filter-buttons button:hover {
-  background: #e5e7eb;
+  background: #F1F5F9 !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 .filter-buttons button.active {
-  background: #4f46e5;
-  color: white;
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
 }
 
 /* ================= RESULTS COUNT ================= */
@@ -93,7 +98,7 @@
 }
 
 .results-count strong {
-  color: #4f46e5;
+  color: #2563eb;
   font-size: 16px;
 }
 
@@ -221,12 +226,12 @@
 }
 
 .view-btn {
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
 }
 
 .view-btn:hover {
-  background: #4338ca;
+  background: #1d4ed8;
   transform: translateY(-2px);
 }
 
@@ -378,7 +383,7 @@
 .score {
   font-size: 24px;
   font-weight: 700;
-  color: #4f46e5;
+  color: #2563eb;
 }
 
 /* Form Elements */
@@ -393,8 +398,8 @@
 
 .form-select:focus, .form-input:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
 
 .modal-footer {
@@ -422,7 +427,7 @@
 
 .save-btn, .close-btn {
   padding: 10px 20px;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;
@@ -432,7 +437,7 @@
 }
 
 .save-btn:hover, .close-btn:hover {
-  background: #4338ca;
+  background: #1d4ed8;
 }
 
 /* ================= NO MATCHES STATE ================= */
@@ -468,7 +473,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid #e5e7eb;
-  border-top-color: #4f46e5;
+  border-top-color: #2563eb;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto 15px;
@@ -517,4 +522,123 @@
   .match-teams-display {
     flex-direction: column;
   }
+}
+
+/* Dark Mode Support for MatchList */
+:root[data-theme="dark"] .matchlist-header h1 {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .matchlist-header p {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .matchlist-filters {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+:root[data-theme="dark"] .filter-buttons button {
+  background: #1f2937 !important;
+  color: #d1d5db !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .filter-buttons button:hover {
+  background: #374151 !important;
+}
+
+:root[data-theme="dark"] .filter-buttons button.active {
+  background: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+}
+
+:root[data-theme="dark"] .matches-table-wrapper {
+  background: #111827 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .matches-table th {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .matches-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e5e7eb !important;
+}
+
+:root[data-theme="dark"] .team-name {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .match-date,
+:root[data-theme="dark"] .match-venue {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .vs {
+  background: #1f2937 !important;
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .no-matches {
+  background: rgba(15, 18, 32, 0.3) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .no-matches h3 {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .no-matches p {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .modal {
+  background: #111827 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .modal-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .modal-header h2 {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .detail-section label {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .detail-section p {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .match-teams-display {
+  background: #1f2937 !important;
+}
+
+:root[data-theme="dark"] .match-teams-display .team {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .match-teams-display .vs {
+  background: #111827 !important;
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .modal-footer {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .form-select,
+:root[data-theme="dark"] .form-input {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }

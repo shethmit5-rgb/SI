@@ -108,12 +108,12 @@
 
 /* Edit */
 .edit-btn {
-  background: #6366f1;
+  background: var(--primary);
   color: #ffffff;
 }
 
 .edit-btn:hover {
-  background: #4f46e5;
+  background: var(--primary);
 }
 
 /* Delete */

@@ -1,8 +1,9 @@
 /* ================= LAYOUT ================= */
 .reg-page {
   min-height: 100vh;
-  background: #f8fafc;
+  background: transparent !important;
   padding: 30px;
+  border-radius: 20px;
 }
 
 /* ================= CARD ================= */
@@ -140,4 +141,33 @@
     padding: 10px;
     font-size: 13px;
   }
+}
+
+/* Glassmorphism overrides */
+.reg-page .reg-card {
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 24px !important;
+}
+
+:root[data-theme="dark"] .reg-page .reg-card {
+  background: rgba(17, 24, 39, 0.35) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
+}
+
+/* Scoped table transparency overrides for Registrations page */
+.reg-page table,
+.reg-page thead,
+.reg-page tbody,
+.reg-page tr,
+.reg-page td,
+.reg-page th {
+  background: transparent !important;
 }

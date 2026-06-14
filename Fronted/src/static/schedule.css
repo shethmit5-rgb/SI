@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding: 40px 20px;
   min-height: calc(100vh - 200px);
+  border-radius: 20px;
 }
 
 /* Header */
@@ -33,24 +34,27 @@
 }
 
 .schedule-filters button {
-  background: #f3f4f6;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  color: #4b5563;
-  transition: all 0.2s;
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  padding: 10px 24px !important;
+  border-radius: 30px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  transition: all 0.2s !important;
 }
 
 .schedule-filters button:hover {
-  background: #e5e7eb;
+  background: #F1F5F9 !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 .schedule-filters button.active {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  color: white;
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
 }
 
 /* Matches Grid */
@@ -134,7 +138,7 @@
 .view-btn {
   display: block;
   text-align: center;
-  background: #4f46e5;
+  background: var(--primary);
   color: white;
   text-decoration: none;
   padding: 10px;
@@ -145,7 +149,7 @@
 }
 
 .view-btn:hover {
-  background: #4338ca;
+  background: var(--primary-hover);
   transform: translateY(-1px);
 }
 
@@ -196,10 +200,6 @@
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
-  .schedule-page {
-    background: #111827;
-  }
-
   .schedule-header h1 {
     color: #f3f4f6;
   }

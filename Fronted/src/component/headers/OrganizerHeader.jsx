@@ -21,57 +21,7 @@ export default function OrganizerHeader() {
   const notificationRef = useRef(null);
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
-  const organizerNavLinks = {
-    dropdowns: {
-      tournaments: {
-        icon: "🏆",
-        label: "Tournaments",
-        links: [
-          { path: "/my-tournaments", label: "My Tournaments", icon: "📋" },
-          { path: "/create-tournament", label: "Create Tournament", icon: "✨" },
-        ]
-      },
-      matches: {
-        icon: "⚽",
-        label: "Matches",
-        links: [
-          { path: "/organizer/matches", label: "Manage Matches", icon: "📅" },
-          { path: "/match-results", label: "Match Results", icon: "📊" },
-          { path: "/schedule", label: "Schedule", icon: "📅" },
-        ]
-      },
-      finance: {
-        icon: "💰",
-        label: "Finance",
-        links: [
-          { path: "/my-sponsors", label: "Manage Sponsors", icon: "🤝" },
-          { path: "/sponsors", label: "View Sponsors", icon: "👀" },
-        ]
-      },
-      explore: {
-        icon: "🔍",
-        label: "Explore",
-        links: [
-          { path: "/leaderboard", label: "Leaderboard", icon: "🏆" },
-          { path: "/speakers", label: "Speakers", icon: "🎤" },
-          { path: "/gallery", label: "Gallery", icon: "🖼️" },
-          { path: "/venue", label: "Venue", icon: "🏟️" },
-        ]
-      },
-      info: {
-        icon: "ℹ️",
-        label: "Info",
-        links: [
-          { path: "/about", label: "About Us", icon: "📖" },
-          { path: "/faq", label: "FAQ", icon: "❓" },
-          { path: "/contact", label: "Contact", icon: "📞" },
-          { path: "/terms", label: "Terms", icon: "📜" },
-          { path: "/privacy", label: "Privacy", icon: "🔒" },
-        ]
-      }
-    },
-    notifications: { path: "/notifications", label: "Notifications", icon: "🔔" }
-  };
+  // Navigation links configured directly in render
 
   useEffect(() => {
     if (user?._id) socket.emit("register", user._id);
@@ -149,24 +99,54 @@ export default function OrganizerHeader() {
 
         {/* Navigation */}
         <nav className={mobileMenuOpen ? "mobile-open" : ""}>
-          {/* Organizer Dropdowns */}
-          {Object.values(organizerNavLinks.dropdowns).map((dropdown, idx) => (
-            <div key={idx} className="nav-dropdown">
-              <span className="nav-link">{dropdown.icon} {dropdown.label} ▾</span>
-              <div className="dropdown-menu">
-                {dropdown.links.map(link => (
-                  <Link key={link.path} to={link.path}>
-                    {link.icon && <span style={{ marginRight: "8px" }}>{link.icon}</span>}
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+          {/* Dashboard */}
+          <Link to="/organizer/dashboard" className={`nav-link ${isActive("/organizer/dashboard") ? "active" : ""}`}>
+            📊 Dashboard
+          </Link>
+
+          {/* Tournaments Dropdown */}
+          <div className="nav-dropdown">
+            <span className="nav-link">🏆 Tournaments ▾</span>
+            <div className="dropdown-menu">
+              <Link to="/my-tournaments">📋 My Tournaments</Link>
+              <Link to="/create-tournament">✨ Create Tournament</Link>
             </div>
-          ))}
+          </div>
+
+          {/* Teams */}
+          <Link to="/teams" className={`nav-link ${isActive("/teams") ? "active" : ""}`}>
+            👥 Teams
+          </Link>
+
+          {/* Match Schedule Dropdown */}
+          <div className="nav-dropdown">
+            <span className="nav-link">📅 Match Schedule ▾</span>
+            <div className="dropdown-menu">
+              <Link to="/schedule">📅 View Schedule</Link>
+              <Link to="/organizer/matches">⚙️ Manage Matches</Link>
+              <Link to="/match-results">📊 Match Results</Link>
+            </div>
+          </div>
+
+          {/* Venues */}
+          <Link to="/venue" className={`nav-link ${isActive("/venue") ? "active" : ""}`}>
+            🏟️ Venues
+          </Link>
+
+          {/* Analytics */}
+          <Link to="/admin/analytics" className={`nav-link ${isActive("/admin/analytics") ? "active" : ""}`}>
+            📈 Analytics
+          </Link>
+
           {/* Notifications Link */}
-          <Link to={organizerNavLinks.notifications.path} className="notifications-link">
-            🔔 {organizerNavLinks.notifications.label}
+          <Link to="/notifications" className={`nav-link ${isActive("/notifications") ? "active" : ""}`}>
+            🔔 Notifications
             {unreadCount > 0 && <span className="notif-link-badge">{unreadCount}</span>}
+          </Link>
+
+          {/* Profile */}
+          <Link to="/profile" className={`nav-link ${isActive("/profile") ? "active" : ""}`}>
+            👤 Profile
           </Link>
         </nav>
 

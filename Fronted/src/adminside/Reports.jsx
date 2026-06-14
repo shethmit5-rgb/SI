@@ -78,11 +78,11 @@ export default function Reports() {
         <title>${reportType.toUpperCase()} Report</title>
         <style>
           body { font-family: Arial, sans-serif; margin: 40px; }
-          h1 { color: #4f46e5; text-align: center; }
+          h1 { color: #2563eb; text-align: center; }
           h2 { margin-top: 30px; }
           table { width: 100%; border-collapse: collapse; margin-top: 20px; }
           th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-          th { background-color: #4f46e5; color: white; }
+          th { background-color: #2563eb; color: white; }
           .footer { text-align: center; margin-top: 30px; font-size: 12px; color: #666; }
         </style>
       </head>

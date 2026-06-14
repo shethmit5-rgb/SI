@@ -4,6 +4,8 @@ import PlayerLayout from "./PlayerLayout";
 import CoachLayout from "./CoachLayout";
 import OrganizerLayout from "./OrganizerLayout";
 import AdminLayout from "./AdminLayout";
+import { motion } from "framer-motion";
+import ThreeBgCanvas from "../components/ThreeBgCanvas";
 
 const RoleLayout = ({ children }) => {
   const { user, loading } = useAuth();
@@ -12,22 +14,42 @@ const RoleLayout = ({ children }) => {
     return <div className="loading-spinner">Loading...</div>;
   }
 
-  if (!user) {
-    return <GuestLayout>{children}</GuestLayout>;
-  }
-
-  switch (user.role) {
-    case "player":
-      return <PlayerLayout>{children}</PlayerLayout>;
-    case "coach":
-      return <CoachLayout>{children}</CoachLayout>;
-    case "organizer":
-      return <OrganizerLayout>{children}</OrganizerLayout>;
-    case "admin":
-      return <AdminLayout>{children}</AdminLayout>;
-    default:
+  const renderLayoutContent = () => {
+    if (!user) {
       return <GuestLayout>{children}</GuestLayout>;
-  }
+    }
+
+    switch (user.role) {
+      case "player":
+        return <PlayerLayout>{children}</PlayerLayout>;
+      case "coach":
+        return <CoachLayout>{children}</CoachLayout>;
+      case "organizer":
+        return <OrganizerLayout>{children}</OrganizerLayout>;
+      case "admin":
+        return <AdminLayout>{children}</AdminLayout>;
+      default:
+        return <GuestLayout>{children}</GuestLayout>;
+    }
+  };
+
+  return (
+    <div className="global-app-container perspective-viewport" style={{ position: "relative", minHeight: "100vh", overflowX: "hidden" }}>
+      {/* Global Three.js Particle System Backdrop */}
+      <ThreeBgCanvas />
+
+      {/* Global Page Transition Wrapper */}
+      <motion.div
+        key={user ? user.role : "guest"}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        style={{ position: "relative", zIndex: 10, width: "100%", height: "100%" }}
+      >
+        {renderLayoutContent()}
+      </motion.div>
+    </div>
+  );
 };
 
 export default RoleLayout;

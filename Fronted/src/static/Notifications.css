@@ -26,7 +26,7 @@
 }
 
 .mark-all-btn {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -72,7 +72,7 @@
 /* Unread Notification */
 .notification-item.unread {
   background: #eff6ff;
-  border-left: 4px solid #4f46e5;
+  border-left: 4px solid #2563eb;
 }
 
 /* Notification Content */
@@ -141,7 +141,7 @@
 }
 
 .loading-spinner::before {
-  content: "⏳";
+  content: "?";
   display: inline-block;
   animation: spin 1s linear infinite;
   margin-right: 10px;
@@ -158,15 +158,15 @@
 
 /* Notification Type Icons */
 .notification-item[data-type="join_request"] .notification-content p::before {
-  content: "👋 ";
+  content: "?? ";
 }
 
 .notification-item[data-type="registration_approved"] .notification-content p::before {
-  content: "✅ ";
+  content: "? ";
 }
 
 .notification-item[data-type="registration_rejected"] .notification-content p::before {
-  content: "❌ ";
+  content: "? ";
 }
 
 /* Mobile Responsive */
@@ -204,10 +204,6 @@
 
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
-  .notifications-page {
-    background: #111827;
-  }
-
   .notifications-header h1 {
     color: #f3f4f6;
   }

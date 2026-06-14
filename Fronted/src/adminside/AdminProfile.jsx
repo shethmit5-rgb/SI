@@ -232,21 +232,21 @@ export default function AdminProfile() {
         }}>
           <div style={{ position: "relative", display: "inline-block" }}>
             <img
-              src={preview || `https://ui-avatars.com/api/?name=${form.name || "Admin"}&background=4f46e5&color=fff&size=120`}
+              src={preview || `https://ui-avatars.com/api/?name=${form.name || "Admin"}&background=2563eb&color=fff&size=120`}
               alt="Profile"
               style={{
                 width: "120px",
                 height: "120px",
                 borderRadius: "50%",
                 objectFit: "cover",
-                border: "4px solid #4f46e5",
+                border: "4px solid #2563EB",
               }}
             />
             <label style={{
               position: "absolute",
               bottom: "5px",
               right: "5px",
-              backgroundColor: "#4f46e5",
+              backgroundColor: "#2563EB",
               color: "white",
               width: "32px",
               height: "32px",
@@ -263,7 +263,7 @@ export default function AdminProfile() {
           </div>
           <h2 style={{ marginTop: "15px", marginBottom: "5px" }}>{form.name}</h2>
           <p style={{ color: "#666" }}>{form.email}</p>
-          <p style={{ color: "#4f46e5", fontWeight: "500" }}>Administrator</p>
+          <p style={{ color: "#2563EB", fontWeight: "500" }}>Administrator</p>
         </div>
 
         {/* Tabs */}
@@ -282,8 +282,8 @@ export default function AdminProfile() {
               cursor: "pointer",
               fontSize: "14px",
               fontWeight: "500",
-              color: activeTab === "profile" ? "#4f46e5" : "#6b7280",
-              borderBottom: activeTab === "profile" ? "2px solid #4f46e5" : "none",
+              color: activeTab === "profile" ? "#2563EB" : "#6b7280",
+              borderBottom: activeTab === "profile" ? "2px solid #2563EB" : "none",
               marginBottom: "-2px",
             }}
           >
@@ -298,8 +298,8 @@ export default function AdminProfile() {
               cursor: "pointer",
               fontSize: "14px",
               fontWeight: "500",
-              color: activeTab === "password" ? "#4f46e5" : "#6b7280",
-              borderBottom: activeTab === "password" ? "2px solid #4f46e5" : "none",
+              color: activeTab === "password" ? "#2563EB" : "#6b7280",
+              borderBottom: activeTab === "password" ? "2px solid #2563EB" : "none",
               marginBottom: "-2px",
             }}
           >

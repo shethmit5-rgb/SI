@@ -3,17 +3,62 @@
 .tournament-details-page {
   max-width: 1200px;
   margin: 0 auto;
-  background: #f5f7fa;
+  background: transparent !important;
+  color: #FFFFFF !important;
+}
+
+/* Color overrides for readability on background */
+.tournament-details-page h1,
+.tournament-details-page h2,
+.tournament-details-page h3,
+.tournament-details-page h4,
+.tournament-details-page h5,
+.tournament-details-page h6,
+.tournament-details-page span,
+.tournament-details-page p,
+.tournament-details-page div,
+.tournament-details-page li,
+.tournament-details-page th,
+.tournament-details-page td {
+  color: #0F172A !important;
+}
+
+:root[data-theme="dark"] .tournament-details-page h1,
+:root[data-theme="dark"] .tournament-details-page h2,
+:root[data-theme="dark"] .tournament-details-page h3,
+:root[data-theme="dark"] .tournament-details-page h4,
+:root[data-theme="dark"] .tournament-details-page h5,
+:root[data-theme="dark"] .tournament-details-page h6,
+:root[data-theme="dark"] .tournament-details-page span,
+:root[data-theme="dark"] .tournament-details-page p,
+:root[data-theme="dark"] .tournament-details-page div,
+:root[data-theme="dark"] .tournament-details-page li,
+:root[data-theme="dark"] .tournament-details-page th,
+:root[data-theme="dark"] .tournament-details-page td {
+  color: #FFFFFF !important;
+}
+
+.tournament-details-page p,
+.tournament-details-page li {
+  opacity: 0.9 !important;
 }
 
 /* HERO */
 .tournament-hero {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  background: #FFFFFF !important;
+  color: #0F172A;
   padding: 80px 40px;
   border-radius: 0 0 40px 40px;
   position: relative;
   text-align: center;
+  border-bottom: 4px solid #D4AF37 !important;
+  box-shadow: 0 8px 40px rgba(15, 76, 129, 0.12) !important;
+}
+
+:root[data-theme="dark"] .tournament-hero {
+  background: #111827 !important;
+  color: white !important;
+  box-shadow: none !important;
 }
 
 .tournament-hero h1 {
@@ -34,35 +79,58 @@
   padding: 6px 18px;
   border-radius: 50px;
   font-size: 0.9rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: Glass(10px);
 }
 
 .sport-badge {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
 }
 
 .status-badge {
   font-weight: 600;
+  background: rgba(212, 175, 55, 0.15) !important;
+  border: 1px solid #D4AF37 !important;
+  color: #D4AF37 !important;
 }
 
 /* CTA */
 .register-btn {
-  background: #ffd700;
+  background: #D4AF37 !important;
+  color: #0B1220 !important;
   padding: 12px 30px;
   border-radius: 30px;
   font-weight: 600;
   border: none;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.25) !important;
 }
 
 .register-btn:hover {
+  background: #FFF0A5 !important;
   transform: scale(1.05);
 }
 
 /* CONTENT */
 .tournament-content {
   padding: 40px;
+  background: transparent !important;
+  border-radius: 40px;
+  border: none !important;
+  margin-top: 30px;
+  box-shadow: none !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+:root[data-theme="dark"] .tournament-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+  z-index: 2 !important;
 }
 
 /* TABS (modern) */
@@ -74,17 +142,26 @@
 }
 
 .tab-btn {
-  padding: 10px 20px;
-  border-radius: 50px;
-  border: none;
-  background: #e5e7eb;
-  cursor: pointer;
-  transition: 0.3s;
+  padding: 10px 20px !important;
+  border-radius: 50px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #E2E8F0 !important;
+  cursor: pointer !important;
+  transition: 0.3s !important;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
 }
 
 .tab-btn.active {
-  background: #667eea;
-  color: white;
+  background: #D4AF37 !important;
+  color: #0B1220 !important;
+  border: 1px solid #D4AF37 !important;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25) !important;
 }
 
 /* INFO GRID */
@@ -95,20 +172,22 @@
 }
 
 .info-card {
-  background: white;
+  background: rgba(17, 24, 39, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
   transition: 0.3s;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.3) !important;
 }
 
 .prize-amount {
-  color: #f59e0b;
+  color: #D4AF37 !important;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -117,9 +196,18 @@
 .description-section,
 .rules-section {
   margin-top: 20px;
-  background: white;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(148, 163, 184, 0.15) !important;
   padding: 25px;
   border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+:root[data-theme="dark"] .description-section,
+:root[data-theme="dark"] .rules-section {
+  background: #111827 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* TEAMS */
@@ -130,15 +218,18 @@
 }
 
 .team-card {
-  background: white;
+  background: rgba(17, 24, 39, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
   transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 .team-card:hover {
   transform: translateY(-5px);
+  border-color: rgba(15, 76, 129, 0.3) !important;
 }
 
 .view-team-btn {
@@ -146,17 +237,19 @@
   margin-top: 10px;
   padding: 8px 15px;
   border-radius: 20px;
-  background: #667eea;
-  color: white;
+  background: #0F4C81 !important;
+  color: white !important;
   text-decoration: none;
 }
 
 /* MATCHES */
 .match-card {
-  background: white;
+  background: rgba(17, 24, 39, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 .match-teams {
@@ -179,17 +272,20 @@
 }
 
 .sponsor-card {
-  background: white;
+  background: rgba(17, 24, 39, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* NO DATA */
 .no-data {
   text-align: center;
   padding: 30px;
-  color: #777;
+  color: #94A3B8 !important;
+  font-weight: 500;
 }
 
 /* RESPONSIVE */
@@ -215,9 +311,9 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 6px solid #e5e7eb;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  background: white;
+  border: 6px solid #D4AF37 !important;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25) !important;
+  background: #111827 !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -227,4 +323,23 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Card variations for Light/Dark Mode in Tournament Details */
+.info-card,
+.team-card,
+.match-card,
+.sponsor-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(148, 163, 184, 0.15) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+:root[data-theme="dark"] .info-card,
+:root[data-theme="dark"] .team-card,
+:root[data-theme="dark"] .match-card,
+:root[data-theme="dark"] .sponsor-card {
+  background: rgba(17, 24, 39, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }

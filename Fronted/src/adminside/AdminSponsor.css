@@ -1,6 +1,6 @@
 .admin-sponsor-container {
   padding: 24px;
-  background: #f9fafb;
+  background: transparent !important;
   min-height: 100vh;
 }
 
@@ -288,4 +288,43 @@
 .submit-btn:disabled:hover {
   background: #9ca3af;
   transform: none;
+}
+
+/* Glassmorphism overrides */
+.admin-sponsor-container .stat-card,
+.admin-sponsor-container .sponsors-table-container {
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 24px !important;
+}
+
+.admin-sponsor-container .modal-content {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 24px !important;
+}
+
+:root[data-theme="dark"] .admin-sponsor-container .stat-card,
+:root[data-theme="dark"] .admin-sponsor-container .sponsors-table-container {
+  background: rgba(17, 24, 39, 0.35) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
+}
+
+:root[data-theme="dark"] .admin-sponsor-container .modal-content {
+  background: rgba(17, 24, 39, 0.75) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
 }

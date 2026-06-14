@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding: 40px 20px;
   min-height: calc(100vh - 200px);
+  border-radius: 20px;
 }
 
 /* Header */
@@ -35,7 +36,7 @@
 .table-header {
   display: grid;
   grid-template-columns: 80px 1fr 1.5fr 100px 100px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
   color: white;
   padding: 15px 20px;
   font-weight: 600;
@@ -88,7 +89,7 @@
 /* Matches & Wins */
 .matches, .wins {
   font-weight: 600;
-  color: #4f46e5;
+  color: #2563eb;
 }
 
 /* Loading State */
@@ -100,7 +101,7 @@
 }
 
 .loading-spinner::before {
-  content: "⏳";
+  content: "?";
   display: inline-block;
   animation: spin 1s linear infinite;
   margin-right: 10px;
@@ -130,15 +131,15 @@
 
 /* Top 3 Special Styling */
 .table-row:first-child .team {
-  color: #f59e0b;
+  color: #D4AF37 !important;
 }
 
 .table-row:nth-child(2) .team {
-  color: #94a3b8;
+  color: #94a3b8 !important;
 }
 
 .table-row:nth-child(3) .team {
-  color: #cd7f32;
+  color: #cd7f32 !important;
 }
 
 /* Responsive */

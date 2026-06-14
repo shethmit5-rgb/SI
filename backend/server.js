@@ -83,6 +83,31 @@ app.use("/api/notifications", require("./routes/notificationRouter"));
 // Analytics Routes - Real-time dashboard stats
 app.use("/api/analytics", require("./routes/analyticsRouter"));
 
+// Schedule shortcut endpoint
+app.get("/api/schedule", require("./middleware/authMiddleware"), async (req, res) => {
+  try {
+    const Match = require("./models/Match");
+    const matches = await Match.find()
+      .populate("teams", "teamName")
+      .populate("venueId", "name")
+      .populate("tournamentId", "eventName")
+      .sort({ matchDate: 1 });
+    res.json(matches);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch schedule" });
+  }
+});
+
+// Block organizer from joining team (fallback /api/join-team check)
+app.post("/api/join-team", require("./middleware/authMiddleware"), (req, res) => {
+  if (req.user && req.user.role === "organizer") {
+    return res.status(403).json({
+      message: "Organizers can view teams but cannot create, join, or manage team membership."
+    });
+  }
+  res.status(404).json({ message: "Not found" });
+});
+
 app.use("/uploads", express.static("uploads"));
 
 /* ================= TEST ROUTE ================= */
@@ -92,8 +117,8 @@ app.get("/", (req, res) => {
 
 // Health check endpoint
 app.get("/health", (req, res) => {
-  res.json({ 
-    status: "healthy", 
+  res.json({
+    status: "healthy",
     mongodb: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
     timestamp: new Date().toISOString()
   });

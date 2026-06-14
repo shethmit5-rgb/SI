@@ -3,6 +3,32 @@ import { Link } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import "../static/home.css";
 import { useAuth } from "../context/AuthContext";
+import { motion } from "framer-motion";
+import ThreeBgCanvas from "../components/ThreeBgCanvas";
+import TiltCard from "../components/TiltCard";
+
+function AnimatedCounter({ value, duration = 1200 }) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const end = parseInt(value, 10);
+    if (isNaN(end) || end <= 0) {
+      setCount(value || 0);
+      return;
+    }
+    let stepTime = Math.max(Math.floor(duration / end), 15);
+    let timer = setInterval(() => {
+      start += Math.ceil(end / 45);
+      if (start >= end) {
+        start = end;
+        clearInterval(timer);
+      }
+      setCount(start);
+    }, stepTime);
+    return () => clearInterval(timer);
+  }, [value, duration]);
+  return <span>{count}</span>;
+}
 
 export default function Home() {
   const [stats, setStats] = useState({
@@ -20,7 +46,6 @@ export default function Home() {
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        // ✅ FIXED: Use PUBLIC endpoints for home page
         const tournamentsRes = await api.get("/tournaments/public");
         const tournaments = tournamentsRes.data;
 
@@ -34,7 +59,6 @@ export default function Home() {
           .slice(0, 3);
         setFeaturedTournaments(featured);
 
-        // ✅ FIXED: Use PUBLIC endpoint for upcoming matches
         try {
           const matchesRes = await api.get("/matches/public/upcoming");
           setUpcomingMatches(matchesRes.data.slice(0, 5));
@@ -46,7 +70,6 @@ export default function Home() {
           setUpcomingMatches([]);
         }
 
-        // ✅ FIXED: For team counts, either use a public endpoint or fallback
         try {
           const teamsRes = await api.get("/teams/public");
           setStats((prev) => ({
@@ -57,7 +80,6 @@ export default function Home() {
           setStats((prev) => ({ ...prev, teams: 0 }));
         }
 
-        // ✅ FIXED: For player counts, either use a public endpoint or fallback
         try {
           const usersRes = await api.get("/users/public");
           const players = usersRes.data.filter((u) => u.role === "player");
@@ -87,61 +109,117 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return <div className="loading-spinner">Loading...</div>;
+    return <div className="loading-spinner">Loading ArenaSync...</div>;
   }
 
+  // Animation Variants for orchestrated entrance
+  const revealContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const itemFadeUp = {
+    hidden: { opacity: 0, y: 35 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 80, damping: 14 },
+    },
+  };
+
   return (
-    <div className="sports-event-page">
-      {/* HERO */}
-      <section className="hero clean-hero">
-        <div className="hero-content">
-          <h1 className="fade-up">
-            <span>SPORTS EVENT</span>
-            <span className="highlight">MANAGEMENT PLATFORM</span>
-          </h1>
-          <p className="fade-up">
-            Create tournaments, form teams, compete and win prizes
-          </p>
+    <div className="sports-event-page perspective-viewport">
+      {/* HERO SECTION WITH 3D CANVAS */}
+      <section className="hero clean-hero" style={{ position: "relative", overflow: "hidden" }}>
+        {/* Animated Three.js Particle and Geometry Background */}
+        <ThreeBgCanvas />
 
-          <div className="hero-buttons">
-            <Link to="/events" className="primary-btn">
-              Browse Tournaments
-            </Link>
-            <Link to="/register" className="secondary-btn">
-              Join as Player
-            </Link>
+        <div className="overlay" style={{ background: "linear-gradient(180deg, rgba(10, 15, 31, 0.45) 0%, rgba(10, 15, 31, 0.75) 100%)", zIndex: 2 }}></div>
+        
+        <motion.div 
+          className="hero-content"
+          variants={revealContainer}
+          initial="hidden"
+          animate="show"
+          style={{ position: "relative", zIndex: 3 }}
+        >
+          <div className="hero-glass-card">
+            <motion.div className="hero-badge" variants={itemFadeUp}>
+              🏆 Next-Gen Collegiate Tournaments
+            </motion.div>
+            <motion.h1 className="fade-up" variants={itemFadeUp}>
+              Elevate Your Game With <br />
+              <span className="highlight" style={{
+                background: "linear-gradient(135deg, #2563EB 0%, #06B6D4 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}>ArenaSync Platform</span>
+            </motion.h1>
+            <motion.p className="fade-up" variants={itemFadeUp}>
+              Host premium athletic brackets, recruit elite team rosters, coordinate matches schedules, and secure sponsorship funding dynamically.
+            </motion.p>
+
+            <motion.div className="hero-buttons" variants={itemFadeUp}>
+              <Link to="/events" className="primary-btn light-sweep-wrapper">
+                Browse Events 🏆
+              </Link>
+              <Link to="/register" className="secondary-btn light-sweep-wrapper">
+                Register Athlete 👥
+              </Link>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* STATS */}
-      <section className="stats-section">
-        <div className="stat-card">
+      {/* STATS SECTION WITH PERSPECTIVE TILT */}
+      <motion.section 
+        className="stats-section"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "24px" }}
+      >
+        <TiltCard className="stat-card">
           <div className="stat-icon">🏆</div>
-          <div className="stat-number">{stats.tournaments}+</div>
+          <div className="stat-number">
+            <AnimatedCounter value={stats.tournaments} />+
+          </div>
           <div className="stat-label">Active Tournaments</div>
-        </div>
+        </TiltCard>
 
-        <div className="stat-card">
+        <TiltCard className="stat-card">
           <div className="stat-icon">👥</div>
-          <div className="stat-number">{stats.teams}+</div>
+          <div className="stat-number">
+            <AnimatedCounter value={stats.teams} />+
+          </div>
           <div className="stat-label">Registered Teams</div>
-        </div>
+        </TiltCard>
 
-        <div className="stat-card">
+        <TiltCard className="stat-card">
           <div className="stat-icon">⚔️</div>
-          <div className="stat-number">{stats.matches}+</div>
+          <div className="stat-number">
+            <AnimatedCounter value={stats.matches} />+
+          </div>
           <div className="stat-label">Matches Played</div>
-        </div>
+        </TiltCard>
 
-        <div className="stat-card">
+        <TiltCard className="stat-card">
           <div className="stat-icon">⭐</div>
-          <div className="stat-number">{stats.players}+</div>
+          <div className="stat-number">
+            <AnimatedCounter value={stats.players} />+
+          </div>
           <div className="stat-label">Active Players</div>
-        </div>
-      </section>
+        </TiltCard>
+      </motion.section>
 
-      {/* TOURNAMENTS */}
+      {/* FEATURED TOURNAMENTS WITH INDIVIDUAL 3D TILTS */}
       <section className="tournaments-section">
         <div className="section-header">
           <h2>🔥 FEATURED TOURNAMENTS</h2>
@@ -150,59 +228,74 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="tournament-grid">
+        <motion.div 
+          className="tournament-grid"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={revealContainer}
+        >
           {featuredTournaments.length > 0 ? (
             featuredTournaments.map((t) => (
-              <div key={t._id} className="tournament-card">
-                <div className="tournament-image">
-                  {t.logo ? (
-                    <img src={t.logo} alt={t.eventName} />
-                  ) : (
-                    <div className="default-image">🏆</div>
-                  )}
-                  <span className={`status-badge ${t.status}`}>
-                    {t.status}
-                  </span>
-                </div>
-
-                <div className="tournament-details">
-                  <h3>{t.eventName}</h3>
-                  <p className="sport">{t.sportId?.name}</p>
-
-                  <div className="tournament-meta">
-                    <span>
-                      📅 {new Date(t.startDate).toLocaleDateString()}
+              <motion.div key={t._id} variants={itemFadeUp}>
+                <TiltCard className="tournament-card" style={{ height: "100%", padding: 0 }}>
+                  <div className="tournament-image">
+                    {t.logo ? (
+                      <img src={t.logo} alt={t.eventName} />
+                    ) : (
+                      <div className="default-image">🏆</div>
+                    )}
+                    <span className={`status-badge ${t.status}`}>
+                      {t.status}
                     </span>
-                    <span>👥 {t.teams?.length || 0} teams</span>
                   </div>
 
-                  <div className="tournament-prize">
-                    🏆 Prize Pool: ₹{t.prizePool?.toLocaleString() || 0}
-                  </div>
+                  <div className="tournament-details" style={{ padding: "20px" }}>
+                    <h3>{t.eventName}</h3>
+                    <p className="sport">{t.sportId?.name}</p>
 
-                  <Link
-                    to={`/tournament/${t._id}`}
-                    className="btn-outline"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
+                    <div className="tournament-meta">
+                      <span>
+                        📅 {new Date(t.startDate).toLocaleDateString()}
+                      </span>
+                      <span>👥 {t.teams?.length || 0} teams</span>
+                    </div>
+
+                    <div className="tournament-prize">
+                      🏆 Prize Pool: ₹{t.prizePool?.toLocaleString() || 0}
+                    </div>
+
+                    <Link
+                      to={`/tournament/${t._id}`}
+                      className="btn-outline light-sweep-wrapper"
+                      style={{ display: "block", textAlign: "center", marginTop: "15px" }}
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                </TiltCard>
+              </motion.div>
             ))
           ) : (
             <p className="no-data">No tournaments available</p>
           )}
-        </div>
+        </motion.div>
       </section>
 
-      {/* MATCHES */}
+      {/* UPCOMING MATCHES STAGGER LIST */}
       <section className="matches-section">
         <h2>📅 UPCOMING MATCHES</h2>
 
-        <div className="matches-list">
+        <motion.div 
+          className="matches-list"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={revealContainer}
+        >
           {upcomingMatches.length > 0 ? (
             upcomingMatches.map((m) => (
-              <div key={m._id} className="match-card">
+              <motion.div key={m._id} className="match-card" variants={itemFadeUp} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div className="match-teams">
                   <span className="team">
                     {m.teams?.[0]?.teamName || "TBD"}
@@ -216,24 +309,29 @@ export default function Home() {
                 <div className="match-info">
                   <span>🏟️ {m.venueId?.name}</span>
                   <span>
-                    📅{" "}
-                    {new Date(m.matchDate).toLocaleString()}
+                    📅 {new Date(m.matchDate).toLocaleString()}
                   </span>
                   <span className={`status ${m.status}`}>
                     {m.status}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             ))
           ) : (
             <p className="no-data">No upcoming matches</p>
           )}
-        </div>
+        </motion.div>
       </section>
 
-      {/* CTA */}
+      {/* CALL TO ACTION SECTION */}
       {!user && (
-        <section className="cta-section">
+        <motion.section 
+          className="cta-section"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 60, damping: 15 }}
+        >
           <div className="cta-content">
             <h2>READY TO COMPETE?</h2>
             <p>
@@ -241,15 +339,15 @@ export default function Home() {
             </p>
 
             <div className="cta-buttons">
-              <Link to="/register" className="cta-primary">
+              <Link to="/register" className="cta-primary light-sweep-wrapper">
                 Create Account
               </Link>
-              <Link to="/events" className="cta-secondary">
+              <Link to="/events" className="cta-secondary light-sweep-wrapper">
                 Browse Tournaments
               </Link>
             </div>
           </div>
-        </section>
+        </motion.section>
       )}
     </div>
   );

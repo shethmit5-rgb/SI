@@ -64,6 +64,8 @@ export default function Login() {
       
       if (res.data.user.role === "admin") {
         navigate("/admin/dashboard");
+      } else if (res.data.user.role === "organizer") {
+        navigate("/organizer/dashboard");
       } else {
         navigate("/");
       }

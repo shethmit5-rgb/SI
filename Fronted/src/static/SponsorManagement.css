@@ -44,7 +44,7 @@
 .tournament-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  border-color: #4f46e5;
+  border-color: #2563eb;
 }
 
 .tournament-header {
@@ -67,7 +67,7 @@
 
 .add-sponsor-btn {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -161,7 +161,7 @@
 .prize-pool-summary {
   margin-top: 40px;
   padding: 25px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
   border-radius: 16px;
   text-align: center;
   color: white;
@@ -259,7 +259,7 @@
 
 .save-btn {
   padding: 10px 20px;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;

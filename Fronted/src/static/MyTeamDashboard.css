@@ -1,20 +1,28 @@
-.my-team-dashboard {
+.my-team-dashboard,
+.dashboard-wrapper,
+.my-teams-container {
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 50px 20px;
+  margin: 40px auto;
+  padding: 40px !important;
   min-height: calc(100vh - 200px);
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 2;
 }
 
 /* TITLE */
 .my-team-dashboard h1 {
-  color: #111827;
+  color: var(--text) !important;
   margin-bottom: 10px;
   font-size: 2rem;
   font-weight: 700;
 }
 
 .dashboard-subtitle {
-  color: #6b7280;
+  color: var(--text-secondary) !important;
   margin-bottom: 35px;
   font-size: 1rem;
 }
@@ -63,6 +71,7 @@
     transform: translateY(-10px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -74,32 +83,34 @@
   display: flex;
   gap: 12px;
   margin-bottom: 30px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #E2E8F0 !important;
   padding-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .tab-btn {
-  padding: 10px 22px;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #6b7280;
-  background: #f9fafb;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.25s ease;
+  padding: 10px 22px !important;
+  border-radius: 999px !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  background: #F1F5F9 !important;
+  border: 1.5px solid #CBD5E1 !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
 }
 
 .tab-btn:hover {
-  color: #4f46e5;
-  background: #eef2ff;
+  color: #0F4C81 !important;
+  background: #EFF6FF !important;
+  border-color: #0F4C81 !important;
 }
 
 .tab-btn.active {
-  color: white;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.25);
+  color: white !important;
+  background: #0F4C81 !important;
+  border-color: #0F4C81 !important;
+  box-shadow: 0 5px 15px rgba(15, 76, 129, 0.25) !important;
 }
 
 /* ================= TEAM CARD ================= */
@@ -108,14 +119,15 @@
   border-radius: 16px;
   padding: 25px;
   margin-bottom: 20px;
-  border: 1px solid #f1f5f9;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: var(--shadow-sm) !important;
   transition: all 0.3s ease;
 }
 
 .team-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md) !important;
+  border-color: #0F4C81 !important;
 }
 
 /* HEADER */
@@ -131,7 +143,7 @@
 .team-header h3 {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #111827;
+  color: var(--text) !important;
   margin: 0;
 }
 
@@ -146,23 +158,23 @@
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 0.8rem;
-  font-weight: 500;
-  background: #eef2ff;
-  color: #4f46e5;
+  font-weight: 600;
+  background: #eff6ff;
+  color: #0F4C81 !important;
 }
 
 .team-status-badge {
-  background: #e0e7ff;
-  color: #4f46e5;
+  background: #eff6ff;
+  color: #0F4C81 !important;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .team-tournament-name {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--text-secondary) !important;
 }
 
 /* Player Status Badge */
@@ -175,11 +187,11 @@
 
 /* ================= PENDING SECTION ================= */
 .pending-section {
-  background: linear-gradient(135deg, #fff7ed, #fffbeb);
+  background: var(--warning-light) !important;
   padding: 18px;
   border-radius: 12px;
   margin: 20px 0;
-  border: 1px solid #fde68a;
+  border: 1px solid var(--warning) !important;
 }
 
 .pending-section h4 {
@@ -325,14 +337,14 @@
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  background: var(--primary) !important;
   border-radius: 10px;
   transition: width 0.3s ease;
 }
 
 .progress-percent {
   font-size: 12px;
-  color: #4f46e5;
+  color: #2563eb;
   margin-top: 5px;
   text-align: right;
 }
@@ -399,7 +411,7 @@
 .view-btn {
   display: inline-block;
   padding: 10px 22px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: var(--primary) !important;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -413,7 +425,7 @@
 .manage-btn:hover,
 .view-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
 
 .edit-team-btn {
@@ -456,9 +468,9 @@
 .empty-state {
   text-align: center;
   padding: 60px 40px;
-  background: #f9fafb;
+  background: rgba(255, 255, 255, 0.3) !important;
   border-radius: 16px;
-  border: 1px dashed #e5e7eb;
+  border: 1px dashed rgba(255, 255, 255, 0.35) !important;
 }
 
 .empty-icon {
@@ -467,7 +479,7 @@
 }
 
 .empty-state p {
-  color: #6b7280;
+  color: var(--text-secondary) !important;
   margin-bottom: 20px;
   font-size: 1.1rem;
 }
@@ -482,7 +494,7 @@
 .create-btn,
 .browse-btn {
   padding: 12px 28px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: var(--primary) !important;
   color: white;
   border-radius: 10px;
   text-decoration: none;
@@ -493,7 +505,7 @@
 .create-btn:hover,
 .browse-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
 
 /* ================= LOADING ================= */
@@ -506,7 +518,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid #e5e7eb;
-  border-top-color: #4f46e5;
+  border-top-color: #2563eb;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto 15px;
@@ -583,45 +595,51 @@
 }
 
 /* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .my-team-dashboard h1 {
-    color: #f3f4f6;
-  }
+:root[data-theme="dark"] .my-team-dashboard,
+:root[data-theme="dark"] .dashboard-wrapper,
+:root[data-theme="dark"] .my-teams-container {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 
-  .dashboard-subtitle {
-    color: #9ca3af;
-  }
+:root[data-theme="dark"] .my-team-dashboard h1 {
+  color: #f3f4f6 !important;
+}
 
-  .team-card {
-    background: #1f2937;
-    border-color: #374151;
-  }
+:root[data-theme="dark"] .dashboard-subtitle {
+  color: #9ca3af !important;
+}
 
-  .team-header h3 {
-    color: #f3f4f6;
-  }
+:root[data-theme="dark"] .team-card {
+  background: #111827 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
 
-  .stat-value {
-    color: #f3f4f6;
-  }
+:root[data-theme="dark"] .team-header h3 {
+  color: #f3f4f6 !important;
+}
 
-  .empty-state {
-    background: #1f2937;
-    border-color: #374151;
-  }
+:root[data-theme="dark"] .stat-value {
+  color: #f3f4f6 !important;
+}
 
-  .empty-state p {
-    color: #9ca3af;
-  }
+:root[data-theme="dark"] .empty-state {
+  background: rgba(15, 18, 32, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
 
-  .pending-item {
-    background: #374151;
-    border-color: #4b5563;
-  }
+:root[data-theme="dark"] .empty-state p {
+  color: #9ca3af !important;
+}
 
-  .player-info strong {
-    color: #f3f4f6;
-  }
+:root[data-theme="dark"] .pending-item {
+  background: #1f2937 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .player-info strong {
+  color: #f3f4f6 !important;
 }
 
 /* Delete Team Button */
@@ -662,7 +680,7 @@
   .team-actions {
     flex-direction: column;
   }
-  
+
   .team-actions a,
   .team-actions button {
     width: 100%;

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import "../static/MyTeamDashboard.css";
+import { motion, AnimatePresence } from "framer-motion";
+import TiltCard from "../components/TiltCard";
 
 export default function MyTeamDashboard() {
   const { user } = useAuth();
@@ -103,8 +105,26 @@ export default function MyTeamDashboard() {
     );
   }
 
+  // Motion variants
+  const listReveal = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08 }
+    }
+  };
+
+  const cardReveal = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 90, damping: 14 }
+    }
+  };
+
   return (
-    <div className="my-team-dashboard">
+    <div className="my-team-dashboard perspective-viewport">
       <h1>🏆 My Teams Dashboard</h1>
       <p className="dashboard-subtitle">Manage your teams and player requests</p>
 
@@ -139,239 +159,254 @@ export default function MyTeamDashboard() {
         </button>
       </div>
 
-      {/* Captain View */}
-      {activeTab === "captain" && (
-        <div className="captain-view">
-          {teamsAsCaptain.length > 0 ? (
-            teamsAsCaptain.map((team) => {
-              const pendingPlayers = team.players?.filter((p) => p.status === "pending");
-              const approvedPlayers = team.players?.filter((p) => p.status === "approved");
-              const rejectedPlayers = team.players?.filter((p) => p.status === "rejected");
-              const maxPlayers = team.sportId?.playersPerTeam || 11;
-              const totalCurrentPlayers = approvedPlayers?.length || 0;
-              const progressPercent = (totalCurrentPlayers / maxPlayers) * 100;
+      {/* View Switch with Stagger Entrance */}
+      <AnimatePresence mode="wait">
+        {activeTab === "captain" ? (
+          <motion.div 
+            key="captain-view"
+            className="captain-view"
+            variants={listReveal}
+            initial="hidden"
+            animate="show"
+          >
+            {teamsAsCaptain.length > 0 ? (
+              teamsAsCaptain.map((team) => {
+                const pendingPlayers = team.players?.filter((p) => p.status === "pending");
+                const approvedPlayers = team.players?.filter((p) => p.status === "approved");
+                const rejectedPlayers = team.players?.filter((p) => p.status === "rejected");
+                const maxPlayers = team.sportId?.playersPerTeam || 11;
+                const totalCurrentPlayers = approvedPlayers?.length || 0;
+                const progressPercent = (totalCurrentPlayers / maxPlayers) * 100;
 
-              return (
-                <div key={team._id} className="team-card captain-card">
-                  <div className="team-header">
-                    <div>
-                      <h3>{team.teamName}</h3>
-                      <span className="team-tournament-name">{team.tournamentId?.eventName}</span>
-                    </div>
-                    <span className="team-status-badge">
-                      {totalCurrentPlayers}/{maxPlayers} Players
-                    </span>
-                  </div>
+                return (
+                  <motion.div key={team._id} variants={cardReveal}>
+                    <TiltCard className="team-card captain-card" style={{ height: "100%" }}>
+                      <div className="team-header">
+                        <div>
+                          <h3>{team.teamName}</h3>
+                          <span className="team-tournament-name">{team.tournamentId?.eventName}</span>
+                        </div>
+                        <span className="team-status-badge">
+                          {totalCurrentPlayers}/{maxPlayers} Players
+                        </span>
+                      </div>
 
-                  {/* Pending Approvals Section */}
-                  {pendingPlayers?.length > 0 && (
-                    <div className="pending-section">
-                      <h4>⏳ Pending Approvals ({pendingPlayers.length})</h4>
-                      <div className="pending-list">
-                        {pendingPlayers.map((player) => (
-                          <div key={player._id} className="pending-item">
-                            <div className="player-info">
-                              <strong>{player.userId?.name}</strong>
-                              <span className="player-email">{player.userId?.email}</span>
-                            </div>
-                            <div className="pending-actions">
-                              <button
-                                className="approve-btn"
-                                disabled={actionLoading === player.userId?._id}
-                                onClick={() => handleAction(team._id, player.userId._id, "approved", player.userId?.name)}
-                              >
-                                {actionLoading === player.userId?._id ? "..." : "✓ Approve"}
-                              </button>
-                              <button
-                                className="reject-btn"
-                                disabled={actionLoading === player.userId?._id}
-                                onClick={() => handleAction(team._id, player.userId._id, "rejected", player.userId?.name)}
-                              >
-                                {actionLoading === player.userId?._id ? "..." : "✗ Reject"}
-                              </button>
-                            </div>
+                      {/* Pending Approvals Section */}
+                      {pendingPlayers?.length > 0 && (
+                        <div className="pending-section">
+                          <h4>⏳ Pending Approvals ({pendingPlayers.length})</h4>
+                          <div className="pending-list">
+                            {pendingPlayers.map((player) => (
+                              <div key={player._id} className="pending-item">
+                                <div className="player-info">
+                                  <strong>{player.userId?.name}</strong>
+                                  <span className="player-email">{player.userId?.email}</span>
+                                </div>
+                                <div className="pending-actions">
+                                  <button
+                                    className="approve-btn"
+                                    disabled={actionLoading === player.userId?._id}
+                                    onClick={() => handleAction(team._id, player.userId._id, "approved", player.userId?.name)}
+                                  >
+                                    {actionLoading === player.userId?._id ? "..." : "✓ Approve"}
+                                  </button>
+                                  <button
+                                    className="reject-btn"
+                                    disabled={actionLoading === player.userId?._id}
+                                    onClick={() => handleAction(team._id, player.userId._id, "rejected", player.userId?.name)}
+                                  >
+                                    {actionLoading === player.userId?._id ? "..." : "✗ Reject"}
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
                           </div>
-                        ))}
+                        </div>
+                      )}
+
+                      {/* Team Stats */}
+                      <div className="team-stats">
+                        <div className="stat-item">
+                          <span className="stat-label">👥 Approved Players:</span>
+                          <span className="stat-value">{approvedPlayers?.length || 0}</span>
+                        </div>
+                        <div className="stat-item">
+                          <span className="stat-label">⏳ Pending Requests:</span>
+                          <span className="stat-value pending-count">{pendingPlayers?.length || 0}</span>
+                        </div>
+                        {rejectedPlayers?.length > 0 && (
+                          <div className="stat-item">
+                            <span className="stat-label">❌ Rejected:</span>
+                            <span className="stat-value rejected-count">{rejectedPlayers.length}</span>
+                          </div>
+                        )}
+                        <div className="stat-item">
+                          <span className="stat-label">🏅 Sport:</span>
+                          <span className="stat-value">{team.sportId?.name || "N/A"}</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
 
-                  {/* Team Stats */}
-                  <div className="team-stats">
-                    <div className="stat-item">
-                      <span className="stat-label">👥 Approved Players:</span>
-                      <span className="stat-value">{approvedPlayers?.length || 0}</span>
-                    </div>
-                    <div className="stat-item">
-                      <span className="stat-label">⏳ Pending Requests:</span>
-                      <span className="stat-value pending-count">{pendingPlayers?.length || 0}</span>
-                    </div>
-                    {rejectedPlayers?.length > 0 && (
-                      <div className="stat-item">
-                        <span className="stat-label">❌ Rejected:</span>
-                        <span className="stat-value rejected-count">{rejectedPlayers.length}</span>
+                      {/* Progress Bar */}
+                      <div className="progress-section">
+                        <div className="progress-label">Team Capacity</div>
+                        <div className="progress-bar">
+                          <div className="progress-fill" style={{ width: `${progressPercent}%` }}></div>
+                        </div>
+                        <div className="progress-percent">{Math.round(progressPercent)}%</div>
                       </div>
-                    )}
-                    <div className="stat-item">
-                      <span className="stat-label">🏅 Sport:</span>
-                      <span className="stat-value">{team.sportId?.name || "N/A"}</span>
-                    </div>
-                  </div>
 
-                  {/* Progress Bar */}
-                  <div className="progress-section">
-                    <div className="progress-label">Team Capacity</div>
-                    <div className="progress-bar">
-                      <div className="progress-fill" style={{ width: `${progressPercent}%` }}></div>
-                    </div>
-                    <div className="progress-percent">{Math.round(progressPercent)}%</div>
-                  </div>
-
-                  <div className="team-actions">
-                    <Link to={`/team/${team._id}`} className="manage-btn">
-                      Manage Team →
-                    </Link>
-                    <Link to={`/teams/edit/${team._id}`} className="edit-team-btn">
-                      ✏️ Edit Team
-                    </Link>
-                    <button 
-                      onClick={() => handleDeleteTeam(team._id, team.teamName)}
-                      className="delete-team-btn"
-                    >
-                      🗑️ Delete Team
-                    </button>
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="empty-state">
-              <div className="empty-icon">🏏</div>
-              <p>You haven't created any teams yet</p>
-              <Link to="/teams/create" className="create-btn">
-                + Create a Team
-              </Link>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Player View */}
-      {activeTab === "player" && (
-        <div className="player-view">
-          {teamsAsPlayer.length > 0 ? (
-            teamsAsPlayer.map((team) => {
-              const isCaptain = team.captainId?._id === currentUserId;
-              const playerData = team.players?.find((p) => p.userId?._id === currentUserId);
-              const playerStatus = isCaptain ? "captain" : playerData?.status;
-              
-              const getStatusInfo = () => {
-                switch(playerStatus) {
-                  case "captain":
-                    return { icon: "👑", text: "Captain", color: "#4f46e5", bg: "#e0e7ff" };
-                  case "approved": 
-                    return { icon: "✅", text: "Approved", color: "#10b981", bg: "#dcfce7" };
-                  case "pending": 
-                    return { icon: "⏳", text: "Pending Approval", color: "#f59e0b", bg: "#fef3c7" };
-                  case "rejected": 
-                    return { icon: "❌", text: "Rejected", color: "#ef4444", bg: "#fee2e2" };
-                  default: 
-                    return { icon: "❓", text: "Unknown", color: "#6b7280", bg: "#f3f4f6" };
-                }
-              };
-              const statusInfo = getStatusInfo();
-              const approvedCount = team.players?.filter(p => p.status === "approved").length || 0;
-
-              return (
-                <div key={team._id} className="team-card player-card">
-                  <div className="team-header">
-                    <h3>{team.teamName}</h3>
-                    <span className="player-status-badge" style={{ backgroundColor: statusInfo.bg, color: statusInfo.color }}>
-                      {statusInfo.icon} {statusInfo.text}
-                    </span>
-                  </div>
-
-                  <div className="team-details">
-                    <p className="team-captain">
-                      👑 Captain: <strong>{team.captainId?.name}</strong>
-                    </p>
-                    <p className="team-tournament">
-                      🏆 Tournament: <strong>{team.tournamentId?.eventName}</strong>
-                    </p>
-                    <p className="team-players-count">
-                      👥 Team Size: <strong>{approvedCount} players</strong>
-                    </p>
-                  </div>
-
-                  {playerStatus === "captain" && (
-                    <div className="approved-warning" style={{ backgroundColor: "#e0e7ff", color: "#4f46e5", border: "1px solid #c7d2fe" }}>
-                      👑 You are the captain of this team!
-                    </div>
-                  )}
-
-                  {playerStatus === "pending" && (
-                    <div className="pending-warning">
-                      ⏳ Your request is pending approval from the team captain
-                    </div>
-                  )}
-
-                  {playerStatus === "approved" && (
-                    <div className="approved-warning">
-                      ✅ You are an approved member of this team!
-                    </div>
-                  )}
-
-                  {playerStatus === "rejected" && (
-                    <div className="rejected-warning">
-                      ❌ Your request was rejected. You can apply to other teams.
-                    </div>
-                  )}
-
-                  <div className="team-actions">
-                    <Link to={`/team/${team._id}`} className="view-btn">
-                      View Team Details →
-                    </Link>
-                    {playerStatus === "captain" && (
-                      <Link to={`/team/${team._id}`} className="leave-btn" style={{ backgroundColor: "#4f46e5", color: "white", textDecoration: "none", textAlign: "center" }}>
-                        Manage Team
-                      </Link>
-                    )}
-                    {playerStatus === "pending" && (
-                      <button 
-                        onClick={() => handleLeaveTeam(team._id, team.teamName)}
-                        className="leave-btn"
-                      >
-                        Cancel Request
-                      </button>
-                    )}
-                    {playerStatus === "approved" && (
-                      <button 
-                        onClick={() => handleLeaveTeam(team._id, team.teamName)}
-                        className="leave-btn"
-                      >
-                        Leave Team
-                      </button>
-                    )}
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="empty-state">
-              <div className="empty-icon">🎮</div>
-              <p>You haven't joined any teams yet</p>
-              <div className="empty-actions">
-                <Link to="/teams" className="browse-btn">
-                  Browse Teams
-                </Link>
-                <Link to="/teams/create" className="create-btn">
-                  Create Your Own Team
+                      <div className="team-actions">
+                        <Link to={`/team/${team._id}`} className="manage-btn light-sweep-wrapper">
+                          Manage Team →
+                        </Link>
+                        <Link to={`/teams/edit/${team._id}`} className="edit-team-btn light-sweep-wrapper">
+                          ✏️ Edit Team
+                        </Link>
+                        <button 
+                          onClick={() => handleDeleteTeam(team._id, team.teamName)}
+                          className="delete-team-btn light-sweep-wrapper"
+                        >
+                          🗑️ Delete Team
+                        </button>
+                      </div>
+                    </TiltCard>
+                  </motion.div>
+                );
+              })
+            ) : (
+              <div className="empty-state">
+                <div className="empty-icon">🏏</div>
+                <p>You haven't created any teams yet</p>
+                <Link to="/teams/create" className="create-btn light-sweep-wrapper">
+                  + Create a Team
                 </Link>
               </div>
-            </div>
-          )}
-        </div>
-      )}
+            )}
+          </motion.div>
+        ) : (
+          <motion.div 
+            key="player-view"
+            className="player-view"
+            variants={listReveal}
+            initial="hidden"
+            animate="show"
+          >
+            {teamsAsPlayer.length > 0 ? (
+              teamsAsPlayer.map((team) => {
+                const isCaptain = team.captainId?._id === currentUserId;
+                const playerData = team.players?.find((p) => p.userId?._id === currentUserId);
+                const playerStatus = isCaptain ? "captain" : playerData?.status;
+                
+                const getStatusInfo = () => {
+                  switch(playerStatus) {
+                    case "captain":
+                      return { icon: "👑", text: "Captain", color: "#2563EB", bg: "#EFF6FF" };
+                    case "approved": 
+                      return { icon: "✅", text: "Approved", color: "#10b981", bg: "#dcfce7" };
+                    case "pending": 
+                      return { icon: "⏳", text: "Pending Approval", color: "#f59e0b", bg: "#fef3c7" };
+                    case "rejected": 
+                      return { icon: "❌", text: "Rejected", color: "#ef4444", bg: "#fee2e2" };
+                    default: 
+                      return { icon: "❓", text: "Unknown", color: "#6b7280", bg: "#f3f4f6" };
+                  }
+                };
+                const statusInfo = getStatusInfo();
+                const approvedCount = team.players?.filter(p => p.status === "approved").length || 0;
+
+                return (
+                  <motion.div key={team._id} variants={cardReveal}>
+                    <TiltCard className="team-card player-card" style={{ height: "100%" }}>
+                      <div className="team-header">
+                        <h3>{team.teamName}</h3>
+                        <span className="player-status-badge" style={{ backgroundColor: statusInfo.bg, color: statusInfo.color }}>
+                          {statusInfo.icon} {statusInfo.text}
+                        </span>
+                      </div>
+
+                      <div className="team-details">
+                        <p className="team-captain">
+                          👑 Captain: <strong>{team.captainId?.name}</strong>
+                        </p>
+                        <p className="team-tournament">
+                          🏆 Tournament: <strong>{team.tournamentId?.eventName}</strong>
+                        </p>
+                        <p className="team-players-count">
+                          👥 Team Size: <strong>{approvedCount} players</strong>
+                        </p>
+                      </div>
+
+                      {playerStatus === "captain" && (
+                        <div className="approved-warning" style={{ backgroundColor: "#EFF6FF", color: "#2563EB", border: "1px solid #E2E8F0" }}>
+                          👑 You are the captain of this team!
+                        </div>
+                      )}
+
+                      {playerStatus === "pending" && (
+                        <div className="pending-warning">
+                          ⏳ Your request is pending approval from the team captain
+                        </div>
+                      )}
+
+                      {playerStatus === "approved" && (
+                        <div className="approved-warning">
+                          ✅ You are an approved member of this team!
+                        </div>
+                      )}
+
+                      {playerStatus === "rejected" && (
+                        <div className="rejected-warning">
+                          ❌ Your request was rejected. You can apply to other teams.
+                        </div>
+                      )}
+
+                      <div className="team-actions">
+                        <Link to={`/team/${team._id}`} className="view-btn light-sweep-wrapper">
+                          View Team Details →
+                        </Link>
+                        {playerStatus === "captain" && (
+                          <Link to={`/team/${team._id}`} className="leave-btn light-sweep-wrapper" style={{ backgroundColor: "#2563EB", color: "white", textDecoration: "none", textAlign: "center" }}>
+                            Manage Team
+                          </Link>
+                        )}
+                        {playerStatus === "pending" && (
+                          <button 
+                            onClick={() => handleLeaveTeam(team._id, team.teamName)}
+                            className="leave-btn light-sweep-wrapper"
+                          >
+                            Cancel Request
+                          </button>
+                        )}
+                        {playerStatus === "approved" && (
+                          <button 
+                            onClick={() => handleLeaveTeam(team._id, team.teamName)}
+                            className="leave-btn light-sweep-wrapper"
+                          >
+                            Leave Team
+                          </button>
+                        )}
+                      </div>
+                    </TiltCard>
+                  </motion.div>
+                );
+              })
+            ) : (
+              <div className="empty-state">
+                <div className="empty-icon">🎮</div>
+                <p>You haven't joined any teams yet</p>
+                <div className="empty-actions">
+                  <Link to="/teams" className="browse-btn light-sweep-wrapper">
+                    Browse Teams
+                  </Link>
+                  <Link to="/teams/create" className="create-btn light-sweep-wrapper">
+                    Create Your Own Team
+                  </Link>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

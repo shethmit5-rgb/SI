@@ -114,6 +114,7 @@ export default function TournamentsList() {
           <select
             value={filters.sport}
             onChange={(e) => setFilters({ ...filters, sport: e.target.value })}
+            className={filters.sport !== "all" ? "active-filter" : ""}
           >
             <option value="all">All Sports</option>
             {sports.map(s => (
@@ -127,6 +128,7 @@ export default function TournamentsList() {
           <select
             value={filters.status}
             onChange={(e) => setFilters({ ...filters, status: e.target.value })}
+            className={filters.status !== "all" ? "active-filter" : ""}
           >
             <option value="all">All Status</option>
             <option value="upcoming">📅 Upcoming</option>
@@ -161,10 +163,7 @@ export default function TournamentsList() {
                 ) : (
                   <div className="no-image">🏆</div>
                 )}
-                <span 
-                  className="status-badge"
-                  style={{ backgroundColor: getStatusColor(tournament.status) }}
-                >
+                <span className={`status-badge badge-${tournament.status}`}>
                   {getStatusIcon(tournament.status)} {tournament.status}
                 </span>
               </div>
@@ -177,19 +176,19 @@ export default function TournamentsList() {
                 </div>
 
                 <div className="tournament-meta">
-                  <div className="meta-item">
+                  <div className="meta-item sport-item">
                     <span className="meta-icon">⚽</span>
                     <span>{tournament.sportId?.name || "Multi-sport"}</span>
                   </div>
-                  <div className="meta-item">
+                  <div className="meta-item date-item">
                     <span className="meta-icon">📅</span>
                     <span>{new Date(tournament.startDate).toLocaleDateString()}</span>
                   </div>
-                  <div className="meta-item">
+                  <div className="meta-item teams-item">
                     <span className="meta-icon">👥</span>
                     <span>{tournament.teams?.length || 0} teams</span>
                   </div>
-                  <div className="meta-item">
+                  <div className="meta-item prize-item">
                     <span className="meta-icon">💰</span>
                     <span>₹{tournament.prizePool?.toLocaleString() || 0}</span>
                   </div>

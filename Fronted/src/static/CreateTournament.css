@@ -65,8 +65,8 @@ body{
 .ct-group select:focus,
 .ct-group textarea:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .ct-group input::placeholder,
@@ -90,7 +90,7 @@ body{
 
 .ct-group input[type="file"]::-webkit-file-upload-button {
   padding: 8px 16px;
-  background: #4f46e5;
+  background: #2563eb;
   color: rgb(0, 0, 0);
   border: none;
   border-radius: 6px;
@@ -100,7 +100,7 @@ body{
 
 /* Submit Button */
 .ct-btn {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
   color: rgb(0, 0, 0);
   border: none;
   padding: 14px 28px;
@@ -114,7 +114,7 @@ body{
 
 .ct-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 }
 
 .ct-btn:disabled {

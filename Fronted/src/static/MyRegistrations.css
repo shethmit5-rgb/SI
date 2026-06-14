@@ -29,7 +29,7 @@
 .login-btn {
   display: inline-block;
   padding: 12px 30px;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -38,9 +38,9 @@
 }
 
 .login-btn:hover {
-  background: #6366f1;
+  background: #3b82f6;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
 
 /* Registrations List */
@@ -138,18 +138,18 @@
 
 .view-tournament {
   flex: 2;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
 }
 
 .view-tournament:hover {
-  background: #6366f1;
+  background: #3b82f6;
 }
 
 .view-team {
   flex: 1;
   background: #f3f4f6;
-  color: #4f46e5;
+  color: #2563eb;
 }
 
 .view-team:hover {
@@ -160,7 +160,8 @@
 .empty-state {
   text-align: center;
   padding: 60px;
-  background: #f9fafb;
+  background: rgba(255, 255, 255, 0.3) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.35) !important;
   border-radius: 12px;
 }
 
@@ -172,8 +173,8 @@
 
 .browse-btn {
   display: inline-block;
-  padding: 12px 30px;
-  background: #4f46e5;
+  padding: 10px 24px;
+  background: #2563eb;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -182,9 +183,9 @@
 }
 
 .browse-btn:hover {
-  background: #6366f1;
+  background: #3b82f6;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
 
 /* Loading */
@@ -213,9 +214,21 @@
 
 .my-registrations-page {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 40px auto;
+  padding: 40px !important;
   min-height: calc(100vh - 200px);
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 2;
+}
+
+:root[data-theme="dark"] .my-registrations-page {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .my-registrations-page h1 {
@@ -238,23 +251,27 @@
 }
 
 .reg-filters button {
-  padding: 8px 20px;
-  border-radius: 30px;
-  border: 1px solid #e5e7eb;
-  background: white;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
+  padding: 8px 20px !important;
+  border-radius: 30px !important;
+  border: 1.5px solid #CBD5E1 !important;
+  background: white !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s !important;
 }
 
 .reg-filters button:hover {
-  background: #f3f4f6;
+  background: #F1F5F9 !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 .reg-filters button.active {
-  background: #4f46e5;
-  color: white;
-  border-color: #4f46e5;
+  background: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
 }
 
 /* Registration Card */
@@ -353,12 +370,12 @@
 }
 
 .view-tournament {
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
 }
 
 .view-tournament:hover {
-  background: #4338ca;
+  background: #1d4ed8;
 }
 
 .view-team {
@@ -373,7 +390,8 @@
 .empty-state {
   text-align: center;
   padding: 60px;
-  background: #f9fafb;
+  background: rgba(255, 255, 255, 0.3) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.35) !important;
   border-radius: 12px;
 }
 
@@ -385,7 +403,7 @@
 .browse-btn {
   display: inline-block;
   padding: 10px 24px;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -467,4 +485,70 @@
   .view-tournament, .view-team, .cancel-reg-btn {
     width: 100%;
   }
+}
+
+/* Dark Mode Overrides */
+:root[data-theme="dark"] .my-registrations-page h1 {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .my-registrations-page .subtitle {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .registration-card {
+  background: #111827 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+:root[data-theme="dark"] .reg-title h3 {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .detail-label {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .detail-value {
+  color: #e5e7eb !important;
+}
+
+:root[data-theme="dark"] .reg-header,
+:root[data-theme="dark"] .reg-footer {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .view-team {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .view-team:hover {
+  background: #374151 !important;
+}
+
+:root[data-theme="dark"] .empty-state {
+  background: rgba(15, 18, 32, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .empty-state p {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .reg-filters button {
+  background: #1f2937 !important;
+  color: #d1d5db !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .reg-filters button:hover {
+  background: #374151 !important;
+}
+
+:root[data-theme="dark"] .reg-filters button.active {
+  background: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
 }

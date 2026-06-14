@@ -122,8 +122,15 @@ export default function TeamDetails() {
             <div className="meta-item">
               <span className="meta-icon">👑</span>
               <div>
-                <label>Captain</label>
+                <label>Captain / Coach</label>
                 <p>{team.captainId?.name}</p>
+                {user && (user.role === "organizer" || user.role === "admin") && (
+                  <div style={{ fontSize: "0.85rem", color: "var(--org-text-muted)", marginTop: "4px" }}>
+                    <p>📧 {team.captainId?.email}</p>
+                    <p>📱 {team.captainId?.phoneNumber || "N/A"}</p>
+                    <p>📍 {team.captainId?.location || "N/A"} | Role: {team.captainId?.role || "Coach"}</p>
+                  </div>
+                )}
               </div>
             </div>
             <div className="meta-item">
@@ -237,6 +244,12 @@ export default function TeamDetails() {
                 <div className="player-info">
                   <p className="player-name"><strong>{player.userId?.name}</strong></p>
                   <p className="player-email">{player.userId?.email}</p>
+                  {user && (user.role === "organizer" || user.role === "admin") && (
+                    <div style={{ fontSize: "0.8rem", color: "#666", marginTop: "4px" }}>
+                      <p>📱 {player.userId?.phoneNumber || "N/A"}</p>
+                      <p>📍 {player.userId?.location || "N/A"} | Age: {player.userId?.age || "N/A"}</p>
+                    </div>
+                  )}
                 </div>
                 {player.userId?._id === team.captainId?._id && (
                   <span className="captain-badge">👑 Captain</span>

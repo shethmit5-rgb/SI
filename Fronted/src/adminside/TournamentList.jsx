@@ -79,7 +79,7 @@ export default function TournamentList() {
   };
 
   const buttonStyles = {
-    view: { backgroundColor: "#4f46e5", color: "white", border: "none", padding: "6px 12px", borderRadius: "6px", cursor: "pointer", marginRight: "5px" },
+    view: { backgroundColor: "#2563EB", color: "white", border: "none", padding: "6px 12px", borderRadius: "6px", cursor: "pointer", marginRight: "5px" },
     edit: { backgroundColor: "#f59e0b", color: "white", border: "none", padding: "6px 12px", borderRadius: "6px", cursor: "pointer", marginRight: "5px" },
     delete: { backgroundColor: "#ef4444", color: "white", border: "none", padding: "6px 12px", borderRadius: "6px", cursor: "pointer" },
     save: { backgroundColor: "#10b981", color: "white", border: "none", padding: "10px 20px", borderRadius: "6px", cursor: "pointer", marginRight: "10px" },

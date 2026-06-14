@@ -60,7 +60,7 @@ export default function PaymentModal({ amount, registrationId, tournamentId, onS
           email: localStorage.getItem("userEmail") || "",
         },
         theme: {
-          color: "#4f46e5",
+          color: "#2563EB",
         },
         modal: {
           ondismiss: () => {

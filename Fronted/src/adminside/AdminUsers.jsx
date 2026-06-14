@@ -191,7 +191,7 @@ export default function AdminUsers() {
                       className="edit-btn"
                       onClick={() => openEdit(u)}
                       style={{
-                        backgroundColor: "#4f46e5",
+                        backgroundColor: "#2563EB",
                         color: "white",
                         border: "none",
                         padding: "5px 12px",

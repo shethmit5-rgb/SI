@@ -131,7 +131,7 @@ router.get("/public/:id", async (req, res) => {
 /* =========================================================
    ADMIN ONLY - GET ALL TOURNAMENTS
    ========================================================= */
-router.get("/", auth, role("admin"), async (req, res) => {
+router.get("/", auth, role("admin", "organizer"), async (req, res) => {
   try {
     const tournaments = await Tournament.find()
       .populate("sportId", "name")
@@ -172,7 +172,7 @@ router.get("/:id", async (req, res) => {
 router.put(
   "/:id",
   auth,
-  role("admin"),
+  role("admin", "organizer"),
   upload.single("logo"),
   async (req, res) => {
     try {

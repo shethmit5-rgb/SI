@@ -14,6 +14,7 @@ export default function OrganizerMatches() {
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [venues, setVenues] = useState([]);
+  const [editingMatchId, setEditingMatchId] = useState(null);
   const [formData, setFormData] = useState({
     teamA: "",
     teamB: "",
@@ -111,6 +112,17 @@ export default function OrganizerMatches() {
       fetchMatches(selectedTournament._id);
     } catch (err) {
       alert(err.response?.data?.message || "Failed to update result");
+    }
+  };
+
+  const handleUpdateMatchDetails = async (matchId, updateFields) => {
+    try {
+      await api.put(`/matches/${matchId}`, updateFields);
+      alert("✅ Match details updated successfully!");
+      setEditingMatchId(null);
+      fetchMatches(selectedTournament._id);
+    } catch (err) {
+      alert(err.response?.data?.message || "Failed to update match details");
     }
   };
 
@@ -221,27 +233,46 @@ export default function OrganizerMatches() {
         ) : (
           matches.map(match => (
             <div key={match._id} className="match-item">
-              <div className="match-info">
-                <div className="teams">
-                  <span className="team">{match.teams[0]?.teamName}</span>
-                  <span className="vs">VS</span>
-                  <span className="team">{match.teams[1]?.teamName}</span>
-                </div>
-                <div className="details">
-                  <span>📅 {new Date(match.matchDate).toLocaleDateString()}</span>
-                  <span>🕐 {new Date(match.matchDate).toLocaleTimeString()}</span>
-                  <span>🏟️ {match.venueId?.name}</span>
-                  {getStatusBadge(match.status)}
-                </div>
-              </div>
-              {match.status === "scheduled" && (
-                <MatchResultEditor match={match} onUpdate={updateMatchResult} />
-              )}
-              {match.status === "completed" && match.result && (
-                <div className="match-result-display">
-                  <span className="winner">🏆 Winner: {match.result.winnerTeamId === match.teams[0]?._id ? match.teams[0]?.teamName : match.teams[1]?.teamName}</span>
-                  <span className="score">Score: {match.result.score}</span>
-                </div>
+              {editingMatchId === match._id ? (
+                <MatchEditor
+                  match={match}
+                  venues={venues}
+                  teams={teams}
+                  onUpdate={handleUpdateMatchDetails}
+                  onCancel={() => setEditingMatchId(null)}
+                />
+              ) : (
+                <>
+                  <div className="match-info">
+                    <div className="teams">
+                      <span className="team">{match.teams[0]?.teamName}</span>
+                      <span className="vs">VS</span>
+                      <span className="team">{match.teams[1]?.teamName}</span>
+                    </div>
+                    <div className="details">
+                      <span>📅 {new Date(match.matchDate).toLocaleDateString()}</span>
+                      <span>🕐 {new Date(match.matchDate).toLocaleTimeString()}</span>
+                      <span>🏟️ {match.venueId?.name}</span>
+                      {getStatusBadge(match.status)}
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: "10px", marginTop: "10px", flexWrap: "wrap" }}>
+                    {match.status === "scheduled" && (
+                      <MatchResultEditor match={match} onUpdate={updateMatchResult} />
+                    )}
+                    {match.status !== "completed" && (
+                      <button className="update-result-btn" onClick={() => setEditingMatchId(match._id)} style={{ background: "#2563EB", color: "white" }}>
+                        ✏️ Edit Match
+                      </button>
+                    )}
+                  </div>
+                  {match.status === "completed" && match.result && (
+                    <div className="match-result-display">
+                      <span className="winner">🏆 Winner: {match.result.winnerTeamId === match.teams[0]?._id ? match.teams[0]?.teamName : match.teams[1]?.teamName}</span>
+                      <span className="score">Score: {match.result.score}</span>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           ))
@@ -286,5 +317,94 @@ function MatchResultEditor({ match, onUpdate }) {
         </div>
       )}
     </div>
+  );
+}
+
+function MatchEditor({ match, venues, teams, onUpdate, onCancel }) {
+  const [matchDate, setMatchDate] = useState("");
+  const [matchTime, setMatchTime] = useState("");
+  const [venueId, setVenueId] = useState("");
+  const [teamA, setTeamA] = useState("");
+  const [teamB, setTeamB] = useState("");
+  const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    if (match) {
+      const d = new Date(match.matchDate);
+      const dateStr = d.toISOString().split("T")[0];
+      const timeStr = d.toTimeString().split(" ")[0].slice(0, 5);
+      setMatchDate(dateStr);
+      setMatchTime(timeStr);
+      setVenueId(match.venueId?._id || "");
+      setTeamA(match.teams[0]?._id || "");
+      setTeamB(match.teams[1]?._id || "");
+      setStatus(match.status || "scheduled");
+    }
+  }, [match]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (teamA === teamB) {
+      alert("Please select different teams");
+      return;
+    }
+    const fullDate = new Date(`${matchDate}T${matchTime}`);
+    onUpdate(match._id, {
+      matchDate: fullDate,
+      venueId,
+      teams: [teamA, teamB],
+      status
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="editor-form" style={{ marginTop: "15px", display: "grid", gap: "10px", padding: "15px", border: "1px solid #ddd", borderRadius: "8px", width: "100%" }}>
+      <h4>Edit Match Details</h4>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        <div style={{ flex: 1, minWidth: "150px" }}>
+          <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Team A</label>
+          <select value={teamA} onChange={(e) => setTeamA(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+            <option value="">Select Team</option>
+            {teams.map(t => <option key={t._id} value={t._id}>{t.teamName}</option>)}
+          </select>
+        </div>
+        <div style={{ flex: 1, minWidth: "150px" }}>
+          <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Team B</label>
+          <select value={teamB} onChange={(e) => setTeamB(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+            <option value="">Select Team</option>
+            {teams.map(t => <option key={t._id} value={t._id}>{t.teamName}</option>)}
+          </select>
+        </div>
+      </div>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        <div style={{ flex: 1, minWidth: "120px" }}>
+          <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Date</label>
+          <input type="date" value={matchDate} onChange={(e) => setMatchDate(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }} />
+        </div>
+        <div style={{ flex: 1, minWidth: "100px" }}>
+          <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Time</label>
+          <input type="time" value={matchTime} onChange={(e) => setMatchTime(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }} />
+        </div>
+        <div style={{ flex: 1, minWidth: "150px" }}>
+          <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Venue</label>
+          <select value={venueId} onChange={(e) => setVenueId(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+            <option value="">Select Venue</option>
+            {venues.map(v => <option key={v._id} value={v._id}>{v.name}</option>)}
+          </select>
+        </div>
+        <div style={{ flex: 1, minWidth: "120px" }}>
+          <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Status</label>
+          <select value={status} onChange={(e) => setStatus(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+            <option value="scheduled">Scheduled</option>
+            <option value="live">Live</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+      </div>
+      <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end", marginTop: "10px" }}>
+        <button type="submit" className="save-result" style={{ background: "#2563EB", color: "white", padding: "8px 16px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Save Changes</button>
+        <button type="button" className="cancel-result" onClick={onCancel} style={{ background: "#ccc", color: "black", padding: "8px 16px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Cancel</button>
+      </div>
+    </form>
   );
 }

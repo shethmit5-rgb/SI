@@ -1,6 +1,6 @@
 .sponsors-section {
   padding: 100px 70px;
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  background: linear-gradient(180deg, var(--surface), var(--bg));
   text-align: center;
 }
 
@@ -120,7 +120,7 @@
 .sponsor-cta {
   margin-top: 100px;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #020617, #1e1b4b);
+  background: linear-gradient(135deg, var(--navy), var(--primary));
   color: white;
   border-radius: 24px;
 }

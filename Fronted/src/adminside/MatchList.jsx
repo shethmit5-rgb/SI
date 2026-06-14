@@ -87,7 +87,7 @@ export default function MatchList() {
   // Button styles
   const buttonStyles = {
     view: {
-      backgroundColor: "#4f46e5",
+      backgroundColor: "#2563EB",
       color: "white",
       border: "none",
       padding: "6px 12px",
@@ -229,8 +229,8 @@ export default function MatchList() {
                           setSelectedMatch(m);
                           setShowViewPopup(true);
                         }}
-                        onMouseEnter={(e) => e.target.style.backgroundColor = "#4338ca"}
-                        onMouseLeave={(e) => e.target.style.backgroundColor = "#4f46e5"}
+                        onMouseEnter={(e) => e.target.style.backgroundColor = "#1D4ED8"}
+                        onMouseLeave={(e) => e.target.style.backgroundColor = "#2563EB"}
                       >
                         View
                       </button>

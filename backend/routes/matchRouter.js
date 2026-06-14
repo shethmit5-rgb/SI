@@ -183,6 +183,39 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+/* ================= UPDATE MATCH DETAILS (ADMIN & ORGANIZER) ================= */
+router.put("/:id", auth, async (req, res) => {
+  try {
+    const { matchDate, venueId, teams, status } = req.body;
+    const match = await Match.findById(req.params.id).populate("tournamentId");
+    
+    if (!match) {
+      return res.status(404).json({ message: "Match not found" });
+    }
+
+    // Check permissions
+    if (req.user.role !== "admin" && (!match.tournamentId.organizerId || match.tournamentId.organizerId.toString() !== req.user.userId)) {
+      return res.status(403).json({ message: "Only admin or tournament organizer can update matches" });
+    }
+
+    if (matchDate) match.matchDate = matchDate;
+    if (venueId) match.venueId = venueId;
+    if (teams && teams.length === 2) {
+      if (teams[0] === teams[1]) {
+        return res.status(400).json({ message: "Team A and Team B must be different" });
+      }
+      match.teams = teams;
+    }
+    if (status) match.status = status;
+
+    await match.save();
+    res.json({ message: "Match updated successfully", match });
+  } catch (err) {
+    console.error("UPDATE MATCH ERROR:", err);
+    res.status(500).json({ message: "Failed to update match" });
+  }
+});
+
 /* ================= DELETE MATCH (ADMIN & ORGANIZER) ================= */
 router.delete("/:id", auth, async (req, res) => {
   try {

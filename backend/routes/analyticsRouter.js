@@ -11,7 +11,7 @@ const role = require("../middleware/roleMiddleware");
 const router = express.Router();
 
 // Get all analytics stats
-router.get("/stats", auth, role("admin"), async (req, res) => {
+router.get("/stats", auth, role("admin", "organizer"), async (req, res) => {
   try {
     const [users, tournaments, matches, teams, sponsors, registrations] = await Promise.all([
       User.countDocuments(),
@@ -106,7 +106,7 @@ router.get("/stats", auth, role("admin"), async (req, res) => {
 });
 
 // Get real-time updates via Socket.IO
-router.get("/realtime", auth, role("admin"), async (req, res) => {
+router.get("/realtime", auth, role("admin", "organizer"), async (req, res) => {
   try {
     const io = req.app.get("io");
     
@@ -163,5 +163,107 @@ async function getAnalyticsData() {
     }
   };
 }
+
+// GET organizer-stats
+router.get("/organizer-stats", auth, role("admin", "organizer"), async (req, res) => {
+  try {
+    const [
+      totalTeams,
+      totalTournaments,
+      activeTournaments,
+      upcomingTournaments,
+      completedTournaments,
+      totalMatches,
+      scheduledMatches,
+      ongoingMatches,
+      completedMatches,
+      totalRegistrations,
+      approvedRegistrations,
+      pendingRegistrations
+    ] = await Promise.all([
+      Team.countDocuments(),
+      Tournament.countDocuments(),
+      Tournament.countDocuments({ status: "ongoing" }),
+      Tournament.countDocuments({ status: "upcoming" }),
+      Tournament.countDocuments({ status: "completed" }),
+      Match.countDocuments(),
+      Match.countDocuments({ status: "scheduled" }),
+      Match.countDocuments({ status: "ongoing" }),
+      Match.countDocuments({ status: "completed" }),
+      Registration.countDocuments(),
+      Registration.countDocuments({ approvalStatus: "approved" }),
+      Registration.countDocuments({ approvalStatus: "pending" })
+    ]);
+
+    // Teams by Tournament
+    const teamsByTournamentRaw = await Team.aggregate([
+      {
+        $lookup: {
+          from: "tournaments",
+          localField: "tournamentId",
+          foreignField: "_id",
+          as: "tournament"
+        }
+      },
+      { $unwind: "$tournament" },
+      {
+        $group: {
+          _id: "$tournament.eventName",
+          count: { $sum: 1 }
+        }
+      }
+    ]);
+    const teamsByTournament = teamsByTournamentRaw.map(t => ({ name: t._id, count: t.count }));
+
+    // Teams by Sport
+    const teamsBySportRaw = await Team.aggregate([
+      {
+        $lookup: {
+          from: "sports",
+          localField: "sportId",
+          foreignField: "_id",
+          as: "sport"
+        }
+      },
+      { $unwind: "$sport" },
+      {
+        $group: {
+          _id: "$sport.name",
+          count: { $sum: 1 }
+        }
+      }
+    ]);
+    const teamsBySport = teamsBySportRaw.map(s => ({ name: s._id, count: s.count }));
+
+    res.json({
+      teamsOverview: {
+        total: totalTeams,
+        byTournament: teamsByTournament,
+        bySport: teamsBySport
+      },
+      tournamentOverview: {
+        total: totalTournaments,
+        active: activeTournaments,
+        upcoming: upcomingTournaments,
+        completed: completedTournaments
+      },
+      matchOverview: {
+        total: totalMatches,
+        scheduled: scheduledMatches,
+        ongoing: ongoingMatches,
+        completed: completedMatches
+      },
+      registrationOverview: {
+        total: totalRegistrations,
+        approved: approvedRegistrations,
+        pending: pendingRegistrations
+      }
+    });
+
+  } catch (err) {
+    console.error("Organizer stats error:", err);
+    res.status(500).json({ message: "Failed to fetch organizer stats" });
+  }
+});
 
 module.exports = router;

@@ -133,10 +133,16 @@ export default function Profile() {
   }
 
   return (
-    <div className="profile-container">
-      {/* HEADER */}
-      <div className="profile-header">
-        <div className="profile-cover">
+    <div className="profile-page-wrapper">
+      {/* HEADER BANNER & PROFILE IDENTITY BLOCK (THE HERO CARD) */}
+      <div className="profile-container">
+        {/* HEADER BANNER */}
+        <div className="profile-header-banner">
+          {/* Shimmer, spotlight, and vignette effects are styled in CSS */}
+        </div>
+
+        {/* PROFILE IDENTITY BLOCK */}
+        <div className="profile-identity-block">
           <div className="profile-avatar-wrapper">
             <img
               src={
@@ -163,6 +169,125 @@ export default function Profile() {
         </div>
       </div>
 
+
+      {/* PROFILE INFORMATION SECTION */}
+      <div className="profile-info-section">
+        {!isEditing && (
+          <div className="edit-btn-wrapper">
+            <button className="edit-profile-btn" onClick={() => setIsEditing(true)}>
+              ✎ Edit Profile
+            </button>
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="profile-form">
+          <div className="form-row">
+            {/* Name */}
+            <div className="form-group">
+              <label>Full Name</label>
+              <input 
+                name="name" 
+                value={form.name} 
+                onChange={handleChange} 
+                disabled={!isEditing}
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            {/* Age */}
+            <div className="form-group">
+              <label>Age</label>
+              <input 
+                type="number"
+                name="age" 
+                value={form.age} 
+                onChange={handleChange} 
+                disabled={!isEditing}
+                placeholder="Enter your age"
+                min="10"
+                max="100"
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            {/* Gender */}
+            <div className="form-group">
+              <label>Gender</label>
+              <select 
+                name="gender" 
+                value={form.gender} 
+                onChange={handleChange} 
+                disabled={!isEditing}
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            {/* Phone Number */}
+            <div className="form-group">
+              <label>Phone Number</label>
+              <input 
+                type="tel"
+                name="phoneNumber" 
+                value={form.phoneNumber} 
+                onChange={handleChange} 
+                disabled={!isEditing}
+                placeholder="Enter 10-digit mobile number"
+                pattern="[0-9]{10}"
+                maxLength="10"
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            {/* Location */}
+            <div className="form-group">
+              <label>Location</label>
+              <input 
+                name="location" 
+                value={form.location} 
+                onChange={handleChange} 
+                disabled={!isEditing}
+                placeholder="City, State"
+              />
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="form-group full-width">
+            <label>Bio / Description</label>
+            <textarea 
+              name="description" 
+              value={form.description} 
+              onChange={handleChange} 
+              disabled={!isEditing}
+              placeholder="Tell us about yourself..."
+              rows="4"
+            />
+          </div>
+
+          {isEditing && (
+            <div className="form-actions">
+              <button type="submit" className="save-btn" disabled={saving}>
+                {saving ? "Saving..." : "Save Changes"}
+              </button>
+              <button type="button" className="cancel-btn" onClick={() => {
+                setIsEditing(false);
+                // Reset form to original values
+                window.location.reload();
+              }}>
+                Cancel
+              </button>
+            </div>
+          )}
+        </form>
+
+      </div>
+
       {/* TABS */}
       <div className="profile-tabs">
         <button
@@ -187,128 +312,24 @@ export default function Profile() {
         </button>
       </div>
 
-      {/* CONTENT */}
+      {/* TABS CONTENT */}
       <div className="profile-content">
         {activeTab === "profile" && (
-          <>
-            {!isEditing && (
-              <button className="edit-profile-btn" onClick={() => setIsEditing(true)}>
-                ✎ Edit Profile
-              </button>
-            )}
-
-            <form onSubmit={handleSubmit} className="profile-form">
-              {/* Name */}
-              <div className="form-group">
-                <label>Full Name</label>
-                <input 
-                  name="name" 
-                  value={form.name} 
-                  onChange={handleChange} 
-                  disabled={!isEditing}
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              {/* Age */}
-              <div className="form-group">
-                <label>Age</label>
-                <input 
-                  type="number"
-                  name="age" 
-                  value={form.age} 
-                  onChange={handleChange} 
-                  disabled={!isEditing}
-                  placeholder="Enter your age"
-                  min="10"
-                  max="100"
-                />
-              </div>
-
-              {/* Gender */}
-              <div className="form-group">
-                <label>Gender</label>
-                <select 
-                  name="gender" 
-                  value={form.gender} 
-                  onChange={handleChange} 
-                  disabled={!isEditing}
-                >
-                  <option value="">Select Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              {/* Phone Number */}
-              <div className="form-group">
-                <label>Phone Number</label>
-                <input 
-                  type="tel"
-                  name="phoneNumber" 
-                  value={form.phoneNumber} 
-                  onChange={handleChange} 
-                  disabled={!isEditing}
-                  placeholder="Enter 10-digit mobile number"
-                  pattern="[0-9]{10}"
-                  maxLength="10"
-                />
-              </div>
-
-              {/* Location */}
-              <div className="form-group">
-                <label>Location</label>
-                <input 
-                  name="location" 
-                  value={form.location} 
-                  onChange={handleChange} 
-                  disabled={!isEditing}
-                  placeholder="City, State"
-                />
-              </div>
-
-              {/* Description */}
-              <div className="form-group">
-                <label>Bio / Description</label>
-                <textarea 
-                  name="description" 
-                  value={form.description} 
-                  onChange={handleChange} 
-                  disabled={!isEditing}
-                  placeholder="Tell us about yourself..."
-                  rows="4"
-                />
-              </div>
-
-              {isEditing && (
-                <div className="form-actions">
-                  <button type="submit" className="save-btn" disabled={saving}>
-                    {saving ? "Saving..." : "Save Changes"}
-                  </button>
-                  <button type="button" className="cancel-btn" onClick={() => {
-                    setIsEditing(false);
-                    // Reset form to original values
-                    window.location.reload();
-                  }}>
-                    Cancel
-                  </button>
-                </div>
-              )}
-            </form>
-
-            <div className="danger-zone">
-              <h3>⚠️ Danger Zone</h3>
-              <p>Once you deactivate your account, you will lose all your data.</p>
-              <button className="deactivate-btn" onClick={handleDelete}>
-                Deactivate Account
-              </button>
-            </div>
-          </>
+          <div className="profile-info-placeholder">
+            <p>ℹ️ Your profile details are displayed in the main card section above.</p>
+          </div>
         )}
-
         {activeTab === "teams" && <TeamsList navigate={navigate} />}
         {activeTab === "registrations" && <RegistrationsList navigate={navigate} />}
+      </div>
+
+      {/* DANGER ZONE CARD */}
+      <div className="danger-zone-card">
+        <h3>⚠️ Danger Zone</h3>
+        <p>Once you deactivate your account, you will lose all your data.</p>
+        <button className="deactivate-btn" onClick={handleDelete}>
+          Deactivate Account
+        </button>
       </div>
     </div>
   );

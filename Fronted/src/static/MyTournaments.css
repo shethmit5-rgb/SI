@@ -1,7 +1,19 @@
 .my-tournaments-page {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 40px auto;
+  padding: 40px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 2;
+}
+
+:root[data-theme="dark"] .my-tournaments-page {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .header {
@@ -19,7 +31,7 @@
 }
 
 .create-btn {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
   color: white;
   padding: 10px 20px;
   border-radius: 8px;
@@ -67,7 +79,7 @@
 }
 
 .actions a:first-child {
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
 }
 
@@ -85,16 +97,45 @@
 .empty {
   text-align: center;
   padding: 60px;
-  background: #f9fafb;
+  background: rgba(255, 255, 255, 0.3) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.35) !important;
   border-radius: 12px;
 }
 
 .empty a {
   display: inline-block;
   margin-top: 15px;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
   padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
+}
+
+/* Dark Mode Overrides */
+:root[data-theme="dark"] .header h1 {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .tournament-card {
+  background: #111827 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+:root[data-theme="dark"] .tournament-card h3 {
+  color: #f3f4f6 !important;
+}
+
+:root[data-theme="dark"] .tournament-card p {
+  color: #9ca3af !important;
+}
+
+:root[data-theme="dark"] .empty {
+  background: rgba(15, 18, 32, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .empty p {
+  color: #9ca3af !important;
 }

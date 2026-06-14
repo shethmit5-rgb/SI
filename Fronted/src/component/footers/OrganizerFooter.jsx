@@ -41,10 +41,14 @@ const OrganizerFooter = () => {
         <div className="footer-col">
           <h4>For Organizers</h4>
           <ul>
-            <li><Link to="/my-tournaments" onClick={scrollToTop}>My Tournaments</Link></li>
-            <li><Link to="/create-tournament" onClick={scrollToTop}>Create Tournament</Link></li>
-            <li><Link to="/organizer/matches" onClick={scrollToTop}>Manage Matches</Link></li>
-            <li><Link to="/profile" onClick={scrollToTop}>My Profile</Link></li>
+            <li><Link to="/organizer/dashboard" onClick={scrollToTop}>Dashboard</Link></li>
+            <li><Link to="/my-tournaments" onClick={scrollToTop}>Tournaments</Link></li>
+            <li><Link to="/teams" onClick={scrollToTop}>Teams</Link></li>
+            <li><Link to="/schedule" onClick={scrollToTop}>Match Schedule</Link></li>
+            <li><Link to="/venue" onClick={scrollToTop}>Venues</Link></li>
+            <li><Link to="/admin/analytics" onClick={scrollToTop}>Analytics</Link></li>
+            <li><Link to="/notifications" onClick={scrollToTop}>Notifications</Link></li>
+            <li><Link to="/profile" onClick={scrollToTop}>Profile</Link></li>
           </ul>
         </div>
 

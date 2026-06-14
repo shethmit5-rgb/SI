@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
 
 import RoleLayout from "./layouts/RoleLayout";
 import NonOrganizerRoute from "./routes/NonOrganizerRoute";
@@ -39,6 +40,7 @@ import OrganizerMatches from "./screen/OrganizerMatches";
 import MatchResults from "./screen/MatchResults";
 import EditTournamentPage from "./screen/EditTournamentPage";
 import SponsorManagement from "./screen/SponsorManagement";
+import OrganizerDashboard from "./screen/OrganizerDashboard";
 
 /* ================= ADMIN CORE ================= */
 import AdminRoute from "./routes/AdminRoute";
@@ -80,6 +82,13 @@ import Reports from "./adminside/Reports";
 import "./index.css";
 import "./App.css";
 
+function AdminOrOrganizerRoute({ children }) {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/login" replace />;
+  if (user.role !== "admin" && user.role !== "organizer") return <Navigate to="/" replace />;
+  return children;
+}
+
 function App() {
   return (
     <RoleLayout>
@@ -120,6 +129,7 @@ function App() {
         <Route path="/match-results" element={<MatchResults />} />
         <Route path="/edit-tournament/:id" element={<EditTournamentPage />} />
         <Route path="/my-sponsors" element={<SponsorManagement />} />
+        <Route path="/organizer/dashboard" element={<OrganizerDashboard />} />
 
         {/* ========== ADMIN ROUTES ========== */}
         <Route
@@ -253,9 +263,9 @@ function App() {
         <Route
           path="/admin/analytics"
           element={
-            <AdminRoute>
+            <AdminOrOrganizerRoute>
               <AnalyticsDashboard />
-            </AdminRoute>
+            </AdminOrOrganizerRoute>
           }
         />
 

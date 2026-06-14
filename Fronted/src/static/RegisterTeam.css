@@ -64,7 +64,7 @@
 
 .use-team-btn {
   padding: 8px 16px;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 6px;
@@ -73,7 +73,7 @@
 }
 
 .use-team-btn:hover {
-  background: #6366f1;
+  background: #3b82f6;
 }
 
 .or-divider {
@@ -127,8 +127,8 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .error-message {
@@ -164,7 +164,7 @@
 .submit-btn {
   flex: 2;
   padding: 12px;
-  background: #4f46e5;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;
@@ -174,7 +174,7 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: #6366f1;
+  background: #3b82f6;
 }
 
 .submit-btn:disabled {

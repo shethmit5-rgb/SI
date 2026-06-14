@@ -53,7 +53,7 @@ router.get("/my-registrations", auth, async (req, res) => {
 });
 
 /* ================= ADMIN → GET ALL REGISTRATIONS ================= */
-router.get("/", auth, role("admin"), async (req, res) => {
+router.get("/", auth, role("admin", "organizer"), async (req, res) => {
   try {
     const registrations = await Registration.find()
       .populate("userId", "name email")
