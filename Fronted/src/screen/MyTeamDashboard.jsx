@@ -17,6 +17,8 @@ export default function MyTeamDashboard() {
   const [actionLoading, setActionLoading] = useState(null);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [editingFee, setEditingFee] = useState(null);
+  const [feeValue, setFeeValue] = useState("");
 
   useEffect(() => {
     if (!user) {
@@ -37,6 +39,23 @@ export default function MyTeamDashboard() {
       setError(err.response?.data?.message || "Failed to load your teams");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleUpdateFee = async (teamId) => {
+    try {
+      setActionLoading(teamId);
+      await api.put(`/teams/${teamId}`, { playerJoiningFee: Number(feeValue) || 0 });
+      setSuccessMessage("✅ Player joining fee updated successfully!");
+      setEditingFee(null);
+      setTimeout(() => setSuccessMessage(null), 3000);
+      fetchMyTeams();
+    } catch (err) {
+      console.error("Failed to update joining fee:", err);
+      setError(err.response?.data?.message || "Failed to update joining fee");
+      setTimeout(() => setError(null), 3000);
+    } finally {
+      setActionLoading(null);
     }
   };
 
@@ -339,6 +358,48 @@ export default function MyTeamDashboard() {
                             <span className="stat-value rejected-count">{rejectedPlayers.length}</span>
                           </div>
                         )}
+                         <div className="stat-item" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                          <span className="stat-label">💰 Player Joining Fee:</span>
+                          {editingFee === team._id ? (
+                            <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
+                              <input
+                                type="number"
+                                value={feeValue}
+                                onChange={(e) => setFeeValue(e.target.value)}
+                                min="0"
+                                style={{ width: "80px", padding: "2px 5px", borderRadius: "4px", border: "1px solid #ccc", color: "#000" }}
+                              />
+                              <button 
+                                onClick={() => handleUpdateFee(team._id)}
+                                style={{ padding: "2px 8px", backgroundColor: "#10b981", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "12px" }}
+                              >
+                                Save
+                              </button>
+                              <button 
+                                onClick={() => setEditingFee(null)}
+                                style={{ padding: "2px 8px", backgroundColor: "#ef4444", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "12px" }}
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          ) : (
+                            <span className="stat-value" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                              ₹{team.playerJoiningFee || 0}
+                              {(team.captainId?._id === currentUserId || user?.role === "admin") && (
+                                <button
+                                  onClick={() => {
+                                    setEditingFee(team._id);
+                                    setFeeValue(team.playerJoiningFee || 0);
+                                  }}
+                                  style={{ background: "none", border: "none", cursor: "pointer", padding: "0", fontSize: "14px" }}
+                                  title="Edit Fee"
+                                >
+                                  ✏️
+                                </button>
+                              )}
+                            </span>
+                          )}
+                        </div>
                         <div className="stat-item">
                           <span className="stat-label">🏅 Sport:</span>
                           <span className="stat-value">{team.sportId?.name || "N/A"}</span>
@@ -396,6 +457,11 @@ export default function MyTeamDashboard() {
                 const playerData = team.players?.find((p) => p.userId?._id === currentUserId);
                 const playerStatus = isCaptain ? "captain" : playerData?.status;
                 
+                const player = playerData || {};
+                console.log("Player Status:", player.status);
+                console.log("Payment Status:", player.paymentStatus);
+                console.log("Joining Fee:", team.playerJoiningFee);
+                
                 const getStatusInfo = () => {
                   switch(playerStatus) {
                     case "captain":
@@ -449,15 +515,20 @@ export default function MyTeamDashboard() {
                         </div>
                       )}
 
-                       {playerStatus === "approved_pending_payment" && (
-                        <div className="pending-payment-warning" style={{ backgroundColor: "#fee2e2", color: "#ef4444", padding: "10px", borderRadius: "6px", marginBottom: "10px", fontSize: "14px", fontWeight: "500", border: "1px solid #fee2e2" }}>
-                          💳 Approved! Please pay the joining fee of ₹{team.playerJoiningFee} to active your membership.
+                       {playerStatus === "approved_pending_payment" && player.paymentStatus === "unpaid" && (
+                        <div className="pending-payment-warning" style={{ border: "1px dashed #ef4444", padding: "12px", borderRadius: "6px", marginBottom: "10px", backgroundColor: "#fff5f5" }}>
+                          <div style={{ color: "#333", fontSize: "14px", marginBottom: "6px" }}>
+                            <strong>Joining Fee:</strong> ₹{team.playerJoiningFee}
+                          </div>
+                          <div style={{ color: "#ef4444", fontSize: "14px", fontWeight: "bold" }}>
+                            <strong>Status:</strong> Approved (Pending Payment)
+                          </div>
                         </div>
                       )}
 
                       {playerStatus === "approved" && (
                         <div className="approved-warning">
-                          ✅ You are an approved member of this team!
+                          ✅ Membership Activated
                         </div>
                       )}
 
@@ -476,14 +547,14 @@ export default function MyTeamDashboard() {
                             Manage Team
                           </Link>
                         )}
-                        {playerStatus === "approved_pending_payment" && (
+                        {playerStatus === "approved_pending_payment" && player.paymentStatus === "unpaid" && (
                           <button
                             onClick={() => handlePayJoiningFee(team)}
                             disabled={actionLoading === team._id}
                             className="pay-btn light-sweep-wrapper"
                             style={{ backgroundColor: "#10B981", color: "white", border: "none", padding: "8px 16px", borderRadius: "6px", cursor: "pointer", fontWeight: "bold" }}
                           >
-                            {actionLoading === team._id ? "..." : "💳 Pay Joining Fee"}
+                            {actionLoading === team._id ? "..." : "💳 Complete Payment"}
                           </button>
                         )}
                         {playerStatus === "pending" && (

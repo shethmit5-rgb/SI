@@ -26,7 +26,8 @@ export default function EditTournamentPage() {
     description: "",
     rules: "",
     status: "upcoming",
-    organizerId: ""
+    organizerId: "",
+    teamRegistrationFee: ""
   });
   const [logo, setLogo] = useState(null);
   const [logoPreview, setLogoPreview] = useState("");
@@ -82,7 +83,8 @@ export default function EditTournamentPage() {
         description: tournament.description || "",
         rules: tournament.rules || "",
         status: tournament.status || "upcoming",
-        organizerId: tournament.organizerId?._id || tournament.organizerId || ""
+        organizerId: tournament.organizerId?._id || tournament.organizerId || "",
+        teamRegistrationFee: tournament.teamRegistrationFee !== undefined ? tournament.teamRegistrationFee : ""
       });
 
       setLogoPreview(tournament.logo || "");
@@ -169,6 +171,7 @@ export default function EditTournamentPage() {
       data.append("description", formData.description);
       data.append("rules", formData.rules);
       data.append("status", formData.status);
+      data.append("teamRegistrationFee", formData.teamRegistrationFee);
       if (user && user.role === "admin" && formData.organizerId) {
         data.append("organizerId", formData.organizerId);
       }
@@ -363,6 +366,21 @@ export default function EditTournamentPage() {
                 <option value="ongoing">🔥 Ongoing</option>
                 <option value="completed">✅ Completed</option>
               </select>
+            </div>
+          </div>
+
+          {/* Team Registration Fee Row */}
+          <div className="form-row">
+            <div className="form-group">
+              <label>Team Registration Fee (₹)</label>
+              <input
+                type="number"
+                name="teamRegistrationFee"
+                value={formData.teamRegistrationFee}
+                onChange={handleChange}
+                placeholder="e.g., 500 (0 for free)"
+                min="0"
+              />
             </div>
           </div>
 

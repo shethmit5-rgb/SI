@@ -50,7 +50,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "src_app_app",
-      "community": 30,
+      "community": 8,
       "norm_label": "app()"
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_adminsponser",
-      "community": 25,
+      "community": 12,
       "norm_label": "adminsponser.jsx"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_adminsponser_adminsponsor",
-      "community": 25,
+      "community": 12,
       "norm_label": "adminsponsor()"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_sponsorshipchart",
-      "community": 25,
+      "community": 12,
       "norm_label": "sponsorshipchart.jsx"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "adminside_sponsorshipchart_sponsorshipchart",
-      "community": 25,
+      "community": 12,
       "norm_label": "sponsorshipchart()"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_adminheader",
-      "community": 4,
+      "community": 6,
       "norm_label": "adminheader.jsx"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_coachheader",
-      "community": 4,
+      "community": 6,
       "norm_label": "coachheader.jsx"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_organizerheader",
-      "community": 4,
+      "community": 6,
       "norm_label": "organizerheader.jsx"
     },
     {
@@ -680,7 +680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_playerheader",
-      "community": 4,
+      "community": 6,
       "norm_label": "playerheader.jsx"
     },
     {
@@ -820,7 +820,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "context_authcontext",
-      "community": 4,
+      "community": 8,
       "norm_label": "authcontext.jsx"
     },
     {
@@ -830,7 +830,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "context_authcontext_authcontext",
-      "community": 4,
+      "community": 8,
       "norm_label": "authcontext"
     },
     {
@@ -840,7 +840,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "context_authcontext_authprovider",
-      "community": 30,
+      "community": 8,
       "norm_label": "authprovider()"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 30,
+      "community": 8,
       "norm_label": "main.jsx"
     },
     {
@@ -1070,7 +1070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_approveplayers",
-      "community": 8,
+      "community": 46,
       "norm_label": "approveplayers.jsx"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_approveplayers_approveplayers",
-      "community": 8,
+      "community": 46,
       "norm_label": "approveplayers()"
     },
     {
@@ -1090,7 +1090,7 @@
       "source_location": "L217",
       "_origin": "ast",
       "id": "screen_approveplayers_styles",
-      "community": 8,
+      "community": 46,
       "norm_label": "styles"
     },
     {
@@ -1120,7 +1120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_createteam",
-      "community": 4,
+      "community": 8,
       "norm_label": "createteam.jsx"
     },
     {
@@ -1160,7 +1160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_editteam",
-      "community": 1,
+      "community": 12,
       "norm_label": "editteam.jsx"
     },
     {
@@ -1180,7 +1180,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_edittournamentpage",
-      "community": 4,
+      "community": 8,
       "norm_label": "edittournamentpage.jsx"
     },
     {
@@ -1200,7 +1200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_events",
-      "community": 4,
+      "community": 1,
       "norm_label": "events.jsx"
     },
     {
@@ -1210,7 +1210,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_events_events",
-      "community": 4,
+      "community": 1,
       "norm_label": "events()"
     },
     {
@@ -1320,7 +1320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_leaderboard",
-      "community": 4,
+      "community": 1,
       "norm_label": "leaderboard.jsx"
     },
     {
@@ -1330,7 +1330,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "screen_leaderboard_leaderboard",
-      "community": 4,
+      "community": 1,
       "norm_label": "leaderboard()"
     },
     {
@@ -1380,7 +1380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_matchresults",
-      "community": 4,
+      "community": 1,
       "norm_label": "matchresults.jsx"
     },
     {
@@ -1390,7 +1390,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "screen_matchresults_matchresults",
-      "community": 4,
+      "community": 1,
       "norm_label": "matchresults()"
     },
     {
@@ -1430,7 +1430,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "screen_myteamdashboard_myteamdashboard",
-      "community": 8,
+      "community": 12,
       "norm_label": "myteamdashboard()"
     },
     {
@@ -1450,7 +1450,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_mytournaments_mytournaments",
-      "community": 12,
+      "community": 1,
       "norm_label": "mytournaments()"
     },
     {
@@ -1460,7 +1460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_notifications",
-      "community": 4,
+      "community": 8,
       "norm_label": "notifications.jsx"
     },
     {
@@ -1510,7 +1510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_organizermatches",
-      "community": 28,
+      "community": 8,
       "norm_label": "organizermatches.jsx"
     },
     {
@@ -1520,7 +1520,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_organizermatches_organizermatches",
-      "community": 28,
+      "community": 8,
       "norm_label": "organizermatches()"
     },
     {
@@ -1530,7 +1530,7 @@
       "source_location": "L360",
       "_origin": "ast",
       "id": "screen_organizermatches_matchresulteditor",
-      "community": 28,
+      "community": 8,
       "norm_label": "matchresulteditor()"
     },
     {
@@ -1540,7 +1540,7 @@
       "source_location": "L398",
       "_origin": "ast",
       "id": "screen_organizermatches_matcheditor",
-      "community": 28,
+      "community": 8,
       "norm_label": "matcheditor()"
     },
     {
@@ -1570,7 +1570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_profile",
-      "community": 29,
+      "community": 8,
       "norm_label": "profile.jsx"
     },
     {
@@ -1580,7 +1580,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_profile_profile",
-      "community": 29,
+      "community": 8,
       "norm_label": "profile()"
     },
     {
@@ -1590,7 +1590,7 @@
       "source_location": "L339",
       "_origin": "ast",
       "id": "screen_profile_teamslist",
-      "community": 29,
+      "community": 8,
       "norm_label": "teamslist()"
     },
     {
@@ -1600,7 +1600,7 @@
       "source_location": "L395",
       "_origin": "ast",
       "id": "screen_profile_registrationslist",
-      "community": 29,
+      "community": 8,
       "norm_label": "registrationslist()"
     },
     {
@@ -1610,7 +1610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_registerteam",
-      "community": 4,
+      "community": 8,
       "norm_label": "registerteam.jsx"
     },
     {
@@ -1650,7 +1650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_schedule",
-      "community": 4,
+      "community": 12,
       "norm_label": "schedule.jsx"
     },
     {
@@ -1660,7 +1660,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_schedule_schedule",
-      "community": 4,
+      "community": 1,
       "norm_label": "schedule()"
     },
     {
@@ -1690,7 +1690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsordashboard",
-      "community": 4,
+      "community": 1,
       "norm_label": "sponsordashboard.jsx"
     },
     {
@@ -1700,7 +1700,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "screen_sponsordashboard_sponsordashboard",
-      "community": 4,
+      "community": 1,
       "norm_label": "sponsordashboard()"
     },
     {
@@ -1710,7 +1710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsormanagement",
-      "community": 4,
+      "community": 8,
       "norm_label": "sponsormanagement.jsx"
     },
     {
@@ -1730,7 +1730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsors",
-      "community": 4,
+      "community": 47,
       "norm_label": "sponsors.jsx"
     },
     {
@@ -1740,7 +1740,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "screen_sponsors_sponsors",
-      "community": 4,
+      "community": 47,
       "norm_label": "sponsors()"
     },
     {
@@ -1750,7 +1750,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "screen_sponsors_cardstyle",
-      "community": 4,
+      "community": 47,
       "norm_label": "cardstyle"
     },
     {
@@ -1760,7 +1760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_teamdetails",
-      "community": 4,
+      "community": 8,
       "norm_label": "teamdetails.jsx"
     },
     {
@@ -1780,7 +1780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_teamslist",
-      "community": 4,
+      "community": 8,
       "norm_label": "teamslist.jsx"
     },
     {
@@ -1980,7 +1980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_axiosconfig",
-      "community": 4,
+      "community": 12,
       "norm_label": "axiosconfig.js"
     },
     {
@@ -1990,7 +1990,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "utils_axiosconfig_api",
-      "community": 4,
+      "community": 12,
       "norm_label": "api"
     },
     {
@@ -2000,7 +2000,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "utils_axiosconfig_uploadfile",
-      "community": 4,
+      "community": 12,
       "norm_label": "uploadfile()"
     },
     {
@@ -2010,7 +2010,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "utils_axiosconfig_getwithcache",
-      "community": 4,
+      "community": 12,
       "norm_label": "getwithcache()"
     },
     {
@@ -2020,7 +2020,7 @@
       "source_location": "L135",
       "_origin": "ast",
       "id": "utils_axiosconfig_clearcache",
-      "community": 4,
+      "community": 12,
       "norm_label": "clearcache()"
     },
     {
@@ -2060,7 +2060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_socket",
-      "community": 4,
+      "community": 6,
       "norm_label": "socket.js"
     },
     {
@@ -2070,7 +2070,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "utils_socket_socket",
-      "community": 4,
+      "community": 6,
       "norm_label": "socket"
     },
     {
@@ -2430,7 +2430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_analyticscontroller",
-      "community": 0,
+      "community": 37,
       "norm_label": "analyticscontroller.js"
     },
     {
@@ -2440,7 +2440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_tournament",
-      "community": 0,
+      "community": 37,
       "norm_label": "tournament"
     },
     {
@@ -2450,7 +2450,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_user",
-      "community": 0,
+      "community": 37,
       "norm_label": "user"
     },
     {
@@ -2460,7 +2460,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_match",
-      "community": 0,
+      "community": 37,
       "norm_label": "match"
     },
     {
@@ -2470,7 +2470,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_team",
-      "community": 0,
+      "community": 37,
       "norm_label": "team"
     },
     {
@@ -2480,7 +2480,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_sponsor",
-      "community": 0,
+      "community": 37,
       "norm_label": "sponsor"
     },
     {
@@ -2490,7 +2490,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_registration",
-      "community": 0,
+      "community": 37,
       "norm_label": "registration"
     },
     {
@@ -2500,7 +2500,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_checkandupdatetournamentstatuses",
-      "community": 0,
+      "community": 37,
       "norm_label": "{ checkandupdatetournamentstatuses }"
     },
     {
@@ -2510,7 +2510,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_getanalyticsdata",
-      "community": 0,
+      "community": 37,
       "norm_label": "getanalyticsdata()"
     },
     {
@@ -2520,7 +2520,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_getstats",
-      "community": 0,
+      "community": 40,
       "norm_label": "getstats()"
     },
     {
@@ -2530,7 +2530,7 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_getrealtime",
-      "community": 0,
+      "community": 37,
       "norm_label": "getrealtime()"
     },
     {
@@ -2540,7 +2540,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "controllers_analyticscontroller_getorganizerstats",
-      "community": 0,
+      "community": 40,
       "norm_label": "getorganizerstats()"
     },
     {
@@ -2760,7 +2760,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "controllers_matchcontroller_creatematch",
-      "community": 2,
+      "community": 43,
       "norm_label": "creatematch()"
     },
     {
@@ -2820,7 +2820,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "controllers_matchcontroller_updatematchresult",
-      "community": 2,
+      "community": 43,
       "norm_label": "updatematchresult()"
     },
     {
@@ -2860,7 +2860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller",
-      "community": 3,
+      "community": 38,
       "norm_label": "notificationcontroller.js"
     },
     {
@@ -2870,7 +2870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_notification",
-      "community": 3,
+      "community": 38,
       "norm_label": "notification"
     },
     {
@@ -2880,7 +2880,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_getnotifications",
-      "community": 3,
+      "community": 38,
       "norm_label": "getnotifications()"
     },
     {
@@ -2890,7 +2890,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_markasread",
-      "community": 3,
+      "community": 38,
       "norm_label": "markasread()"
     },
     {
@@ -2900,7 +2900,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_deletenotification",
-      "community": 3,
+      "community": 38,
       "norm_label": "deletenotification()"
     },
     {
@@ -3704,10 +3704,20 @@
       "norm_label": "razorpay"
     },
     {
+      "label": "checkAndReleaseExpiredPlayerApprovals()",
+      "file_type": "code",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "controllers_teamcontroller_checkandreleaseexpiredplayerapprovals",
+      "community": 3,
+      "norm_label": "checkandreleaseexpiredplayerapprovals()"
+    },
+    {
       "label": "createTeam()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L20",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "controllers_teamcontroller_createteam",
       "community": 3,
@@ -3717,7 +3727,7 @@
       "label": "getTeams()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L91",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "controllers_teamcontroller_getteams",
       "community": 3,
@@ -3727,7 +3737,7 @@
       "label": "getTeamsByTournament()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L105",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "controllers_teamcontroller_getteamsbytournament",
       "community": 3,
@@ -3737,7 +3747,7 @@
       "label": "applyToTeam()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L117",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "controllers_teamcontroller_applytoteam",
       "community": 3,
@@ -3747,7 +3757,7 @@
       "label": "approvePlayer()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L189",
+      "source_location": "L245",
       "_origin": "ast",
       "id": "controllers_teamcontroller_approveplayer",
       "community": 3,
@@ -3757,7 +3767,7 @@
       "label": "getMyTeams()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L261",
+      "source_location": "L322",
       "_origin": "ast",
       "id": "controllers_teamcontroller_getmyteams",
       "community": 3,
@@ -3767,7 +3777,7 @@
       "label": "getCaptainTeams()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L278",
+      "source_location": "L350",
       "_origin": "ast",
       "id": "controllers_teamcontroller_getcaptainteams",
       "community": 3,
@@ -3777,7 +3787,7 @@
       "label": "getPublicTeams()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L290",
+      "source_location": "L367",
       "_origin": "ast",
       "id": "controllers_teamcontroller_getpublicteams",
       "community": 3,
@@ -3787,7 +3797,7 @@
       "label": "getTeamById()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L302",
+      "source_location": "L379",
       "_origin": "ast",
       "id": "controllers_teamcontroller_getteambyid",
       "community": 3,
@@ -3797,7 +3807,7 @@
       "label": "updateTeam()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L320",
+      "source_location": "L399",
       "_origin": "ast",
       "id": "controllers_teamcontroller_updateteam",
       "community": 3,
@@ -3807,7 +3817,7 @@
       "label": "blockMembers()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L350",
+      "source_location": "L431",
       "_origin": "ast",
       "id": "controllers_teamcontroller_blockmembers",
       "community": 3,
@@ -3817,7 +3827,7 @@
       "label": "deleteTeamByAdmin()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L354",
+      "source_location": "L435",
       "_origin": "ast",
       "id": "controllers_teamcontroller_deleteteambyadmin",
       "community": 3,
@@ -3827,7 +3837,7 @@
       "label": "leaveTeam()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L363",
+      "source_location": "L444",
       "_origin": "ast",
       "id": "controllers_teamcontroller_leaveteam",
       "community": 3,
@@ -3837,31 +3847,41 @@
       "label": "deleteTeamByCaptain()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L393",
+      "source_location": "L474",
       "_origin": "ast",
       "id": "controllers_teamcontroller_deleteteambycaptain",
       "community": 3,
       "norm_label": "deleteteambycaptain()"
     },
     {
-      "label": "initiateJoinPayment()",
+      "label": "initiatePlayerJoinPayment()",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L414",
+      "source_location": "L495",
       "_origin": "ast",
-      "id": "controllers_teamcontroller_initiatejoinpayment",
+      "id": "controllers_teamcontroller_initiateplayerjoinpayment",
       "community": 3,
-      "norm_label": "initiatejoinpayment()"
+      "norm_label": "initiateplayerjoinpayment()"
     },
     {
-      "label": "verifyJoinPayment()",
+      "label": "teamLocks",
       "file_type": "code",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L518",
+      "source_location": "L690",
       "_origin": "ast",
-      "id": "controllers_teamcontroller_verifyjoinpayment",
+      "id": "controllers_teamcontroller_teamlocks",
       "community": 3,
-      "norm_label": "verifyjoinpayment()"
+      "norm_label": "teamlocks"
+    },
+    {
+      "label": "verifyPlayerJoinPayment()",
+      "file_type": "code",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L692",
+      "_origin": "ast",
+      "id": "controllers_teamcontroller_verifyplayerjoinpayment",
+      "community": 3,
+      "norm_label": "verifyplayerjoinpayment()"
     },
     {
       "label": "tournamentController.js",
@@ -4020,7 +4040,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_populatesponsordetailsforarray",
-      "community": 0,
+      "community": 42,
       "norm_label": "populatesponsordetailsforarray()"
     },
     {
@@ -4030,7 +4050,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_createtournament",
-      "community": 0,
+      "community": 39,
       "norm_label": "createtournament()"
     },
     {
@@ -4040,7 +4060,7 @@
       "source_location": "L221",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getmytournaments",
-      "community": 0,
+      "community": 42,
       "norm_label": "getmytournaments()"
     },
     {
@@ -4050,7 +4070,7 @@
       "source_location": "L275",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getpublictournaments",
-      "community": 0,
+      "community": 42,
       "norm_label": "getpublictournaments()"
     },
     {
@@ -4070,7 +4090,7 @@
       "source_location": "L312",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_gettournaments",
-      "community": 0,
+      "community": 42,
       "norm_label": "gettournaments()"
     },
     {
@@ -4090,7 +4110,7 @@
       "source_location": "L449",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_verifytournamentpayment",
-      "community": 0,
+      "community": 39,
       "norm_label": "verifytournamentpayment()"
     },
     {
@@ -4100,7 +4120,7 @@
       "source_location": "L546",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_updatetournament",
-      "community": 0,
+      "community": 39,
       "norm_label": "updatetournament()"
     },
     {
@@ -4110,7 +4130,7 @@
       "source_location": "L671",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_deletetournament",
-      "community": 0,
+      "community": 39,
       "norm_label": "deletetournament()"
     },
     {
@@ -4120,7 +4140,7 @@
       "source_location": "L698",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getmatchesbytournament",
-      "community": 0,
+      "community": 39,
       "norm_label": "getmatchesbytournament()"
     },
     {
@@ -4130,7 +4150,7 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getroundinfo",
-      "community": 2,
+      "community": 43,
       "norm_label": "getroundinfo()"
     },
     {
@@ -4280,7 +4300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware",
-      "community": 3,
+      "community": 40,
       "norm_label": "authmiddleware.js"
     },
     {
@@ -4290,7 +4310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware_jwt",
-      "community": 3,
+      "community": 40,
       "norm_label": "jwt"
     },
     {
@@ -4390,7 +4410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_validateobjectid",
-      "community": 0,
+      "community": 2,
       "norm_label": "validateobjectid.js"
     },
     {
@@ -4400,7 +4420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_validateobjectid_mongoose",
-      "community": 0,
+      "community": 2,
       "norm_label": "mongoose"
     },
     {
@@ -4410,7 +4430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_match",
-      "community": 2,
+      "community": 21,
       "norm_label": "match.js"
     },
     {
@@ -4420,7 +4440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_match_mongoose",
-      "community": 2,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -4430,7 +4450,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_match_matchschema",
-      "community": 2,
+      "community": 21,
       "norm_label": "matchschema"
     },
     {
@@ -4470,7 +4490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration",
-      "community": 11,
+      "community": 44,
       "norm_label": "registration.js"
     },
     {
@@ -4480,7 +4500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration_mongoose",
-      "community": 11,
+      "community": 44,
       "norm_label": "mongoose"
     },
     {
@@ -4490,7 +4510,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_registration_registrationschema",
-      "community": 11,
+      "community": 44,
       "norm_label": "registrationschema"
     },
     {
@@ -4500,7 +4520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sponsor",
-      "community": 0,
+      "community": 37,
       "norm_label": "sponsor.js"
     },
     {
@@ -4510,7 +4530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sponsor_mongoose",
-      "community": 0,
+      "community": 37,
       "norm_label": "mongoose"
     },
     {
@@ -4520,7 +4540,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_sponsor_sponsorschema",
-      "community": 0,
+      "community": 37,
       "norm_label": "sponsorschema"
     },
     {
@@ -4560,7 +4580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_team",
-      "community": 2,
+      "community": 45,
       "norm_label": "team.js"
     },
     {
@@ -4570,7 +4590,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_team_mongoose",
-      "community": 2,
+      "community": 45,
       "norm_label": "mongoose"
     },
     {
@@ -4580,7 +4600,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_team_teamschema",
-      "community": 2,
+      "community": 45,
       "norm_label": "teamschema"
     },
     {
@@ -4590,7 +4610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament",
-      "community": 2,
+      "community": 41,
       "norm_label": "tournament.js"
     },
     {
@@ -4600,7 +4620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament_mongoose",
-      "community": 2,
+      "community": 41,
       "norm_label": "mongoose"
     },
     {
@@ -4610,7 +4630,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_tournament_tournamentschema",
-      "community": 2,
+      "community": 41,
       "norm_label": "tournamentschema"
     },
     {
@@ -4620,7 +4640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction",
-      "community": 11,
+      "community": 38,
       "norm_label": "transaction.js"
     },
     {
@@ -4630,7 +4650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction_mongoose",
-      "community": 11,
+      "community": 38,
       "norm_label": "mongoose"
     },
     {
@@ -4640,7 +4660,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_transaction_transactionschema",
-      "community": 11,
+      "community": 38,
       "norm_label": "transactionschema"
     },
     {
@@ -4710,7 +4730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification",
-      "community": 3,
+      "community": 38,
       "norm_label": "notification.js"
     },
     {
@@ -4720,7 +4740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification_mongoose",
-      "community": 3,
+      "community": 38,
       "norm_label": "mongoose"
     },
     {
@@ -4730,7 +4750,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_notification_notificationschema",
-      "community": 3,
+      "community": 38,
       "norm_label": "notificationschema"
     },
     {
@@ -4740,7 +4760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_analyticsrouter",
-      "community": 0,
+      "community": 40,
       "norm_label": "analyticsrouter.js"
     },
     {
@@ -4750,7 +4770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_analyticsrouter_express",
-      "community": 0,
+      "community": 40,
       "norm_label": "express"
     },
     {
@@ -4760,7 +4780,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_analyticsrouter_getstats_getrealtime_getorganizerstats",
-      "community": 0,
+      "community": 40,
       "norm_label": "{ getstats, getrealtime, getorganizerstats }"
     },
     {
@@ -4770,7 +4790,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_analyticsrouter_auth",
-      "community": 0,
+      "community": 40,
       "norm_label": "auth"
     },
     {
@@ -4780,7 +4800,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "routes_analyticsrouter_role",
-      "community": 0,
+      "community": 40,
       "norm_label": "role"
     },
     {
@@ -4790,7 +4810,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "routes_analyticsrouter_router",
-      "community": 0,
+      "community": 40,
       "norm_label": "router"
     },
     {
@@ -4910,7 +4930,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter",
-      "community": 3,
+      "community": 38,
       "norm_label": "notificationrouter.js"
     },
     {
@@ -4920,7 +4940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter_express",
-      "community": 3,
+      "community": 38,
       "norm_label": "express"
     },
     {
@@ -4930,7 +4950,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_notificationrouter_auth",
-      "community": 3,
+      "community": 38,
       "norm_label": "auth"
     },
     {
@@ -4940,7 +4960,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_notificationrouter_getnotifications_markasread_deletenotification",
-      "community": 3,
+      "community": 38,
       "norm_label": "{\r\n  getnotifications,\r\n  markasread,\r\n  deletenotification,\r\n}"
     },
     {
@@ -4950,7 +4970,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "routes_notificationrouter_router",
-      "community": 3,
+      "community": 38,
       "norm_label": "router"
     },
     {
@@ -5254,14 +5274,14 @@
       "norm_label": "express"
     },
     {
-      "label": "{\r\n  createTeam,\r\n  getTeams,\r\n  getTeamsByTournament,\r\n  applyToTeam,\r\n  approvePlayer,\r\n  getMyTeams,\r\n  getCaptainTeams,\r\n  getPublicTeams,\r\n  getTeamById,\r\n  updateTeam,\r\n  blockMembers,\r\n  deleteTeamByAdmin,\r\n  leaveTeam,\r\n  deleteTeamByCaptain,\r\n  initiateJoinPayment,\r\n  verifyJoinPayment,\r\n}",
+      "label": "{\r\n  createTeam,\r\n  getTeams,\r\n  getTeamsByTournament,\r\n  applyToTeam,\r\n  approvePlayer,\r\n  getMyTeams,\r\n  getCaptainTeams,\r\n  getPublicTeams,\r\n  getTeamById,\r\n  updateTeam,\r\n  blockMembers,\r\n  deleteTeamByAdmin,\r\n  leaveTeam,\r\n  deleteTeamByCaptain,\r\n  initiatePlayerJoinPayment,\r\n  verifyPlayerJoinPayment,\r\n}",
       "file_type": "code",
       "source_file": "backend/routes/teamRouter.js",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "routes_teamrouter_createteam_getteams_getteamsbytournament_applytoteam_approveplayer_getmyteams_getcaptainteams_getpublicteams_getteambyid_updateteam_blockmembers_deleteteambyadmin_leaveteam_deleteteambycaptain_initiatejoinpayment_verifyjoinpayment",
+      "id": "routes_teamrouter_createteam_getteams_getteamsbytournament_applytoteam_approveplayer_getmyteams_getcaptainteams_getpublicteams_getteambyid_updateteam_blockmembers_deleteteambyadmin_leaveteam_deleteteambycaptain_initiateplayerjoinpayment_verifyplayerjoinpayment",
       "community": 3,
-      "norm_label": "{\r\n  createteam,\r\n  getteams,\r\n  getteamsbytournament,\r\n  applytoteam,\r\n  approveplayer,\r\n  getmyteams,\r\n  getcaptainteams,\r\n  getpublicteams,\r\n  getteambyid,\r\n  updateteam,\r\n  blockmembers,\r\n  deleteteambyadmin,\r\n  leaveteam,\r\n  deleteteambycaptain,\r\n  initiatejoinpayment,\r\n  verifyjoinpayment,\r\n}"
+      "norm_label": "{\r\n  createteam,\r\n  getteams,\r\n  getteamsbytournament,\r\n  applytoteam,\r\n  approveplayer,\r\n  getmyteams,\r\n  getcaptainteams,\r\n  getpublicteams,\r\n  getteambyid,\r\n  updateteam,\r\n  blockmembers,\r\n  deleteteambyadmin,\r\n  leaveteam,\r\n  deleteteambycaptain,\r\n  initiateplayerjoinpayment,\r\n  verifyplayerjoinpayment,\r\n}"
     },
     {
       "label": "auth",
@@ -5310,7 +5330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_tournamentroutes",
-      "community": 0,
+      "community": 39,
       "norm_label": "tournamentroutes.js"
     },
     {
@@ -5320,7 +5340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_tournamentroutes_express",
-      "community": 0,
+      "community": 39,
       "norm_label": "express"
     },
     {
@@ -5330,7 +5350,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_tournamentroutes_createtournament_getmytournaments_getpublictournaments_getpublictournamentbyid_gettournaments_gettournamentbyid_updatetournament_deletetournament_getmatchesbytournament_getroundinfo_verifytournamentpayment",
-      "community": 0,
+      "community": 39,
       "norm_label": "{\r\n  createtournament,\r\n  getmytournaments,\r\n  getpublictournaments,\r\n  getpublictournamentbyid,\r\n  gettournaments,\r\n  gettournamentbyid,\r\n  updatetournament,\r\n  deletetournament,\r\n  getmatchesbytournament,\r\n  getroundinfo,\r\n  verifytournamentpayment,\r\n}"
     },
     {
@@ -5340,7 +5360,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "routes_tournamentroutes_auth",
-      "community": 0,
+      "community": 39,
       "norm_label": "auth"
     },
     {
@@ -5350,7 +5370,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "routes_tournamentroutes_role",
-      "community": 0,
+      "community": 39,
       "norm_label": "role"
     },
     {
@@ -5360,7 +5380,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "routes_tournamentroutes_upload",
-      "community": 0,
+      "community": 39,
       "norm_label": "upload"
     },
     {
@@ -5370,7 +5390,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "routes_tournamentroutes_validateobjectid",
-      "community": 0,
+      "community": 39,
       "norm_label": "validateobjectid"
     },
     {
@@ -5380,7 +5400,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "routes_tournamentroutes_router",
-      "community": 0,
+      "community": 39,
       "norm_label": "router"
     },
     {
@@ -5660,7 +5680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_knockoutintegration",
-      "community": 2,
+      "community": 36,
       "norm_label": "knockoutintegration.js"
     },
     {
@@ -5670,7 +5690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_knockoutintegration_mongoose",
-      "community": 2,
+      "community": 36,
       "norm_label": "mongoose"
     },
     {
@@ -5680,7 +5700,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "tests_knockoutintegration_assert",
-      "community": 2,
+      "community": 36,
       "norm_label": "assert"
     },
     {
@@ -5690,7 +5710,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "tests_knockoutintegration_path",
-      "community": 2,
+      "community": 36,
       "norm_label": "path"
     },
     {
@@ -5700,7 +5720,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_knockoutintegration_tournament",
-      "community": 2,
+      "community": 36,
       "norm_label": "tournament"
     },
     {
@@ -5710,7 +5730,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "tests_knockoutintegration_team",
-      "community": 2,
+      "community": 36,
       "norm_label": "team"
     },
     {
@@ -5720,7 +5740,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_knockoutintegration_match",
-      "community": 2,
+      "community": 36,
       "norm_label": "match"
     },
     {
@@ -5730,7 +5750,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_knockoutintegration_gettournamentroundinfo_checkandupdatetournamentstatuses",
-      "community": 2,
+      "community": 36,
       "norm_label": "{ gettournamentroundinfo, checkandupdatetournamentstatuses }"
     },
     {
@@ -5740,7 +5760,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "tests_knockoutintegration_runtests",
-      "community": 2,
+      "community": 36,
       "norm_label": "runtests()"
     },
     {
@@ -5750,7 +5770,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "tests_knockoutintegration_cleanup",
-      "community": 2,
+      "community": 36,
       "norm_label": "cleanup()"
     },
     {
@@ -5760,7 +5780,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "tests_knockoutintegration_createtesttournament",
-      "community": 2,
+      "community": 36,
       "norm_label": "createtesttournament()"
     },
     {
@@ -5770,7 +5790,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "tests_knockoutintegration_testfourteambracket",
-      "community": 2,
+      "community": 36,
       "norm_label": "testfourteambracket()"
     },
     {
@@ -5780,7 +5800,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "tests_knockoutintegration_testeightteambracket",
-      "community": 2,
+      "community": 36,
       "norm_label": "testeightteambracket()"
     },
     {
@@ -5790,7 +5810,7 @@
       "source_location": "L283",
       "_origin": "ast",
       "id": "tests_knockoutintegration_testdatebasedstatustransitions",
-      "community": 2,
+      "community": 36,
       "norm_label": "testdatebasedstatustransitions()"
     },
     {
@@ -5800,7 +5820,7 @@
       "source_location": "L347",
       "_origin": "ast",
       "id": "tests_knockoutintegration_testvalidationrules",
-      "community": 2,
+      "community": 36,
       "norm_label": "testvalidationrules()"
     },
     {
@@ -6194,6 +6214,176 @@
       "norm_label": "runtest()"
     },
     {
+      "label": "verifyPlayerPaymentFlow.js",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow",
+      "community": 38,
+      "norm_label": "verifyplayerpaymentflow.js"
+    },
+    {
+      "label": "mongoose",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_mongoose",
+      "community": 38,
+      "norm_label": "mongoose"
+    },
+    {
+      "label": "crypto",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_crypto",
+      "community": 38,
+      "norm_label": "crypto"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_path",
+      "community": 38,
+      "norm_label": "path"
+    },
+    {
+      "label": "Team",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_team",
+      "community": 38,
+      "norm_label": "team"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_user",
+      "community": 38,
+      "norm_label": "user"
+    },
+    {
+      "label": "Transaction",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_transaction",
+      "community": 38,
+      "norm_label": "transaction"
+    },
+    {
+      "label": "Notification",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_notification",
+      "community": 38,
+      "norm_label": "notification"
+    },
+    {
+      "label": "teamController",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_teamcontroller",
+      "community": 38,
+      "norm_label": "teamcontroller"
+    },
+    {
+      "label": "uniqueSuffix",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_uniquesuffix",
+      "community": 38,
+      "norm_label": "uniquesuffix"
+    },
+    {
+      "label": "assertions",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_assertions",
+      "community": 38,
+      "norm_label": "assertions"
+    },
+    {
+      "label": "assert()",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_assert",
+      "community": 38,
+      "norm_label": "assert()"
+    },
+    {
+      "label": "mockRequest()",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_mockrequest",
+      "community": 38,
+      "norm_label": "mockrequest()"
+    },
+    {
+      "label": "mockResponse()",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_mockresponse",
+      "community": 38,
+      "norm_label": "mockresponse()"
+    },
+    {
+      "label": "createMockUser()",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_createmockuser",
+      "community": 38,
+      "norm_label": "createmockuser()"
+    },
+    {
+      "label": "createMockTeam()",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_createmockteam",
+      "community": 38,
+      "norm_label": "createmockteam()"
+    },
+    {
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "tests_verifyplayerpaymentflow_run",
+      "community": 38,
+      "norm_label": "run()"
+    },
+    {
       "label": "verifySponsorFlow.js",
       "file_type": "code",
       "source_file": "backend/tests/verifySponsorFlow.js",
@@ -6260,7 +6450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_tournamenthelper",
-      "community": 2,
+      "community": 41,
       "norm_label": "tournamenthelper.js"
     },
     {
@@ -6270,7 +6460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_tournamenthelper_tournament",
-      "community": 2,
+      "community": 41,
       "norm_label": "tournament"
     },
     {
@@ -6280,7 +6470,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "utils_tournamenthelper_match",
-      "community": 2,
+      "community": 41,
       "norm_label": "match"
     },
     {
@@ -6290,7 +6480,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "utils_tournamenthelper_gettournamentstatus",
-      "community": 2,
+      "community": 41,
       "norm_label": "gettournamentstatus()"
     },
     {
@@ -6300,7 +6490,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "utils_tournamenthelper_gettournamentroundinfo",
-      "community": 2,
+      "community": 43,
       "norm_label": "gettournamentroundinfo()"
     },
     {
@@ -6310,7 +6500,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "utils_tournamenthelper_checkandupdatetournamentstatuses",
-      "community": 0,
+      "community": 42,
       "norm_label": "checkandupdatetournamentstatuses()"
     },
     {
@@ -14663,6 +14853,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/teamController.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_teamcontroller",
+      "target": "controllers_teamcontroller_checkandreleaseexpiredplayerapprovals"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/teamController.js",
       "source_location": "L20",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -14763,11 +14963,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L414",
+      "source_location": "L495",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "controllers_teamcontroller",
-      "target": "controllers_teamcontroller_initiatejoinpayment"
+      "target": "controllers_teamcontroller_initiateplayerjoinpayment"
     },
     {
       "relation": "contains",
@@ -14813,6 +15013,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/teamController.js",
+      "source_location": "L690",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_teamcontroller",
+      "target": "controllers_teamcontroller_teamlocks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/teamController.js",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -14853,11 +15063,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/teamController.js",
-      "source_location": "L518",
+      "source_location": "L692",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "controllers_teamcontroller",
-      "target": "controllers_teamcontroller_verifyjoinpayment"
+      "target": "controllers_teamcontroller_verifyplayerjoinpayment"
     },
     {
       "relation": "imports_from",
@@ -14924,6 +15134,61 @@
       "confidence_score": 1.0,
       "source": "routes_teamrouter",
       "target": "controllers_teamcontroller"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "controllers_teamcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L354",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_teamcontroller_getcaptainteams",
+      "target": "controllers_teamcontroller_checkandreleaseexpiredplayerapprovals"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L332",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_teamcontroller_getmyteams",
+      "target": "controllers_teamcontroller_checkandreleaseexpiredplayerapprovals"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L381",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_teamcontroller_getteambyid",
+      "target": "controllers_teamcontroller_checkandreleaseexpiredplayerapprovals"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L503",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_teamcontroller_initiateplayerjoinpayment",
+      "target": "controllers_teamcontroller_checkandreleaseexpiredplayerapprovals"
     },
     {
       "relation": "imports",
@@ -15088,7 +15353,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routes_teamrouter",
-      "target": "controllers_teamcontroller_initiatejoinpayment"
+      "target": "controllers_teamcontroller_initiateplayerjoinpayment"
     },
     {
       "relation": "imports",
@@ -15099,7 +15364,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routes_teamrouter",
-      "target": "controllers_teamcontroller_verifyjoinpayment"
+      "target": "controllers_teamcontroller_verifyplayerjoinpayment"
     },
     {
       "relation": "contains",
@@ -16473,6 +16738,17 @@
       "target": "models_team"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "models_team",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/Tournament.js",
@@ -16535,6 +16811,17 @@
       "target": "models_transaction_transactionschema"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "models_transaction",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/User.js",
@@ -16553,6 +16840,17 @@
       "confidence_score": 1.0,
       "source": "models_user",
       "target": "models_user_userschema"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "models_user",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16593,6 +16891,17 @@
       "confidence_score": 1.0,
       "source": "models_notification",
       "target": "models_notification_notificationschema"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "models_notification",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17032,7 +17341,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routes_teamrouter",
-      "target": "routes_teamrouter_createteam_getteams_getteamsbytournament_applytoteam_approveplayer_getmyteams_getcaptainteams_getpublicteams_getteambyid_updateteam_blockmembers_deleteteambyadmin_leaveteam_deleteteambycaptain_initiatejoinpayment_verifyjoinpayment"
+      "target": "routes_teamrouter_createteam_getteams_getteamsbytournament_applytoteam_approveplayer_getmyteams_getcaptainteams_getpublicteams_getteambyid_updateteam_blockmembers_deleteteambyadmin_leaveteam_deleteteambycaptain_initiateplayerjoinpayment_verifyplayerjoinpayment"
     },
     {
       "relation": "contains",
@@ -18011,6 +18320,221 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_assert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_assertions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_createmockteam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_createmockuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_crypto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_mockrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_mockresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_mongoose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_notification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_team",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_teamcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_transaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_uniquesuffix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow",
+      "target": "tests_verifyplayerpaymentflow_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow_run",
+      "target": "tests_verifyplayerpaymentflow_assert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow_run",
+      "target": "tests_verifyplayerpaymentflow_mockrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow_run",
+      "target": "tests_verifyplayerpaymentflow_mockresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow_run",
+      "target": "tests_verifyplayerpaymentflow_createmockuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "tests_verifyplayerpaymentflow_run",
+      "target": "tests_verifyplayerpaymentflow_createmockteam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/verifySponsorFlow.js",
       "source_location": "L1",
       "weight": 1.0,
@@ -18326,5 +18850,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "333281dd0b4bb5f77948b78090520e8d3ea8d58c"
+  "built_at_commit": "c7d33ae1818da77b34825559b535c1f57d6479e9"
 }

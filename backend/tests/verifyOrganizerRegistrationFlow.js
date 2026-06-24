@@ -46,7 +46,12 @@ async function runTest() {
 
     // Clean up old test data
     console.log("Cleaning up old test data...");
-    await User.deleteMany({ _id: { $in: [testOrgAId, testOrgBId, testCoachId, testAdminId] } });
+    await User.deleteMany({ 
+      $or: [
+        { _id: { $in: [testOrgAId, testOrgBId, testCoachId, testAdminId] } },
+        { email: { $in: ["org_a@example.com", "org_b@example.com", "coach_test@example.com", "admin_test@example.com"] } }
+      ]
+    });
     await Tournament.deleteMany({ eventName: { $in: ["Org A Tourney", "Org B Tourney", "Ongoing Tourney", "Capacity Tourney"] } });
     await Team.deleteMany({ teamName: { $in: ["Coach Team A", "Coach Team B", "Coach Team C", "Coach Team D", "Coach Team E", "Coach Team F", "Coach Team G"] } });
     await Registration.deleteMany({ userId: testCoachId });

@@ -174,9 +174,19 @@ exports.registerTeam = async (req, res, next) => {
 exports.getMyRegistrations = async (req, res, next) => {
   try {
     await checkAndReleaseExpiredRegistrations(null, req);
-    const registrations = await Registration.find({ userId: req.user.userId })
-      .populate("tournamentId", "eventName startDate status prizePool")
-      .populate("teamId", "teamName");
+    
+    // Find all teams where this user is the captain
+    const myTeams = await Team.find({ captainId: req.user.userId }).select("_id");
+    const myTeamIds = myTeams.map(t => t._id);
+
+    const registrations = await Registration.find({
+      $or: [
+        { userId: req.user.userId },
+        { teamId: { $in: myTeamIds } }
+      ]
+    })
+      .populate("tournamentId", "eventName startDate status prizePool teamRegistrationFee")
+      .populate("teamId", "teamName captainId");
 
     res.json(registrations);
   } catch (err) {

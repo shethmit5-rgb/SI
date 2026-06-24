@@ -14,8 +14,8 @@ const {
   deleteTeamByAdmin,
   leaveTeam,
   deleteTeamByCaptain,
-  initiateJoinPayment,
-  verifyJoinPayment,
+  initiatePlayerJoinPayment,
+  verifyPlayerJoinPayment,
 } = require("../controllers/teamController");
 const auth = require("../middleware/authMiddleware");
 const role = require("../middleware/roleMiddleware");
@@ -33,8 +33,8 @@ const blockOrganizerForTeamManagement = (req, res, next) => {
 };
 
 /* ================= PLAYER JOINING PAYMENTS ================= */
-router.post("/pay-join", auth, blockOrganizerForTeamManagement, initiateJoinPayment);
-router.post("/verify-join", auth, blockOrganizerForTeamManagement, verifyJoinPayment);
+router.post("/pay-join", auth, blockOrganizerForTeamManagement, initiatePlayerJoinPayment);
+router.post("/verify-join", auth, blockOrganizerForTeamManagement, verifyPlayerJoinPayment);
 
 /* =========================================================
    CREATE TEAM
@@ -60,6 +60,12 @@ router.post("/:teamId/apply", auth, blockOrganizerForTeamManagement, applyToTeam
    CAPTAIN APPROVE / REJECT PLAYER
 ========================================================= */
 router.put("/:teamId/approve", auth, blockOrganizerForTeamManagement, approvePlayer);
+router.put("/:teamId/player/:playerId", auth, blockOrganizerForTeamManagement, (req, res, next) => {
+  req.body.userId = req.params.playerId;
+  req.body.action = req.body.status;
+  approvePlayer(req, res, next);
+});
+
 
 /* =========================================================
    GET MY TEAMS

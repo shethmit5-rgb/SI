@@ -16,10 +16,65 @@ try {
   console.error("Razorpay initialization error in teamController:", error);
 }
 
+const checkAndReleaseExpiredPlayerApprovals = async (teamId, req) => {
+  try {
+    const team = await Team.findById(teamId);
+    if (!team) return;
+
+    let modified = false;
+    const currentTime = new Date();
+
+    for (const player of team.players) {
+      if (
+        player.status === "approved_pending_payment" &&
+        player.paymentDeadline &&
+        new Date(player.paymentDeadline) <= currentTime
+      ) {
+        player.status = "pending";
+        player.paymentStatus = "unpaid";
+        player.paymentDeadline = null;
+        modified = true;
+
+        // Send notification to player
+        const Notification = require("../models/notification");
+        const notification = await Notification.create({
+          userId: player.userId,
+          message: "Your approval expired because payment was not completed within 24 hours.",
+          type: "player_approval_expired",
+          relatedId: team._id,
+          isRead: false
+        });
+
+        // Socket notification
+        if (req) {
+          const io = req.app.get("io");
+          const users = req.app.get("users") || {};
+          const playerSocket = users[player.userId.toString()];
+          if (playerSocket && io) {
+            io.to(playerSocket).emit("new_notification", {
+              _id: notification._id,
+              message: notification.message,
+              type: notification.type,
+              relatedId: notification.relatedId,
+              createdAt: notification.createdAt,
+              isRead: false
+            });
+          }
+        }
+      }
+    }
+
+    if (modified) {
+      await team.save();
+    }
+  } catch (err) {
+    console.error("Error in checkAndReleaseExpiredPlayerApprovals:", err);
+  }
+};
 
 exports.createTeam = async (req, res, next) => {
   try {
-    const { teamName, tournamentId, sportId, captainId } = req.body;
+    const { teamName, tournamentId, sportId, captainId, playerJoiningFee } = req.body;
 
     if (req.user.role === "organizer") {
       return res.status(403).json({ message: "Organizers are not permitted to perform this action." });
@@ -73,6 +128,7 @@ exports.createTeam = async (req, res, next) => {
       tournamentId,
       sportId,
       captainId: finalCaptainId,
+      playerJoiningFee: Number(playerJoiningFee) || 0,
       players: [],
     });
 
@@ -195,10 +251,12 @@ exports.approvePlayer = async (req, res, next) => {
       return res.status(404).json({ message: "Team not found" });
     }
 
-    // Only captain can approve/reject
-    if (!team.captainId || team.captainId._id.toString() !== req.user.userId) {
+    // Only captain (coach) or admin can approve/reject
+    const isCaptain = team.captainId && team.captainId._id.toString() === req.user.userId;
+    const isAdmin = req.user.role === "admin";
+    if (!isCaptain && !isAdmin) {
       return res.status(403).json({ 
-        message: "Access denied. Only team captain can approve players." 
+        message: "Access denied. Only team coach or admin can approve players." 
       });
     }
 
@@ -208,30 +266,33 @@ exports.approvePlayer = async (req, res, next) => {
     }
 
     if (action === "approved") {
-      if (team.playerJoiningFee > 0) {
-        player.status = "approved_pending_payment";
-      } else {
-        player.status = "approved";
+      // DUPLICATE ACTIVE MEMBER PROTECTION
+      const isAlreadyActive = team.players.some(
+        p => p.userId && p.userId.toString() === userId && p.status === "approved"
+      );
+      if (isAlreadyActive) {
+        return res.status(400).json({ message: "Player is already an active member." });
       }
+
+      player.status = "approved_pending_payment";
+      player.paymentStatus = "unpaid";
+      player.paymentDeadline = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
     } else {
-      player.status = action; // "rejected" etc.
+      player.status = action; // e.g. "rejected"
+      player.paymentStatus = "unpaid";
+      player.paymentDeadline = null;
     }
 
     await team.save();
-
-    // Get player details for notification
-    const playerUser = await User.findById(userId);
 
     // Send notification to player
     const Notification = require("../models/notification");
     const notification = await Notification.create({
       userId: userId,
-      message: player.status === "approved_pending_payment"
-        ? `✅ Your request to join "${team.teamName}" has been approved! Please pay the joining fee of ₹${team.playerJoiningFee} to active your membership.`
-        : (action === "approved" 
-          ? `✅ Your request to join "${team.teamName}" has been APPROVED by captain ${team.captainId?.name || "the Captain"}!`
-          : `❌ Your request to join "${team.teamName}" has been REJECTED by captain ${team.captainId?.name || "the Captain"}.`),
-      type: action === "approved" ? "player_approved" : "player_rejected",
+      message: action === "approved"
+        ? "Your join request has been approved. Complete payment to become an active member."
+        : `❌ Your request to join "${team.teamName}" has been REJECTED by ${isAdmin ? "Admin" : `captain ${team.captainId?.name || "the Captain"}`}.`,
+      type: action === "approved" ? "player_approved_pending_payment" : "player_rejected",
       relatedId: team._id,
       isRead: false
     });
@@ -260,6 +321,17 @@ exports.approvePlayer = async (req, res, next) => {
 
 exports.getMyTeams = async (req, res, next) => {
   try {
+    const teamIds = await Team.find({
+      $or: [
+        { captainId: req.user.userId },
+        { "players.userId": req.user.userId },
+      ]
+    }).select("_id");
+
+    for (const t of teamIds) {
+      await checkAndReleaseExpiredPlayerApprovals(t._id, req);
+    }
+
     const teams = await Team.find({
       $or: [
         { captainId: req.user.userId },
@@ -277,6 +349,11 @@ exports.getMyTeams = async (req, res, next) => {
 
 exports.getCaptainTeams = async (req, res, next) => {
   try {
+    const teamIds = await Team.find({ captainId: req.user.userId }).select("_id");
+    for (const t of teamIds) {
+      await checkAndReleaseExpiredPlayerApprovals(t._id, req);
+    }
+
     const teams = await Team.find({
       captainId: req.user.userId,
     }).populate("players.userId", "name email");
@@ -301,6 +378,8 @@ exports.getPublicTeams = async (req, res, next) => {
 
 exports.getTeamById = async (req, res, next) => {
   try {
+    await checkAndReleaseExpiredPlayerApprovals(req.params.id, req);
+
     const team = await Team.findById(req.params.id)
       .populate("captainId", "name email role phoneNumber age gender location")
       .populate("players.userId", "name email role phoneNumber age gender location")
@@ -325,9 +404,11 @@ exports.updateTeam = async (req, res, next) => {
       return res.status(404).json({ message: "Team not found" });
     }
 
-    // Only captain can edit
-    if (team.captainId.toString() !== req.user.userId) {
-      return res.status(403).json({ message: "Only captain can edit team" });
+    // Only captain or admin can edit
+    const isCaptain = team.captainId.toString() === req.user.userId;
+    const isAdmin = req.user.role === "admin";
+    if (!isCaptain && !isAdmin) {
+      return res.status(403).json({ message: "Access denied. Only team captain or admin can edit team." });
     }
 
     const { teamName, playerJoiningFee } = req.body;
@@ -411,33 +492,129 @@ exports.deleteTeamByCaptain = async (req, res, next) => {
   }
 };
 
-exports.initiateJoinPayment = async (req, res) => {
+exports.initiatePlayerJoinPayment = async (req, res) => {
   try {
     const { teamId } = req.body;
     if (!teamId) {
       return res.status(400).json({ message: "Missing teamId field" });
     }
 
+    // Check expiry before initiating
+    await checkAndReleaseExpiredPlayerApprovals(teamId, req);
+
     const team = await Team.findById(teamId);
     if (!team) return res.status(404).json({ message: "Team not found" });
 
-    // Check if player is actually approved pending payment
+    // Find player in the team
     const player = team.players.find(p => p.userId && p.userId.toString() === req.user.userId);
     if (!player) {
-      return res.status(400).json({ message: "You are not a member of this team" });
-    }
-    if (player.status !== "approved_pending_payment") {
-      return res.status(400).json({ message: `Your membership status is "${player.status}", not pending payment.` });
+      return res.status(404).json({ message: "You have not requested to join this team." });
     }
 
-    // If joining fee is 0 or less, directly approve
+    // Validation checks
+    if (player.status === "pending") {
+      return res.status(400).json({ message: "Your request is still awaiting coach approval." });
+    }
+    if (player.status === "rejected") {
+      return res.status(400).json({ message: "Your request has been rejected." });
+    }
+    if (player.status === "approved") {
+      return res.status(400).json({ message: "Player is already active." });
+    }
+    if (player.status !== "approved_pending_payment") {
+      return res.status(400).json({ message: `Invalid request status: ${player.status}` });
+    }
+
+    // Check existing paid transaction for duplicate payment protection
+    const existingPaidTx = await Transaction.findOne({
+      userId: req.user.userId,
+      teamId: teamId,
+      paymentType: "player_joining",
+      status: "paid"
+    });
+    if (existingPaidTx) {
+      return res.status(400).json({ message: "Payment already completed." });
+    }
+
+    // Zero Fee Flow
     if (!team.playerJoiningFee || team.playerJoiningFee === 0) {
       player.status = "approved";
+      player.paymentStatus = "Paid";
+      player.paymentDeadline = null;
       await team.save();
+
+      // Create paid transaction record
+      const transaction = new Transaction({
+        userId: req.user.userId,
+        teamId,
+        paymentType: "player_joining",
+        amount: 0,
+        status: "paid",
+        razorpayOrderId: "free_join_" + Date.now(),
+        razorpayPaymentId: "free_pay_" + Date.now(),
+        tempData: {
+          userId: req.user.userId,
+          teamId,
+          coachId: team.captainId ? team.captainId.toString() : null
+        }
+      });
+      await transaction.save();
+
+      // Send notifications:
+      const Notification = require("../models/notification");
+      const io = req.app.get("io");
+      const users = req.app.get("users") || {};
+      const playerUser = await User.findById(req.user.userId);
+
+      // 1. PLAYER
+      const pNotif = await Notification.create({
+        userId: req.user.userId,
+        message: "Your payment completed. Membership activated.",
+        type: "player_activated",
+        relatedId: team._id,
+        isRead: false
+      });
+      const pSocket = users[req.user.userId];
+      if (pSocket && io) {
+        io.to(pSocket).emit("new_notification", pNotif);
+      }
+
+      // 2. COACH
+      if (team.captainId) {
+        const coachNotif = await Notification.create({
+          userId: team.captainId,
+          message: `Player ${playerUser.name} payment completed. Player became active member.`,
+          type: "player_activated_coach",
+          relatedId: team._id,
+          isRead: false
+        });
+        const coachSocket = users[team.captainId.toString()];
+        if (coachSocket && io) {
+          io.to(coachSocket).emit("new_notification", coachNotif);
+        }
+      }
+
+      // 3. ADMIN
+      const admins = await User.find({ role: "admin" });
+      for (const admin of admins) {
+        const adminNotif = await Notification.create({
+          userId: admin._id,
+          message: `Player ${playerUser.name} payment completed. Player activated.`,
+          type: "player_activated_admin",
+          relatedId: team._id,
+          isRead: false
+        });
+        const adminSocket = users[admin._id.toString()];
+        if (adminSocket && io) {
+          io.to(adminSocket).emit("new_notification", adminNotif);
+        }
+      }
+
       return res.status(200).json({
         success: true,
         requiresPayment: false,
-        message: "No joining fee required, membership activated."
+        message: "No joining fee required, membership activated.",
+        team
       });
     }
 
@@ -445,7 +622,7 @@ exports.initiateJoinPayment = async (req, res) => {
       return res.status(503).json({ message: "Payment service not configured" });
     }
 
-    // Check for existing pending transaction
+    // Duplicate Payment Protection: Reuse existing Razorpay order if exists
     let existingTx = await Transaction.findOne({
       userId: req.user.userId,
       teamId: teamId,
@@ -453,16 +630,7 @@ exports.initiateJoinPayment = async (req, res) => {
       status: "created"
     });
 
-    const tempData = {
-      userId: req.user.userId,
-      teamId
-    };
-
     if (existingTx) {
-      existingTx.tempData = tempData;
-      existingTx.updatedAt = Date.now();
-      await existingTx.save();
-
       return res.status(200).json({
         success: true,
         requiresPayment: true,
@@ -475,7 +643,7 @@ exports.initiateJoinPayment = async (req, res) => {
       });
     }
 
-    // Create a new Razorpay order
+    // Paid Flow: Create new Razorpay order
     const amount = team.playerJoiningFee;
     const options = {
       amount: amount * 100, // paise
@@ -497,7 +665,11 @@ exports.initiateJoinPayment = async (req, res) => {
       amount,
       status: "created",
       razorpayOrderId: order.id,
-      tempData: tempData
+      tempData: {
+        userId: req.user.userId,
+        teamId,
+        coachId: team.captainId ? team.captainId.toString() : null
+      }
     });
 
     await transaction.save();
@@ -510,73 +682,97 @@ exports.initiateJoinPayment = async (req, res) => {
     });
 
   } catch (error) {
-    console.error("initiateJoinPayment error:", error);
+    console.error("initiatePlayerJoinPayment error:", error);
     res.status(500).json({ message: error.message });
   }
 };
 
-exports.verifyJoinPayment = async (req, res) => {
+const teamLocks = new Map();
+
+exports.verifyPlayerJoinPayment = async (req, res) => {
+  const {
+    razorpay_order_id,
+    razorpay_payment_id,
+    razorpay_signature,
+    transactionId,
+  } = req.body;
+
+  if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !transactionId) {
+    return res.status(400).json({ success: false, message: "Missing verification payload" });
+  }
+
+  // Verify signature
+  const body = razorpay_order_id + "|" + razorpay_payment_id;
+  const expectedSignature = crypto
+    .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+    .update(body.toString())
+    .digest("hex");
+
+  const isAuthentic = expectedSignature === razorpay_signature;
+  if (!isAuthentic) {
+    return res.status(400).json({ success: false, message: "Payment signature verification failed" });
+  }
+
+  const transaction = await Transaction.findById(transactionId);
+  if (!transaction) {
+    return res.status(404).json({ success: false, message: "Transaction not found" });
+  }
+
+  // Verify ownership
+  if (transaction.userId.toString() !== req.user.userId) {
+    return res.status(403).json({ success: false, message: "Unauthorized: You do not own this transaction" });
+  }
+
+  // Prevent duplicate verification
+  if (transaction.status === "paid") {
+    return res.status(400).json({ success: false, message: "Payment already completed." });
+  }
+
+  const teamId = transaction.teamId.toString();
+
+  // Acquire lock per team
+  while (teamLocks.has(teamId)) {
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  teamLocks.set(teamId, true);
+
   try {
-    if (!razorpay) {
-      return res.status(503).json({ 
-        success: false, 
-        message: "Payment service not configured" 
-      });
-    }
-
-    const {
-      razorpay_order_id,
-      razorpay_payment_id,
-      razorpay_signature,
-      transactionId,
-    } = req.body;
-
-    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !transactionId) {
-      return res.status(400).json({ success: false, message: "Missing verification payload" });
-    }
-
-    // Verify signature
-    const body = razorpay_order_id + "|" + razorpay_payment_id;
-    const expectedSignature = crypto
-      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
-      .update(body.toString())
-      .digest("hex");
-
-    const isAuthentic = expectedSignature === razorpay_signature;
-    if (!isAuthentic) {
-      return res.status(400).json({ success: false, message: "Payment signature verification failed" });
-    }
-
-    const transaction = await Transaction.findById(transactionId);
-    if (!transaction) {
-      return res.status(404).json({ success: false, message: "Transaction not found" });
-    }
-
-    if (transaction.status === "paid") {
-      return res.status(400).json({ success: false, message: "Transaction already paid and verified" });
-    }
-
-    if (transaction.userId.toString() !== req.user.userId) {
-      return res.status(403).json({ success: false, message: "Unauthorized: You do not own this transaction" });
-    }
-
     const team = await Team.findById(transaction.teamId);
     if (!team) {
+      teamLocks.delete(teamId);
       return res.status(404).json({ success: false, message: "Team not found" });
     }
 
-    const expectedAmount = team.playerJoiningFee;
-    if (transaction.amount !== expectedAmount) {
-      return res.status(400).json({ success: false, message: "Transaction amount mismatch" });
-    }
-
-    // Update player status in the Team
+    // Recheck player still exists
     const player = team.players.find(p => p.userId && p.userId.toString() === transaction.userId.toString());
     if (!player) {
-      return res.status(400).json({ success: false, message: "Player not found in team players list" });
+      teamLocks.delete(teamId);
+      return res.status(404).json({ success: false, message: "Player not found in team" });
     }
 
+    // Recheck player status is approved_pending_payment
+    if (player.status !== "approved_pending_payment") {
+      if (player.status === "approved") {
+        teamLocks.delete(teamId);
+        return res.status(400).json({ success: false, message: "Player is already active." });
+      }
+      teamLocks.delete(teamId);
+      return res.status(400).json({ success: false, message: `Player is not approved pending payment. Current status: ${player.status}` });
+    }
+
+    // DUPLICATE ACTIVE MEMBER PROTECTION
+    const isAlreadyActive = team.players.some(
+      p => p.userId && p.userId.toString() === transaction.userId.toString() && p.status === "approved"
+    );
+    if (isAlreadyActive) {
+      teamLocks.delete(teamId);
+      return res.status(400).json({ success: false, message: "Player is already an active member." });
+    }
+
+    // Update player status
     player.status = "approved";
+    player.paymentStatus = "Paid";
+    player.paymentDeadline = null;
     await team.save();
 
     // Update Transaction
@@ -586,27 +782,57 @@ exports.verifyJoinPayment = async (req, res) => {
     transaction.updatedAt = Date.now();
     await transaction.save();
 
-    // Send notification to player
-    const notification = await Notification.create({
+    // Release lock
+    teamLocks.delete(teamId);
+
+    // Send notifications
+    const Notification = require("../models/notification");
+    const io = req.app.get("io");
+    const users = req.app.get("users") || {};
+    const playerUser = await User.findById(transaction.userId);
+
+    // 1. PLAYER
+    const pNotif = await Notification.create({
       userId: transaction.userId,
-      message: `✅ Your membership in team "${team.teamName}" is now fully active!`,
-      type: "player_approved",
+      message: "Your payment completed. Membership activated.",
+      type: "player_activated",
       relatedId: team._id,
       isRead: false
     });
+    const pSocket = users[transaction.userId.toString()];
+    if (pSocket && io) {
+      io.to(pSocket).emit("new_notification", pNotif);
+    }
 
-    const io = req.app.get("io");
-    const users = req.app.get("users") || {};
-    const playerSocket = users[transaction.userId.toString()];
-    if (playerSocket && io) {
-      io.to(playerSocket).emit("new_notification", {
-        _id: notification._id,
-        message: notification.message,
-        type: notification.type,
-        relatedId: notification.relatedId,
-        createdAt: notification.createdAt,
+    // 2. COACH
+    if (team.captainId) {
+      const coachNotif = await Notification.create({
+        userId: team.captainId,
+        message: `Player ${playerUser.name} payment completed. Player became active member.`,
+        type: "player_activated_coach",
+        relatedId: team._id,
         isRead: false
       });
+      const coachSocket = users[team.captainId.toString()];
+      if (coachSocket && io) {
+        io.to(coachSocket).emit("new_notification", coachNotif);
+      }
+    }
+
+    // 3. ADMIN
+    const admins = await User.find({ role: "admin" });
+    for (const admin of admins) {
+      const adminNotif = await Notification.create({
+        userId: admin._id,
+        message: `Player ${playerUser.name} payment completed. Player activated.`,
+        type: "player_activated_admin",
+        relatedId: team._id,
+        isRead: false
+      });
+      const adminSocket = users[admin._id.toString()];
+      if (adminSocket && io) {
+        io.to(adminSocket).emit("new_notification", adminNotif);
+      }
     }
 
     res.status(200).json({
@@ -614,8 +840,10 @@ exports.verifyJoinPayment = async (req, res) => {
       message: "Player joining payment verified and membership activated",
       team
     });
+
   } catch (error) {
-    console.error("verifyJoinPayment error:", error);
+    teamLocks.delete(teamId);
+    console.error("verifyPlayerJoinPayment error:", error);
     res.status(500).json({ success: false, message: error.message });
   }
 };

@@ -133,19 +133,138 @@ export default function MyRegistrations() {
     }
   };
 
-  const filteredRegistrations = registrations.filter(reg => {
-    if (activeFilter === "all") return true;
-    return reg.approvalStatus === activeFilter;
-  });
+  const pendingRegs = registrations.filter(r => r.approvalStatus === "pending");
+  const pendingPaymentRegs = registrations.filter(r => r.approvalStatus === "approved_pending_payment");
+  const approvedRegs = registrations.filter(r => r.approvalStatus === "approved");
+  const rejectedRegs = registrations.filter(r => r.approvalStatus === "rejected");
 
-  if (!user) {
+  const renderRegistrationCard = (reg) => (
+    <div key={reg._id} className="registration-card">
+      <div className="reg-header">
+        <div className="reg-title">
+          <h3>{reg.tournamentId?.eventName}</h3>
+          <span 
+            className="status-badge"
+            style={{ backgroundColor: getStatusColor(reg.approvalStatus) }}
+          >
+            {getStatusIcon(reg.approvalStatus)} {reg.approvalStatus === "approved_pending_payment" ? "Approved (Pending Payment)" : reg.approvalStatus === "approved" ? "Registration Completed" : reg.approvalStatus}
+          </span>
+        </div>
+      </div>
+
+      {reg.approvalStatus === "approved_pending_payment" && (
+        <div className="payment-alert-box" style={{
+          backgroundColor: "#eff6ff",
+          border: "1px solid #bfdbfe",
+          borderRadius: "8px",
+          padding: "12px 16px",
+          marginBottom: "16px",
+          color: "#1e40af",
+          fontSize: "0.95rem"
+        }}>
+          <p style={{ margin: 0, fontWeight: "500" }}>
+            Your registration has been approved. Complete payment to confirm participation.
+          </p>
+          {reg.paymentDeadline && (
+            <p style={{ margin: "4px 0 0 0", fontSize: "0.85rem", color: "#2563eb" }}>
+              ⏰ Payment deadline: {new Date(reg.paymentDeadline).toLocaleString()}
+            </p>
+          )}
+        </div>
+      )}
+
+      <div className="reg-details">
+        <div className="detail-item">
+          <span className="detail-label">🏷️ Team:</span>
+          <span className="detail-value">{reg.teamId?.teamName}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">📅 Registered on:</span>
+          <span className="detail-value">{new Date(reg.registrationDate).toLocaleDateString()}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">💰 Fee:</span>
+          <span className="detail-value">
+            {reg.tournamentId?.teamRegistrationFee !== undefined ? `₹${reg.tournamentId.teamRegistrationFee}` : "Free"}
+          </span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">💳 Payment:</span>
+          <span className={`payment-status ${reg.paymentStatus}`}>
+            {reg.paymentStatus === "Paid" || reg.paymentStatus === "paid" ? "✅ Paid" : "⏳ Pending"}
+          </span>
+        </div>
+      </div>
+
+      <div className="reg-footer">
+        <Link to={`/tournament/${reg.tournamentId?._id}`} className="view-tournament">
+          View Tournament →
+        </Link>
+        <Link to={`/team/${reg.teamId?._id}`} className="view-team">
+          View Team →
+        </Link>
+        {reg.approvalStatus === "approved_pending_payment" && (
+          <button 
+            onClick={() => handlePayment(reg)}
+            className="complete-payment-btn"
+            style={{
+              backgroundColor: "#3b82f6",
+              color: "white",
+              border: "none",
+              borderRadius: "6px",
+              padding: "8px 16px",
+              fontWeight: "600",
+              cursor: "pointer",
+              transition: "all 0.2s"
+            }}
+            disabled={actionLoading === reg._id}
+          >
+            💳 Complete Payment
+          </button>
+        )}
+        {/* Cancel Registration Button */}
+        <button 
+          onClick={() => cancelRegistration(reg._id, reg.tournamentId?.eventName, reg.teamId?.teamName)}
+          className="cancel-reg-btn"
+          disabled={actionLoading === reg._id}
+        >
+          {actionLoading === reg._id ? "Cancelling..." : "❌ Cancel Registration"}
+        </button>
+      </div>
+    </div>
+  );
+
+  const renderSection = (title, regs, emptyMessage, statusFilter) => {
+    if (activeFilter !== "all" && activeFilter !== statusFilter) return null;
     return (
-      <div className="login-prompt">
-        <p>Please login to view your registrations</p>
-        <Link to="/login" className="login-btn">Login</Link>
+      <div className="reg-section" style={{ marginBottom: "40px" }} key={statusFilter}>
+        <h2 style={{ fontSize: "1.4rem", color: "#1f2937", marginBottom: "15px", borderBottom: "2px solid #e5e7eb", paddingBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
+          {statusFilter === "pending" && "⏳"}
+          {statusFilter === "approved_pending_payment" && "💳"}
+          {statusFilter === "approved" && "✅"}
+          {statusFilter === "rejected" && "❌"}
+          {title} ({regs.length})
+        </h2>
+        {regs.length > 0 ? (
+          <div className="registrations-list">
+            {regs.map(reg => renderRegistrationCard(reg))}
+          </div>
+        ) : (
+          <div className="empty-section-message" style={{
+            padding: "20px",
+            background: "rgba(255, 255, 255, 0.4)",
+            border: "1px dashed #cbd5e1",
+            borderRadius: "8px",
+            color: "#64748b",
+            textAlign: "center",
+            fontSize: "0.95rem"
+          }}>
+            {emptyMessage}
+          </div>
+        )}
       </div>
     );
-  }
+  };
 
   if (loading) return <div className="loading-spinner">Loading registrations...</div>;
 
@@ -163,102 +282,17 @@ export default function MyRegistrations() {
         <button onClick={() => setActiveFilter("rejected")} className={activeFilter === "rejected" ? "active" : ""}>Rejected</button>
       </div>
 
-      {filteredRegistrations.length > 0 ? (
-        <div className="registrations-list">
-          {filteredRegistrations.map(reg => (
-            <div key={reg._id} className="registration-card">
-              <div className="reg-header">
-                <div className="reg-title">
-                  <h3>{reg.tournamentId?.eventName}</h3>
-                  <span 
-                    className="status-badge"
-                    style={{ backgroundColor: getStatusColor(reg.approvalStatus) }}
-                  >
-                    {getStatusIcon(reg.approvalStatus)} {reg.approvalStatus === "approved_pending_payment" ? "Approved (Pending Payment)" : reg.approvalStatus === "approved" ? "Registration Completed" : reg.approvalStatus}
-                  </span>
-                </div>
-              </div>
-
-              {reg.approvalStatus === "approved_pending_payment" && (
-                <div className="payment-alert-box" style={{
-                  backgroundColor: "#eff6ff",
-                  border: "1px solid #bfdbfe",
-                  borderRadius: "8px",
-                  padding: "12px 16px",
-                  marginBottom: "16px",
-                  color: "#1e40af",
-                  fontSize: "0.95rem"
-                }}>
-                  <p style={{ margin: 0, fontWeight: "500" }}>
-                    Your registration has been approved. Complete payment to confirm participation.
-                  </p>
-                  {reg.paymentDeadline && (
-                    <p style={{ margin: "4px 0 0 0", fontSize: "0.85rem", color: "#2563eb" }}>
-                      ⏰ Payment deadline: {new Date(reg.paymentDeadline).toLocaleString()}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              <div className="reg-details">
-                <div className="detail-item">
-                  <span className="detail-label">🏷️ Team:</span>
-                  <span className="detail-value">{reg.teamId?.teamName}</span>
-                </div>
-                <div className="detail-item">
-                  <span className="detail-label">📅 Registered on:</span>
-                  <span className="detail-value">{new Date(reg.registrationDate).toLocaleDateString()}</span>
-                </div>
-                <div className="detail-item">
-                  <span className="detail-label">💰 Payment:</span>
-                  <span className={`payment-status ${reg.paymentStatus}`}>
-                    {reg.paymentStatus === "Paid" || reg.paymentStatus === "paid" ? "✅ Paid" : "⏳ Pending"}
-                  </span>
-                </div>
-              </div>
-
-              <div className="reg-footer">
-                <Link to={`/tournament/${reg.tournamentId?._id}`} className="view-tournament">
-                  View Tournament →
-                </Link>
-                <Link to={`/team/${reg.teamId?._id}`} className="view-team">
-                  View Team →
-                </Link>
-                {reg.approvalStatus === "approved_pending_payment" && (
-                  <button 
-                    onClick={() => handlePayment(reg)}
-                    className="complete-payment-btn"
-                    style={{
-                      backgroundColor: "#3b82f6",
-                      color: "white",
-                      border: "none",
-                      borderRadius: "6px",
-                      padding: "8px 16px",
-                      fontWeight: "600",
-                      cursor: "pointer",
-                      transition: "all 0.2s"
-                    }}
-                    disabled={actionLoading === reg._id}
-                  >
-                    💳 Complete Payment
-                  </button>
-                )}
-                {/* Cancel Registration Button */}
-                <button 
-                  onClick={() => cancelRegistration(reg._id, reg.tournamentId?.eventName, reg.teamId?.teamName)}
-                  className="cancel-reg-btn"
-                  disabled={actionLoading === reg._id}
-                >
-                  {actionLoading === reg._id ? "Cancelling..." : "❌ Cancel Registration"}
-                </button>
-              </div>
-            </div>
-          ))}
+      {registrations.length === 0 ? (
+        <div className="empty-state">
+          <p>📭 No registrations found</p>
+          <Link to="/tournaments" className="browse-btn">Browse Tournaments</Link>
         </div>
       ) : (
-        <div className="empty-state">
-          <p>📭 No {activeFilter !== "all" ? (activeFilter === "approved_pending_payment" ? "pending payment" : activeFilter) : ""} registrations found</p>
-          <Link to="/tournaments" className="browse-btn">Browse Tournaments</Link>
+        <div className="sections-container">
+          {renderSection("Pending Registrations", pendingRegs, "No pending registrations found", "pending")}
+          {renderSection("Pending Payment", pendingPaymentRegs, "No pending payment registrations found", "approved_pending_payment")}
+          {renderSection("Approved Registrations", approvedRegs, "No approved registrations found", "approved")}
+          {renderSection("Rejected Registrations", rejectedRegs, "No rejected registrations found", "rejected")}
         </div>
       )}
     </div>

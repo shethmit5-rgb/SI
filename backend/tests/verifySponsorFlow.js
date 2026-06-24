@@ -24,7 +24,12 @@ async function runTest() {
 
     // Clean up old test data
     console.log("Cleaning up old test data...");
-    await User.deleteMany({ email: "test_sponsor@gmail.com" });
+    await User.deleteMany({ 
+      $or: [
+        { email: "test_sponsor@gmail.com" },
+        { phoneNumber: "+918888888888" }
+      ]
+    });
     await Sponsor.deleteMany({ name: { $in: ["Nike Test Brand", "Adidas Test Brand"] } });
     await Tournament.deleteMany({ eventName: { $in: ["Sponsor Test League", "Past Test Cup"] } });
 

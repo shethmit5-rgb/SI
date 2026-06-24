@@ -17,10 +17,27 @@ export default function TeamDetails() {
   const [isCaptain, setIsCaptain] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [editingFee, setEditingFee] = useState(false);
+  const [feeValue, setFeeValue] = useState("");
 
   useEffect(() => {
     fetchTeamDetails();
   }, [id]);
+
+  const handleUpdateFee = async () => {
+    try {
+      setActionLoading(true);
+      await api.put(`/teams/${id}`, { playerJoiningFee: Number(feeValue) || 0 });
+      alert("✅ Player joining fee updated successfully!");
+      setEditingFee(false);
+      fetchTeamDetails();
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.message || "Failed to update joining fee");
+    } finally {
+      setActionLoading(false);
+    }
+  };
 
   const fetchTeamDetails = async () => {
     try {
@@ -138,6 +155,52 @@ export default function TeamDetails() {
               <div>
                 <label>Players</label>
                 <p>{approvedCount}/{maxPlayers}</p>
+              </div>
+            </div>
+            <div className="meta-item">
+              <span className="meta-icon">💰</span>
+              <div>
+                <label>Player Joining Fee</label>
+                {editingFee ? (
+                  <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "4px" }}>
+                    <input
+                      type="number"
+                      value={feeValue}
+                      onChange={(e) => setFeeValue(e.target.value)}
+                      min="0"
+                      style={{ width: "80px", padding: "2px 5px", borderRadius: "4px", border: "1px solid #ccc", color: "#000" }}
+                    />
+                    <button 
+                      onClick={handleUpdateFee}
+                      disabled={actionLoading}
+                      style={{ padding: "2px 8px", backgroundColor: "#10b981", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "12px" }}
+                    >
+                      Save
+                    </button>
+                    <button 
+                      onClick={() => setEditingFee(false)}
+                      style={{ padding: "2px 8px", backgroundColor: "#ef4444", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "12px" }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                ) : (
+                  <p style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    ₹{team.playerJoiningFee || 0}
+                    {(isCaptain || user?.role === "admin") && (
+                      <button
+                        onClick={() => {
+                          setEditingFee(true);
+                          setFeeValue(team.playerJoiningFee || 0);
+                        }}
+                        style={{ background: "none", border: "none", cursor: "pointer", padding: "0", fontSize: "14px" }}
+                        title="Edit Fee"
+                      >
+                        ✏️
+                      </button>
+                    )}
+                  </p>
+                )}
               </div>
             </div>
           </div>

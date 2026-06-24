@@ -55,6 +55,7 @@ export default function EditTournament() {
           rules: form.rules,
           status: form.status,
           organizerId: form.organizerId || null,
+          teamRegistrationFee: form.teamRegistrationFee !== undefined ? Number(form.teamRegistrationFee) || 0 : undefined,
         },
         auth
       );
@@ -174,6 +175,18 @@ export default function EditTournament() {
           <option value="ongoing">Ongoing</option>
           <option value="completed">Completed</option>
         </select>
+      </div>
+
+      <div style={{ marginBottom: "15px" }}>
+        <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Team Registration Fee (₹)</label>
+        <input
+          type="number"
+          style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
+          value={form.teamRegistrationFee !== undefined ? form.teamRegistrationFee : ""}
+          onChange={e => setForm({ ...form, teamRegistrationFee: e.target.value })}
+          placeholder="e.g., 500 (0 for free)"
+          min="0"
+        />
       </div>
 
       <div style={{ marginBottom: "15px" }}>

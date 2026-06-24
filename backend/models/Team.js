@@ -42,6 +42,15 @@ const TeamSchema = new mongoose.Schema(
           enum: ["pending", "approved_pending_payment", "approved", "rejected"],
           default: "pending",
         },
+        paymentStatus: {
+          type: String,
+          enum: ["unpaid", "Paid"],
+          default: "unpaid",
+        },
+        paymentDeadline: {
+          type: Date,
+          default: null,
+        },
       },
     ],
   },

@@ -11,7 +11,8 @@ export default function CreateTeam() {
   const [formData, setFormData] = useState({
     teamName: "",
     tournamentId: "",
-    sportId: ""
+    sportId: "",
+    playerJoiningFee: 0
   });
 
   const [tournaments, setTournaments] = useState([]);
@@ -127,6 +128,18 @@ export default function CreateTeam() {
           {formData.tournamentId && (
             <small>Sport is auto-selected based on tournament</small>
           )}
+        </div>
+
+        <div className="form-group">
+          <label>Player Joining Fee (₹)</label>
+          <input
+            type="number"
+            name="playerJoiningFee"
+            value={formData.playerJoiningFee}
+            onChange={handleChange}
+            min="0"
+            placeholder="0"
+          />
         </div>
 
         <div className="form-actions">

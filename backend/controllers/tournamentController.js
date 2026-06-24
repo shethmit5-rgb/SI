@@ -584,6 +584,7 @@ exports.updateTournament = async (req, res, next) => {
         description: description !== undefined ? description : tx.tempData.description,
         rules: rules !== undefined ? rules : tx.tempData.rules,
         organizerId: organizerId !== undefined ? organizerId : tx.tempData.organizerId,
+        teamRegistrationFee: req.body.teamRegistrationFee !== undefined ? (Number(req.body.teamRegistrationFee) || 0) : tx.tempData.teamRegistrationFee,
         logo: logoUrl
       };
 
@@ -631,6 +632,7 @@ exports.updateTournament = async (req, res, next) => {
       rules: req.body.rules,
       status: req.body.status,
       organizerId: req.body.organizerId,
+      teamRegistrationFee: req.body.teamRegistrationFee !== undefined ? (Number(req.body.teamRegistrationFee) || 0) : undefined,
     };
 
     Object.keys(updateData).forEach(
