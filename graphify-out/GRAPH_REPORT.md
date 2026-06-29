@@ -1,16 +1,16 @@
 # Graph Report - react-clg-tournament-main  (2026-06-25)
 
 ## Corpus Check
-- 151 files · ~89,258 words
+- 149 files · ~89,570 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 708 nodes · 1263 edges · 40 communities (31 shown, 9 thin omitted)
+- 715 nodes · 1284 edges · 39 communities (33 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `aad1dfd6`
+- Built from commit: `77c797f7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -44,14 +44,13 @@
 - [[_COMMUNITY_Community 26|Community 26]]
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
+- [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
-- [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 37|Community 37]]
 - [[_COMMUNITY_Community 38|Community 38]]
-- [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 41|Community 41]]
-- [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 44|Community 44]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -81,35 +80,35 @@
 ## Import Cycles
 - None detected.
 
-## Communities (40 total, 9 thin omitted)
+## Communities (39 total, 6 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.13
-Nodes (16): { checkAndUpdateTournamentStatuses, getTournamentRoundInfo, triggerDashboardUpdate }, cloudinary, crypto, fs, getPublicTournamentById(), getTournamentById(), jwt, Match (+8 more)
+Cohesion: 0.11
+Nodes (22): cloudinary, crypto, fs, getMySponsorships(), getPublicSponsors(), getPublicSponsorsByTournament(), getSponsorById(), getSponsors() (+14 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.05
-Nodes (30): AddTeam(), AdminUsers(), ApprovePlayers(), CreateTournament(), EditTournament(), Matches(), MatchList(), Registrations() (+22 more)
+Cohesion: 0.04
+Nodes (34): AddTeam(), AdminUsers(), ApprovePlayers(), CreateTournament(), EditTournament(), Matches(), MatchList(), Registrations() (+26 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.05
-Nodes (48): app, cors, express, http, io, mongoose, { Server }, users (+40 more)
+Nodes (52): app, { blockOrganizerJoin }, cors, express, { getSchedule }, http, io, mongoose (+44 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.05
-Nodes (59): cloudinary, createSponsor(), crypto, deleteSponsor(), fs, getMySponsorships(), getPublicSponsors(), getPublicSponsorsByTournament() (+51 more)
+Cohesion: 0.10
+Nodes (28): applyToTeam(), blockMembers(), checkAndReleaseExpiredPlayerApprovals(), createTeam(), crypto, deleteTeamByAdmin(), deleteTeamByCaptain(), getCaptainTeams() (+20 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.16
-Nodes (7): AdminSponsor(), SponsorshipChart(), AuthContext, EditTeam(), Schedule(), api, socket
+Cohesion: 0.17
+Nodes (7): AdminSponsor(), SponsorshipChart(), AuthContext, AuthProvider(), App(), api, socket
 
 ### Community 5 - "Community 5"
 Cohesion: 0.10
 Nodes (27): nodemailer, sendResetPasswordEmail(), sendVerificationEmail(), sendWelcomeEmail(), transporter, bcrypt, checkEmail(), forgotPassword() (+19 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.10
-Nodes (17): AdminFooter(), CoachFooter(), GuestFooter(), OrganizerFooter(), PlayerFooter(), AdminHeader(), CoachHeader(), GuestHeader() (+9 more)
+Cohesion: 0.09
+Nodes (18): AdminFooter(), CoachFooter(), GuestFooter(), OrganizerFooter(), PlayerFooter(), AdminHeader(), CoachHeader(), GuestHeader() (+10 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.12
@@ -117,7 +116,11 @@ Nodes (28): acquireLock(), cancelRegistration(), checkAndReleaseExpiredRegistrat
 
 ### Community 8 - "Community 8"
 Cohesion: 0.08
-Nodes (21): AdminProfile(), useAuth(), RoleLayout(), AdminRoute(), NonOrganizerRoute(), ApprovePlayers(), styles, CreateTeam() (+13 more)
+Nodes (20): AdminProfile(), useAuth(), AdminRoute(), NonOrganizerRoute(), ApprovePlayers(), styles, CreateTeam(), EditTournamentPage() (+12 more)
+
+### Community 9 - "Community 9"
+Cohesion: 0.13
+Nodes (13): bcrypt, Match, mongoose, Notification, path, Registration, Sponsor, Sport (+5 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.09
@@ -132,16 +135,16 @@ Cohesion: 0.14
 Nodes (17): AdminPayments(), CreateTournamentUser(), MyRegistrations(), MyTeamDashboard(), MyTournaments(), TournamentDetails(), adminOverridePayment(), createOrder() (+9 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.18
-Nodes (6): AdminDashboard(), AnalyticsDashboard(), getThemeFromPathname(), THEME_CONFIGS, ThreeBgCanvas(), TiltCard()
+Cohesion: 0.17
+Nodes (7): AdminDashboard(), AnalyticsDashboard(), getThemeFromPathname(), THEME_CONFIGS, ThreeBgCanvas(), TiltCard(), Home()
 
 ### Community 14 - "Community 14"
-Cohesion: 0.17
-Nodes (13): createUser(), deleteUser(), getPublicUsers(), getUsers(), updateUser(), User, { validationResult }, auth (+5 more)
+Cohesion: 0.09
+Nodes (22): deleteNotification(), getNotifications(), markAsRead(), Notification, createUser(), deleteUser(), getPublicUsers(), getUsers() (+14 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.15
-Nodes (14): validateDates(), validateDescription(), validateEmail(), validateName(), validateNumber(), validatePassword(), validateRules(), validateTournamentName() (+6 more)
+Cohesion: 0.26
+Nodes (10): validateDates(), validateDescription(), validateEmail(), validateName(), validateNumber(), validatePassword(), validateRules(), validateTournamentName() (+2 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.13
@@ -173,13 +176,17 @@ Nodes (8): createVenue(), deleteVenue(), getVenues(), updateVenue(), Venue, {
 Cohesion: 0.24
 Nodes (6): validateDates(), validateDescription(), validateNumber(), validateRules(), validateTournamentName(), validateTournament()
 
+### Community 21 - "Community 21"
+Cohesion: 0.17
+Nodes (8): mongoose, TeamSchema, mongoose, UserSchema, mongoose, path, Team, User
+
 ### Community 22 - "Community 22"
 Cohesion: 0.22
 Nodes (7): axios, jwt, mitHeaders, mitToken, mongoose, rajHeaders, rajToken
 
 ### Community 23 - "Community 23"
-Cohesion: 0.32
-Nodes (5): nodemailer, sendResetCode(), sendResetEmail(), sendResetSMS(), twilio
+Cohesion: 0.22
+Nodes (9): createSponsor(), deleteSponsor(), updateSponsor(), verifySelfPayment(), approvePlayer(), updateTeam(), verifyPlayerJoinPayment(), verifyTournamentPayment() (+1 more)
 
 ### Community 24 - "Community 24"
 Cohesion: 0.33
@@ -189,57 +196,45 @@ Nodes (4): axios, bcrypt, jwt, mongoose
 Cohesion: 0.50
 Nodes (3): mongoose, path, { seedUsers }
 
+### Community 27 - "Community 27"
+Cohesion: 0.33
+Nodes (5): files, fs, mappings, matchingEmpty, path
+
 ### Community 37 - "Community 37"
-Cohesion: 0.13
-Nodes (23): { checkAndUpdateTournamentStatuses }, getAnalyticsData(), getCoachDashboard(), getOrganizerDashboard(), getOrganizerStats(), getPlayerDashboard(), getRealtime(), getSponsorDashboard() (+15 more)
+Cohesion: 0.06
+Nodes (56): { checkAndUpdateTournamentStatuses }, getAnalyticsData(), getCoachDashboard(), getOrganizerDashboard(), getOrganizerStats(), getPlayerDashboard(), getRealtime(), getSponsorDashboard() (+48 more)
 
 ### Community 38 - "Community 38"
-Cohesion: 0.08
-Nodes (27): deleteNotification(), getNotifications(), markAsRead(), Notification, jwt, mongoose, NotificationSchema, auth (+19 more)
-
-### Community 39 - "Community 39"
 Cohesion: 0.15
-Nodes (12): createTournament(), deleteTournament(), getMatchesByTournament(), getRoundInfo(), updateTournament(), auth, {
-  createTournament,
-  getMyTournaments,
-  getPublicTournaments,
-  getPublicTournamentById,
-  getTournaments,
-  getTournamentById,
-  updateTournament,
-  deleteTournament,
-  getMatchesByTournament,
-  getRoundInfo,
-  verifyTournamentPayment,
-}, express (+4 more)
+Nodes (16): assert(), assertions, createMockTeam(), createMockUser(), crypto, mockRequest(), mockResponse(), mongoose (+8 more)
 
 ### Community 41 - "Community 41"
-Cohesion: 0.05
-Nodes (32): mongoose, SportSchema, mongoose, TeamSchema, mongoose, TournamentSchema, mongoose, UserSchema (+24 more)
+Cohesion: 0.13
+Nodes (12): mongoose, VenueSchema, bcrypt, mongoose, Notification, path, Sport, Team (+4 more)
 
-### Community 42 - "Community 42"
-Cohesion: 0.60
-Nodes (5): getMyTournaments(), getPublicTournaments(), getTournaments(), populateSponsorDetailsForArray(), checkAndUpdateTournamentStatuses()
+### Community 44 - "Community 44"
+Cohesion: 0.12
+Nodes (12): mongoose, RegistrationSchema, mongoose, TournamentSchema, mongoose, path, Registration, Sport (+4 more)
 
 ## Knowledge Gaps
-- **274 isolated node(s):** `THEME_CONFIGS`, `AuthContext`, `styles`, `images`, `speakers` (+269 more)
+- **288 isolated node(s):** `THEME_CONFIGS`, `AuthContext`, `styles`, `images`, `speakers` (+283 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `triggerDashboardUpdate()` connect `Community 3` to `Community 0`, `Community 2`, `Community 39`, `Community 7`, `Community 11`?**
+- **Why does `triggerDashboardUpdate()` connect `Community 23` to `Community 0`, `Community 2`, `Community 3`, `Community 37`, `Community 7`, `Community 11`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `useAuth()` connect `Community 8` to `Community 1`, `Community 4`, `Community 6`, `Community 9`, `Community 12`, `Community 13`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `checkAndUpdateTournamentStatuses()` connect `Community 42` to `Community 0`, `Community 2`, `Community 37`?**
+- **Why does `useAuth()` connect `Community 8` to `Community 1`, `Community 4`, `Community 6`, `Community 12`, `Community 13`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Why does `checkAndUpdateTournamentStatuses()` connect `Community 37` to `Community 2`?**
   _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **What connects `THEME_CONFIGS`, `AuthContext`, `styles` to the rest of the system?**
-  _274 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _288 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.1323529411764706 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11231884057971014 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.049678550555230856 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.04428904428904429 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.052597402597402594 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05026300409117475 - nodes in this community are weakly interconnected._

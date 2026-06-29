@@ -322,3 +322,17 @@ exports.deleteMatch = async (req, res, next) => {
     res.status(500).json({ message: "Failed to delete match" });
   }
 };
+
+exports.getSchedule = async (req, res, next) => {
+  try {
+    const matches = await Match.find()
+      .populate("teams", "teamName")
+      .populate("venueId", "name")
+      .populate("tournamentId", "eventName")
+      .sort({ matchDate: 1 });
+    res.json(matches);
+  } catch (err) {
+    console.error("GET SCHEDULE ERROR:", err);
+    res.status(500).json({ message: "Failed to fetch schedule" });
+  }
+};

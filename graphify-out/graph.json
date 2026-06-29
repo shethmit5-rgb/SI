@@ -50,7 +50,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "src_app_app",
-      "community": 21,
+      "community": 4,
       "norm_label": "app()"
     },
     {
@@ -840,7 +840,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "context_authcontext_authprovider",
-      "community": 21,
+      "community": 4,
       "norm_label": "authprovider()"
     },
     {
@@ -970,7 +970,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "layouts_rolelayout_rolelayout",
-      "community": 8,
+      "community": 6,
       "norm_label": "rolelayout()"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 21,
+      "community": 4,
       "norm_label": "main.jsx"
     },
     {
@@ -1160,7 +1160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_editteam",
-      "community": 4,
+      "community": 1,
       "norm_label": "editteam.jsx"
     },
     {
@@ -1170,7 +1170,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_editteam_editteam",
-      "community": 4,
+      "community": 1,
       "norm_label": "editteam()"
     },
     {
@@ -1240,7 +1240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_forgotpassword",
-      "community": 15,
+      "community": 1,
       "norm_label": "forgotpassword.jsx"
     },
     {
@@ -1250,7 +1250,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_forgotpassword_forgotpassword",
-      "community": 15,
+      "community": 1,
       "norm_label": "forgotpassword()"
     },
     {
@@ -1310,7 +1310,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "screen_home_home",
-      "community": 8,
+      "community": 13,
       "norm_label": "home()"
     },
     {
@@ -1570,7 +1570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_profile",
-      "community": 9,
+      "community": 8,
       "norm_label": "profile.jsx"
     },
     {
@@ -1580,7 +1580,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_profile_profile",
-      "community": 9,
+      "community": 8,
       "norm_label": "profile()"
     },
     {
@@ -1590,7 +1590,7 @@
       "source_location": "L339",
       "_origin": "ast",
       "id": "screen_profile_teamslist",
-      "community": 9,
+      "community": 8,
       "norm_label": "teamslist()"
     },
     {
@@ -1600,7 +1600,7 @@
       "source_location": "L395",
       "_origin": "ast",
       "id": "screen_profile_registrationslist",
-      "community": 9,
+      "community": 8,
       "norm_label": "registrationslist()"
     },
     {
@@ -1630,7 +1630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_registerwithverification",
-      "community": 15,
+      "community": 1,
       "norm_label": "registerwithverification.jsx"
     },
     {
@@ -1640,7 +1640,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "screen_registerwithverification_registerwithverification",
-      "community": 15,
+      "community": 1,
       "norm_label": "registerwithverification()"
     },
     {
@@ -1650,7 +1650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_schedule",
-      "community": 4,
+      "community": 1,
       "norm_label": "schedule.jsx"
     },
     {
@@ -1660,7 +1660,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_schedule_schedule",
-      "community": 4,
+      "community": 1,
       "norm_label": "schedule()"
     },
     {
@@ -1730,7 +1730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsors",
-      "community": 1,
+      "community": 32,
       "norm_label": "sponsors.jsx"
     },
     {
@@ -1740,7 +1740,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "screen_sponsors_sponsors",
-      "community": 1,
+      "community": 32,
       "norm_label": "sponsors()"
     },
     {
@@ -1750,7 +1750,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "screen_sponsors_cardstyle",
-      "community": 1,
+      "community": 32,
       "norm_label": "cardstyle"
     },
     {
@@ -2024,36 +2024,6 @@
       "norm_label": "clearcache()"
     },
     {
-      "label": "matchGenerator.js",
-      "file_type": "code",
-      "source_file": "Fronted/src/utils/matchGenerator.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "utils_matchgenerator",
-      "community": 33,
-      "norm_label": "matchgenerator.js"
-    },
-    {
-      "label": "Match",
-      "file_type": "code",
-      "source_file": "Fronted/src/utils/matchGenerator.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "utils_matchgenerator_match",
-      "community": 33,
-      "norm_label": "match"
-    },
-    {
-      "label": "generateMatches()",
-      "file_type": "code",
-      "source_file": "Fronted/src/utils/matchGenerator.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "utils_matchgenerator_generatematches",
-      "community": 33,
-      "norm_label": "generatematches()"
-    },
-    {
       "label": "socket.js",
       "file_type": "code",
       "source_file": "Fronted/src/utils/socket.js",
@@ -2110,7 +2080,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "utils_validators_validateconfirmpassword",
-      "community": 15,
+      "community": 1,
       "norm_label": "validateconfirmpassword()"
     },
     {
@@ -2200,7 +2170,7 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "utils_validators_getpasswordstrength",
-      "community": 15,
+      "community": 1,
       "norm_label": "getpasswordstrength()"
     },
     {
@@ -2302,126 +2272,6 @@
       "id": "config_email_sendwelcomeemail",
       "community": 5,
       "norm_label": "sendwelcomeemail()"
-    },
-    {
-      "label": "notifications.js",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "config_notifications",
-      "community": 23,
-      "norm_label": "notifications.js"
-    },
-    {
-      "label": "nodemailer",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "config_notifications_nodemailer",
-      "community": 23,
-      "norm_label": "nodemailer"
-    },
-    {
-      "label": "twilio",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "config_notifications_twilio",
-      "community": 23,
-      "norm_label": "twilio"
-    },
-    {
-      "label": "sendResetEmail()",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "config_notifications_sendresetemail",
-      "community": 23,
-      "norm_label": "sendresetemail()"
-    },
-    {
-      "label": "sendResetSMS()",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L126",
-      "_origin": "ast",
-      "id": "config_notifications_sendresetsms",
-      "community": 23,
-      "norm_label": "sendresetsms()"
-    },
-    {
-      "label": "sendResetCode()",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L153",
-      "_origin": "ast",
-      "id": "config_notifications_sendresetcode",
-      "community": 23,
-      "norm_label": "sendresetcode()"
-    },
-    {
-      "label": "testEmailConfig()",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L189",
-      "_origin": "ast",
-      "id": "config_notifications_testemailconfig",
-      "community": 23,
-      "norm_label": "testemailconfig()"
-    },
-    {
-      "label": "testSmsConfig()",
-      "file_type": "code",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L206",
-      "_origin": "ast",
-      "id": "config_notifications_testsmsconfig",
-      "community": 23,
-      "norm_label": "testsmsconfig()"
-    },
-    {
-      "label": "sms.js",
-      "file_type": "code",
-      "source_file": "backend/config/sms.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "config_sms",
-      "community": 27,
-      "norm_label": "sms.js"
-    },
-    {
-      "label": "twilio",
-      "file_type": "code",
-      "source_file": "backend/config/sms.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "config_sms_twilio",
-      "community": 27,
-      "norm_label": "twilio"
-    },
-    {
-      "label": "client",
-      "file_type": "code",
-      "source_file": "backend/config/sms.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "config_sms_client",
-      "community": 27,
-      "norm_label": "client"
-    },
-    {
-      "label": "sendSmsOTP()",
-      "file_type": "code",
-      "source_file": "backend/config/sms.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "config_sms_sendsmsotp",
-      "community": 27,
-      "norm_label": "sendsmsotp()"
     },
     {
       "label": "analyticsController.js",
@@ -2924,13 +2774,23 @@
       "norm_label": "deletematch()"
     },
     {
+      "label": "getSchedule()",
+      "file_type": "code",
+      "source_file": "backend/controllers/matchController.js",
+      "source_location": "L326",
+      "_origin": "ast",
+      "id": "controllers_matchcontroller_getschedule",
+      "community": 2,
+      "norm_label": "getschedule()"
+    },
+    {
       "label": "notificationController.js",
       "file_type": "code",
       "source_file": "backend/controllers/notificationController.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller",
-      "community": 38,
+      "community": 14,
       "norm_label": "notificationcontroller.js"
     },
     {
@@ -2940,7 +2800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_notification",
-      "community": 38,
+      "community": 14,
       "norm_label": "notification"
     },
     {
@@ -2950,7 +2810,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_getnotifications",
-      "community": 38,
+      "community": 14,
       "norm_label": "getnotifications()"
     },
     {
@@ -2960,7 +2820,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_markasread",
-      "community": 38,
+      "community": 14,
       "norm_label": "markasread()"
     },
     {
@@ -2970,7 +2830,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_deletenotification",
-      "community": 38,
+      "community": 14,
       "norm_label": "deletenotification()"
     },
     {
@@ -3460,7 +3320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller",
-      "community": 3,
+      "community": 0,
       "norm_label": "sponsorcontroller.js"
     },
     {
@@ -3470,7 +3330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_sponsor",
-      "community": 3,
+      "community": 0,
       "norm_label": "sponsor"
     },
     {
@@ -3480,7 +3340,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_tournament",
-      "community": 3,
+      "community": 0,
       "norm_label": "tournament"
     },
     {
@@ -3490,7 +3350,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_cloudinary",
-      "community": 3,
+      "community": 0,
       "norm_label": "cloudinary"
     },
     {
@@ -3500,7 +3360,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_fs",
-      "community": 3,
+      "community": 0,
       "norm_label": "fs"
     },
     {
@@ -3510,7 +3370,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_path",
-      "community": 3,
+      "community": 0,
       "norm_label": "path"
     },
     {
@@ -3520,7 +3380,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_razorpay",
-      "community": 3,
+      "community": 0,
       "norm_label": "razorpay"
     },
     {
@@ -3530,7 +3390,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_crypto",
-      "community": 3,
+      "community": 0,
       "norm_label": "crypto"
     },
     {
@@ -3540,7 +3400,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_triggerdashboardupdate",
-      "community": 3,
+      "community": 0,
       "norm_label": "{ triggerdashboardupdate }"
     },
     {
@@ -3550,7 +3410,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_createsponsor",
-      "community": 3,
+      "community": 23,
       "norm_label": "createsponsor()"
     },
     {
@@ -3560,7 +3420,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsors",
-      "community": 3,
+      "community": 0,
       "norm_label": "getsponsors()"
     },
     {
@@ -3570,7 +3430,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsorshipstats",
-      "community": 3,
+      "community": 0,
       "norm_label": "getsponsorshipstats()"
     },
     {
@@ -3580,7 +3440,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getpublicsponsors",
-      "community": 3,
+      "community": 0,
       "norm_label": "getpublicsponsors()"
     },
     {
@@ -3590,7 +3450,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_updatesponsor",
-      "community": 3,
+      "community": 23,
       "norm_label": "updatesponsor()"
     },
     {
@@ -3600,7 +3460,7 @@
       "source_location": "L211",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_deletesponsor",
-      "community": 3,
+      "community": 23,
       "norm_label": "deletesponsor()"
     },
     {
@@ -3610,7 +3470,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsorsbytournament",
-      "community": 3,
+      "community": 0,
       "norm_label": "getsponsorsbytournament()"
     },
     {
@@ -3620,7 +3480,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getpublicsponsorsbytournament",
-      "community": 3,
+      "community": 0,
       "norm_label": "getpublicsponsorsbytournament()"
     },
     {
@@ -3630,7 +3490,7 @@
       "source_location": "L254",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_selfsponsor",
-      "community": 3,
+      "community": 0,
       "norm_label": "selfsponsor()"
     },
     {
@@ -3640,7 +3500,7 @@
       "source_location": "L393",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_verifyselfpayment",
-      "community": 3,
+      "community": 23,
       "norm_label": "verifyselfpayment()"
     },
     {
@@ -3650,7 +3510,7 @@
       "source_location": "L450",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getmysponsorships",
-      "community": 3,
+      "community": 0,
       "norm_label": "getmysponsorships()"
     },
     {
@@ -3660,7 +3520,7 @@
       "source_location": "L462",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsorbyid",
-      "community": 3,
+      "community": 0,
       "norm_label": "getsponsorbyid()"
     },
     {
@@ -3870,7 +3730,7 @@
       "source_location": "L247",
       "_origin": "ast",
       "id": "controllers_teamcontroller_approveplayer",
-      "community": 3,
+      "community": 23,
       "norm_label": "approveplayer()"
     },
     {
@@ -3920,7 +3780,7 @@
       "source_location": "L403",
       "_origin": "ast",
       "id": "controllers_teamcontroller_updateteam",
-      "community": 3,
+      "community": 23,
       "norm_label": "updateteam()"
     },
     {
@@ -3990,8 +3850,18 @@
       "source_location": "L699",
       "_origin": "ast",
       "id": "controllers_teamcontroller_verifyplayerjoinpayment",
-      "community": 3,
+      "community": 23,
       "norm_label": "verifyplayerjoinpayment()"
+    },
+    {
+      "label": "blockOrganizerJoin()",
+      "file_type": "code",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L860",
+      "_origin": "ast",
+      "id": "controllers_teamcontroller_blockorganizerjoin",
+      "community": 2,
+      "norm_label": "blockorganizerjoin()"
     },
     {
       "label": "tournamentController.js",
@@ -4000,7 +3870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller",
-      "community": 0,
+      "community": 37,
       "norm_label": "tournamentcontroller.js"
     },
     {
@@ -4010,7 +3880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_tournament",
-      "community": 0,
+      "community": 37,
       "norm_label": "tournament"
     },
     {
@@ -4020,7 +3890,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_team",
-      "community": 0,
+      "community": 37,
       "norm_label": "team"
     },
     {
@@ -4030,7 +3900,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_match",
-      "community": 0,
+      "community": 37,
       "norm_label": "match"
     },
     {
@@ -4040,7 +3910,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_registration",
-      "community": 0,
+      "community": 37,
       "norm_label": "registration"
     },
     {
@@ -4050,7 +3920,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_cloudinary",
-      "community": 0,
+      "community": 37,
       "norm_label": "cloudinary"
     },
     {
@@ -4060,7 +3930,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_fs",
-      "community": 0,
+      "community": 37,
       "norm_label": "fs"
     },
     {
@@ -4070,7 +3940,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_path",
-      "community": 0,
+      "community": 37,
       "norm_label": "path"
     },
     {
@@ -4080,7 +3950,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_checkandupdatetournamentstatuses_gettournamentroundinfo_triggerdashboardupdate",
-      "community": 0,
+      "community": 37,
       "norm_label": "{ checkandupdatetournamentstatuses, gettournamentroundinfo, triggerdashboardupdate }"
     },
     {
@@ -4090,7 +3960,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_sponsor",
-      "community": 0,
+      "community": 37,
       "norm_label": "sponsor"
     },
     {
@@ -4100,7 +3970,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_jwt",
-      "community": 0,
+      "community": 37,
       "norm_label": "jwt"
     },
     {
@@ -4110,7 +3980,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_razorpay",
-      "community": 0,
+      "community": 37,
       "norm_label": "razorpay"
     },
     {
@@ -4120,7 +3990,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_crypto",
-      "community": 0,
+      "community": 37,
       "norm_label": "crypto"
     },
     {
@@ -4130,7 +4000,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_transaction",
-      "community": 0,
+      "community": 37,
       "norm_label": "transaction"
     },
     {
@@ -4140,7 +4010,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_populatesponsordetails",
-      "community": 0,
+      "community": 37,
       "norm_label": "populatesponsordetails()"
     },
     {
@@ -4150,7 +4020,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_populatesponsordetailsforarray",
-      "community": 42,
+      "community": 37,
       "norm_label": "populatesponsordetailsforarray()"
     },
     {
@@ -4160,7 +4030,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_createtournament",
-      "community": 39,
+      "community": 37,
       "norm_label": "createtournament()"
     },
     {
@@ -4170,7 +4040,7 @@
       "source_location": "L221",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getmytournaments",
-      "community": 42,
+      "community": 37,
       "norm_label": "getmytournaments()"
     },
     {
@@ -4180,7 +4050,7 @@
       "source_location": "L275",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getpublictournaments",
-      "community": 42,
+      "community": 37,
       "norm_label": "getpublictournaments()"
     },
     {
@@ -4190,7 +4060,7 @@
       "source_location": "L292",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getpublictournamentbyid",
-      "community": 0,
+      "community": 37,
       "norm_label": "getpublictournamentbyid()"
     },
     {
@@ -4200,7 +4070,7 @@
       "source_location": "L312",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_gettournaments",
-      "community": 42,
+      "community": 37,
       "norm_label": "gettournaments()"
     },
     {
@@ -4210,7 +4080,7 @@
       "source_location": "L375",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_gettournamentbyid",
-      "community": 0,
+      "community": 37,
       "norm_label": "gettournamentbyid()"
     },
     {
@@ -4220,7 +4090,7 @@
       "source_location": "L449",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_verifytournamentpayment",
-      "community": 3,
+      "community": 23,
       "norm_label": "verifytournamentpayment()"
     },
     {
@@ -4230,7 +4100,7 @@
       "source_location": "L547",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_updatetournament",
-      "community": 39,
+      "community": 37,
       "norm_label": "updatetournament()"
     },
     {
@@ -4240,7 +4110,7 @@
       "source_location": "L675",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_deletetournament",
-      "community": 39,
+      "community": 37,
       "norm_label": "deletetournament()"
     },
     {
@@ -4250,7 +4120,7 @@
       "source_location": "L703",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getmatchesbytournament",
-      "community": 39,
+      "community": 37,
       "norm_label": "getmatchesbytournament()"
     },
     {
@@ -4260,7 +4130,7 @@
       "source_location": "L716",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getroundinfo",
-      "community": 39,
+      "community": 2,
       "norm_label": "getroundinfo()"
     },
     {
@@ -4410,7 +4280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware",
-      "community": 38,
+      "community": 14,
       "norm_label": "authmiddleware.js"
     },
     {
@@ -4420,7 +4290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware_jwt",
-      "community": 38,
+      "community": 14,
       "norm_label": "jwt"
     },
     {
@@ -4520,7 +4390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_validateobjectid",
-      "community": 2,
+      "community": 37,
       "norm_label": "validateobjectid.js"
     },
     {
@@ -4530,7 +4400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_validateobjectid_mongoose",
-      "community": 2,
+      "community": 37,
       "norm_label": "mongoose"
     },
     {
@@ -4660,7 +4530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sport",
-      "community": 41,
+      "community": 30,
       "norm_label": "sport.js"
     },
     {
@@ -4670,7 +4540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sport_mongoose",
-      "community": 41,
+      "community": 30,
       "norm_label": "mongoose"
     },
     {
@@ -4680,7 +4550,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_sport_sportschema",
-      "community": 41,
+      "community": 30,
       "norm_label": "sportschema"
     },
     {
@@ -4690,7 +4560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_team",
-      "community": 41,
+      "community": 21,
       "norm_label": "team.js"
     },
     {
@@ -4700,7 +4570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_team_mongoose",
-      "community": 41,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -4710,7 +4580,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_team_teamschema",
-      "community": 41,
+      "community": 21,
       "norm_label": "teamschema"
     },
     {
@@ -4720,7 +4590,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament",
-      "community": 41,
+      "community": 44,
       "norm_label": "tournament.js"
     },
     {
@@ -4730,7 +4600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament_mongoose",
-      "community": 41,
+      "community": 44,
       "norm_label": "mongoose"
     },
     {
@@ -4740,7 +4610,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_tournament_tournamentschema",
-      "community": 41,
+      "community": 44,
       "norm_label": "tournamentschema"
     },
     {
@@ -4780,7 +4650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_user",
-      "community": 41,
+      "community": 21,
       "norm_label": "user.js"
     },
     {
@@ -4790,7 +4660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_user_mongoose",
-      "community": 41,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -4800,7 +4670,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_user_userschema",
-      "community": 41,
+      "community": 21,
       "norm_label": "userschema"
     },
     {
@@ -4840,7 +4710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification",
-      "community": 38,
+      "community": 29,
       "norm_label": "notification.js"
     },
     {
@@ -4850,7 +4720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification_mongoose",
-      "community": 38,
+      "community": 29,
       "norm_label": "mongoose"
     },
     {
@@ -4860,7 +4730,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_notification_notificationschema",
-      "community": 38,
+      "community": 29,
       "norm_label": "notificationschema"
     },
     {
@@ -5040,7 +4910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter",
-      "community": 38,
+      "community": 14,
       "norm_label": "notificationrouter.js"
     },
     {
@@ -5050,7 +4920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter_express",
-      "community": 38,
+      "community": 14,
       "norm_label": "express"
     },
     {
@@ -5060,7 +4930,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_notificationrouter_auth",
-      "community": 38,
+      "community": 14,
       "norm_label": "auth"
     },
     {
@@ -5070,7 +4940,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_notificationrouter_getnotifications_markasread_deletenotification",
-      "community": 38,
+      "community": 14,
       "norm_label": "{\r\n  getnotifications,\r\n  markasread,\r\n  deletenotification,\r\n}"
     },
     {
@@ -5080,7 +4950,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "routes_notificationrouter_router",
-      "community": 38,
+      "community": 14,
       "norm_label": "router"
     },
     {
@@ -5260,7 +5130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_sponsorrouter",
-      "community": 3,
+      "community": 0,
       "norm_label": "sponsorrouter.js"
     },
     {
@@ -5270,7 +5140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_sponsorrouter_express",
-      "community": 3,
+      "community": 0,
       "norm_label": "express"
     },
     {
@@ -5280,7 +5150,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_sponsorrouter_createsponsor_getsponsors_getsponsorshipstats_getpublicsponsors_updatesponsor_deletesponsor_getsponsorsbytournament_getpublicsponsorsbytournament_selfsponsor_verifyselfpayment_getmysponsorships_getsponsorbyid",
-      "community": 3,
+      "community": 0,
       "norm_label": "{\r\n  createsponsor,\r\n  getsponsors,\r\n  getsponsorshipstats,\r\n  getpublicsponsors,\r\n  updatesponsor,\r\n  deletesponsor,\r\n  getsponsorsbytournament,\r\n  getpublicsponsorsbytournament,\r\n  selfsponsor,\r\n  verifyselfpayment,\r\n  getmysponsorships,\r\n  getsponsorbyid,\r\n}"
     },
     {
@@ -5290,7 +5160,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "routes_sponsorrouter_auth",
-      "community": 3,
+      "community": 0,
       "norm_label": "auth"
     },
     {
@@ -5300,7 +5170,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "routes_sponsorrouter_role",
-      "community": 3,
+      "community": 0,
       "norm_label": "role"
     },
     {
@@ -5310,7 +5180,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "routes_sponsorrouter_upload",
-      "community": 3,
+      "community": 0,
       "norm_label": "upload"
     },
     {
@@ -5320,7 +5190,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "routes_sponsorrouter_router",
-      "community": 3,
+      "community": 0,
       "norm_label": "router"
     },
     {
@@ -5440,7 +5310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_tournamentroutes",
-      "community": 39,
+      "community": 37,
       "norm_label": "tournamentroutes.js"
     },
     {
@@ -5450,7 +5320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_tournamentroutes_express",
-      "community": 39,
+      "community": 37,
       "norm_label": "express"
     },
     {
@@ -5460,7 +5330,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_tournamentroutes_createtournament_getmytournaments_getpublictournaments_getpublictournamentbyid_gettournaments_gettournamentbyid_updatetournament_deletetournament_getmatchesbytournament_getroundinfo_verifytournamentpayment",
-      "community": 39,
+      "community": 37,
       "norm_label": "{\r\n  createtournament,\r\n  getmytournaments,\r\n  getpublictournaments,\r\n  getpublictournamentbyid,\r\n  gettournaments,\r\n  gettournamentbyid,\r\n  updatetournament,\r\n  deletetournament,\r\n  getmatchesbytournament,\r\n  getroundinfo,\r\n  verifytournamentpayment,\r\n}"
     },
     {
@@ -5470,7 +5340,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "routes_tournamentroutes_auth",
-      "community": 39,
+      "community": 37,
       "norm_label": "auth"
     },
     {
@@ -5480,7 +5350,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "routes_tournamentroutes_role",
-      "community": 39,
+      "community": 37,
       "norm_label": "role"
     },
     {
@@ -5490,7 +5360,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "routes_tournamentroutes_upload",
-      "community": 39,
+      "community": 37,
       "norm_label": "upload"
     },
     {
@@ -5500,7 +5370,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "routes_tournamentroutes_validateobjectid",
-      "community": 39,
+      "community": 37,
       "norm_label": "validateobjectid"
     },
     {
@@ -5510,7 +5380,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "routes_tournamentroutes_router",
-      "community": 39,
+      "community": 37,
       "norm_label": "router"
     },
     {
@@ -5754,34 +5624,24 @@
       "norm_label": "users"
     },
     {
-      "label": "smsService.js",
+      "label": "{ getSchedule }",
       "file_type": "code",
-      "source_file": "backend/services/smsService.js",
-      "source_location": "L1",
+      "source_file": "backend/server.js",
+      "source_location": "L87",
       "_origin": "ast",
-      "id": "services_smsservice",
-      "community": 32,
-      "norm_label": "smsservice.js"
+      "id": "backend_server_getschedule",
+      "community": 2,
+      "norm_label": "{ getschedule }"
     },
     {
-      "label": "axios",
+      "label": "{ blockOrganizerJoin }",
       "file_type": "code",
-      "source_file": "backend/services/smsService.js",
-      "source_location": "L1",
+      "source_file": "backend/server.js",
+      "source_location": "L88",
       "_origin": "ast",
-      "id": "services_smsservice_axios",
-      "community": 32,
-      "norm_label": "axios"
-    },
-    {
-      "label": "sendSMS()",
-      "file_type": "code",
-      "source_file": "backend/services/smsService.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "services_smsservice_sendsms",
-      "community": 32,
-      "norm_label": "sendsms()"
+      "id": "backend_server_blockorganizerjoin",
+      "community": 2,
+      "norm_label": "{ blockorganizerjoin }"
     },
     {
       "label": "checkPlayerStatus.js",
@@ -5790,7 +5650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_checkplayerstatus",
-      "community": 41,
+      "community": 21,
       "norm_label": "checkplayerstatus.js"
     },
     {
@@ -5800,7 +5660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_checkplayerstatus_mongoose",
-      "community": 41,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -5810,7 +5670,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "tests_checkplayerstatus_path",
-      "community": 41,
+      "community": 21,
       "norm_label": "path"
     },
     {
@@ -5820,7 +5680,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "tests_checkplayerstatus_team",
-      "community": 41,
+      "community": 21,
       "norm_label": "team"
     },
     {
@@ -5830,7 +5690,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_checkplayerstatus_user",
-      "community": 41,
+      "community": 21,
       "norm_label": "user"
     },
     {
@@ -5840,7 +5700,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_checkplayerstatus_run",
-      "community": 41,
+      "community": 21,
       "norm_label": "run()"
     },
     {
@@ -6120,7 +5980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_queryregistrations",
-      "community": 41,
+      "community": 44,
       "norm_label": "queryregistrations.js"
     },
     {
@@ -6130,7 +5990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_queryregistrations_mongoose",
-      "community": 41,
+      "community": 44,
       "norm_label": "mongoose"
     },
     {
@@ -6140,7 +6000,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "tests_queryregistrations_path",
-      "community": 41,
+      "community": 44,
       "norm_label": "path"
     },
     {
@@ -6150,7 +6010,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_queryregistrations_user",
-      "community": 41,
+      "community": 44,
       "norm_label": "user"
     },
     {
@@ -6160,7 +6020,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "tests_queryregistrations_sport",
-      "community": 41,
+      "community": 44,
       "norm_label": "sport"
     },
     {
@@ -6170,7 +6030,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_queryregistrations_venue",
-      "community": 41,
+      "community": 44,
       "norm_label": "venue"
     },
     {
@@ -6180,7 +6040,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_queryregistrations_tournament",
-      "community": 41,
+      "community": 44,
       "norm_label": "tournament"
     },
     {
@@ -6190,7 +6050,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_queryregistrations_team",
-      "community": 41,
+      "community": 44,
       "norm_label": "team"
     },
     {
@@ -6200,7 +6060,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "tests_queryregistrations_registration",
-      "community": 41,
+      "community": 44,
       "norm_label": "registration"
     },
     {
@@ -6210,7 +6070,217 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "tests_queryregistrations_run",
-      "community": 41,
+      "community": 44,
+      "norm_label": "run()"
+    },
+    {
+      "label": "renameScreenshots.js",
+      "file_type": "code",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_renamescreenshots",
+      "community": 27,
+      "norm_label": "renamescreenshots.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_renamescreenshots_fs",
+      "community": 27,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "tests_renamescreenshots_path",
+      "community": 27,
+      "norm_label": "path"
+    },
+    {
+      "label": "files",
+      "file_type": "code",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "tests_renamescreenshots_files",
+      "community": 27,
+      "norm_label": "files"
+    },
+    {
+      "label": "mappings",
+      "file_type": "code",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "tests_renamescreenshots_mappings",
+      "community": 27,
+      "norm_label": "mappings"
+    },
+    {
+      "label": "matchingEmpty",
+      "file_type": "code",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "tests_renamescreenshots_matchingempty",
+      "community": 27,
+      "norm_label": "matchingempty"
+    },
+    {
+      "label": "seedE2ETestData.js",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata",
+      "community": 9,
+      "norm_label": "seede2etestdata.js"
+    },
+    {
+      "label": "mongoose",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_mongoose",
+      "community": 9,
+      "norm_label": "mongoose"
+    },
+    {
+      "label": "bcrypt",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_bcrypt",
+      "community": 9,
+      "norm_label": "bcrypt"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_path",
+      "community": 9,
+      "norm_label": "path"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_user",
+      "community": 9,
+      "norm_label": "user"
+    },
+    {
+      "label": "Sport",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_sport",
+      "community": 9,
+      "norm_label": "sport"
+    },
+    {
+      "label": "Venue",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_venue",
+      "community": 9,
+      "norm_label": "venue"
+    },
+    {
+      "label": "Tournament",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_tournament",
+      "community": 9,
+      "norm_label": "tournament"
+    },
+    {
+      "label": "Team",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_team",
+      "community": 9,
+      "norm_label": "team"
+    },
+    {
+      "label": "Sponsor",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_sponsor",
+      "community": 9,
+      "norm_label": "sponsor"
+    },
+    {
+      "label": "Registration",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_registration",
+      "community": 9,
+      "norm_label": "registration"
+    },
+    {
+      "label": "Transaction",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_transaction",
+      "community": 9,
+      "norm_label": "transaction"
+    },
+    {
+      "label": "Notification",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_notification",
+      "community": 9,
+      "norm_label": "notification"
+    },
+    {
+      "label": "Match",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_match",
+      "community": 9,
+      "norm_label": "match"
+    },
+    {
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "tests_seede2etestdata_run",
+      "community": 9,
       "norm_label": "run()"
     },
     {
@@ -6890,7 +6960,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "utils_tournamenthelper_checkandupdatetournamentstatuses",
-      "community": 42,
+      "community": 37,
       "norm_label": "checkandupdatetournamentstatuses()"
     },
     {
@@ -6900,7 +6970,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "utils_tournamenthelper_triggerdashboardupdate",
-      "community": 3,
+      "community": 23,
       "norm_label": "triggerdashboardupdate()"
     },
     {
@@ -12340,26 +12410,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/utils/matchGenerator.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "utils_matchgenerator",
-      "target": "utils_matchgenerator_generatematches"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/utils/matchGenerator.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "utils_matchgenerator",
-      "target": "utils_matchgenerator_match"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "Fronted/src/utils/socket.js",
       "source_location": "L3",
       "weight": 1.0,
@@ -12754,128 +12804,6 @@
       "weight": 1.0,
       "source": "controllers_authcontroller_verifyphone",
       "target": "config_email_sendwelcomeemail"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications",
-      "target": "config_notifications_nodemailer"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L153",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications",
-      "target": "config_notifications_sendresetcode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications",
-      "target": "config_notifications_sendresetemail"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L126",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications",
-      "target": "config_notifications_sendresetsms"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L189",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications",
-      "target": "config_notifications_testemailconfig"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L206",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications",
-      "target": "config_notifications_testsmsconfig"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications",
-      "target": "config_notifications_twilio"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L162",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications_sendresetcode",
-      "target": "config_notifications_sendresetemail"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/notifications.js",
-      "source_location": "L169",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_notifications_sendresetcode",
-      "target": "config_notifications_sendresetsms"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/sms.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_sms",
-      "target": "config_sms_client"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/sms.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_sms",
-      "target": "config_sms_sendsmsotp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/config/sms.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_sms",
-      "target": "config_sms_twilio"
     },
     {
       "relation": "contains",
@@ -13725,6 +13653,17 @@
       "target": "controllers_authcontroller_resetpassword"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "backend_server",
+      "target": "controllers_matchcontroller",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/matchController.js",
@@ -13793,6 +13732,16 @@
       "confidence_score": 1.0,
       "source": "controllers_matchcontroller",
       "target": "controllers_matchcontroller_getpublicmatchesbytournament"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/matchController.js",
+      "source_location": "L326",
+      "weight": 1.0,
+      "source": "controllers_matchcontroller",
+      "target": "controllers_matchcontroller_getschedule",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14116,6 +14065,17 @@
       "confidence_score": 1.0,
       "source": "routes_matchrouter",
       "target": "controllers_matchcontroller_deletematch"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "backend_server",
+      "target": "controllers_matchcontroller_getschedule",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15848,6 +15808,17 @@
       "target": "controllers_sportcontroller_deletesport"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "backend_server",
+      "target": "controllers_teamcontroller",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/teamController.js",
@@ -15876,6 +15847,16 @@
       "confidence_score": 1.0,
       "source": "controllers_teamcontroller",
       "target": "controllers_teamcontroller_blockmembers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/teamController.js",
+      "source_location": "L860",
+      "weight": 1.0,
+      "source": "controllers_teamcontroller",
+      "target": "controllers_teamcontroller_blockorganizerjoin",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16469,6 +16450,17 @@
       "confidence_score": 1.0,
       "source": "routes_teamrouter",
       "target": "controllers_teamcontroller_verifyplayerjoinpayment"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "backend_server",
+      "target": "controllers_teamcontroller_blockorganizerjoin",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17767,6 +17759,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_match",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/utils/tournamentHelper.js",
       "source_location": "L2",
       "weight": 1.0,
@@ -17826,6 +17829,17 @@
       "target": "models_registration"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_registration",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/Sponsor.js",
@@ -17844,6 +17858,17 @@
       "confidence_score": 1.0,
       "source": "models_sponsor",
       "target": "models_sponsor_sponsorschema"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_sponsor",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17886,6 +17911,17 @@
       "confidence_score": 1.0,
       "source": "tests_queryregistrations",
       "target": "models_sport"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_sport",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17955,6 +17991,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_team",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
       "source_location": "L7",
       "weight": 1.0,
@@ -18019,6 +18066,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_tournament",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/utils/tournamentHelper.js",
       "source_location": "L1",
       "weight": 1.0,
@@ -18056,6 +18114,17 @@
       "confidence_score": 1.0,
       "source": "tests_createtestusers",
       "target": "models_transaction"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_transaction",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -18125,6 +18194,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
       "source_location": "L8",
       "weight": 1.0,
@@ -18175,6 +18255,17 @@
       "target": "models_venue"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_venue",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/notification.js",
@@ -18204,6 +18295,17 @@
       "confidence_score": 1.0,
       "source": "tests_createtestusers",
       "target": "models_notification"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "models_notification",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -18890,6 +18992,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/server.js",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "backend_server",
+      "target": "backend_server_blockorganizerjoin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -18905,6 +19017,16 @@
       "confidence_score": 1.0,
       "source": "backend_server",
       "target": "backend_server_express"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "backend_server",
+      "target": "backend_server_getschedule",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -18955,26 +19077,6 @@
       "confidence_score": 1.0,
       "source": "backend_server",
       "target": "backend_server_users"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/smsService.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_smsservice",
-      "target": "services_smsservice_axios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/smsService.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_smsservice",
-      "target": "services_smsservice_sendsms"
     },
     {
       "relation": "contains",
@@ -19519,6 +19621,196 @@
       "confidence_score": 1.0,
       "source": "tests_queryregistrations",
       "target": "tests_queryregistrations_venue"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_renamescreenshots",
+      "target": "tests_renamescreenshots_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_renamescreenshots",
+      "target": "tests_renamescreenshots_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_renamescreenshots",
+      "target": "tests_renamescreenshots_mappings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "tests_renamescreenshots",
+      "target": "tests_renamescreenshots_matchingempty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/renameScreenshots.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_renamescreenshots",
+      "target": "tests_renamescreenshots_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_bcrypt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_match",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_mongoose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_notification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_registration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_sponsor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_sport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_team",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_tournament",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_transaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/seedE2ETestData.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_seede2etestdata",
+      "target": "tests_seede2etestdata_venue",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -20423,5 +20715,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "aad1dfd670d8ca87511f06c0505b803688ec41ea"
+  "built_at_commit": "77c797f7885f7375fc2629309702ffb55b1d3234"
 }

@@ -84,30 +84,14 @@ app.use("/api/payments", require("./routes/paymentRoutes"));
 // Analytics Routes - Real-time dashboard stats
 app.use("/api/analytics", require("./routes/analyticsRouter"));
 
+const { getSchedule } = require("./controllers/matchController");
+const { blockOrganizerJoin } = require("./controllers/teamController");
+
 // Schedule shortcut endpoint
-app.get("/api/schedule", require("./middleware/authMiddleware"), async (req, res) => {
-  try {
-    const Match = require("./models/Match");
-    const matches = await Match.find()
-      .populate("teams", "teamName")
-      .populate("venueId", "name")
-      .populate("tournamentId", "eventName")
-      .sort({ matchDate: 1 });
-    res.json(matches);
-  } catch (err) {
-    res.status(500).json({ message: "Failed to fetch schedule" });
-  }
-});
+app.get("/api/schedule", require("./middleware/authMiddleware"), getSchedule);
 
 // Block organizer from joining team (fallback /api/join-team check)
-app.post("/api/join-team", require("./middleware/authMiddleware"), (req, res) => {
-  if (req.user && req.user.role === "organizer") {
-    return res.status(403).json({
-      message: "Organizers can view teams but cannot create, join, or manage team membership."
-    });
-  }
-  res.status(404).json({ message: "Not found" });
-});
+app.post("/api/join-team", require("./middleware/authMiddleware"), blockOrganizerJoin);
 
 app.use("/uploads", express.static("uploads"));
 

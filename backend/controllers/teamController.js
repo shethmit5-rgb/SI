@@ -857,3 +857,12 @@ exports.verifyPlayerJoinPayment = async (req, res) => {
   }
 };
 
+exports.blockOrganizerJoin = (req, res, next) => {
+  if (req.user && req.user.role === "organizer") {
+    return res.status(403).json({
+      message: "Organizers can view teams but cannot create, join, or manage team membership."
+    });
+  }
+  res.status(404).json({ message: "Not found" });
+};
+
